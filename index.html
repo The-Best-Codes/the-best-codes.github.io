@@ -1,68 +1,70 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Template</title>
-    <style>
-      .image-contain {
-        display: inline-block;
-        width: 400px;
-        height: 400px;
-        border-radius: 15px;
-        margin: 15px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-        padding: 0px;
-      }
 
-      .image-contain:hover {
-        transform: scale(1.02);
-        transition: 0.5s ease;
-      }
+<head>
+  <title>Template</title>
+  <style>
+    .image-contain {
+      display: inline-block;
+      width: 400px;
+      height: 400px;
+      border-radius: 15px;
+      margin: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      padding: 0px;
+    }
 
-      .image-contain:not(:hover) {
-        transform: scale(1);
-        transition: 0.5s ease;
-      }
+    .image-contain:hover {
+      transform: scale(1.02);
+      transition: 0.5s ease;
+    }
 
-      img {
-        size: auto;
-        height: inherit;
-        border-radius: 0 0 10px 10px;
-      }
+    .image-contain:not(:hover) {
+      transform: scale(1);
+      transition: 0.5s ease;
+    }
 
-      .image-text-container {
-        width: max-content;
-        height: 50px;
-        text-align: center;
-        background-color: white;
-        font-size: large;
-        font-family: Arial, Helvetica, sans-serif;
-        border-radius: 15px;
-        justify-content: center;
-      }
+    img {
+      size: auto;
+      height: inherit;
+      border-radius: 0 0 10px 10px;
+    }
 
-      .image-text-container h1 {
-        margin: 0px;
-        margin-left: 10px;
-        margin-top: 5px;
-        text-align: center;
-        justify-content: center;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>This is a template for a soon to come website...</h1>
-    <div class="image-contain">
-      <div class="image-text-container"><h1>Hello</h1></div>
-      <img
-        src="https://th.bing.com/th/id/OIP.jLLKrp6HGpiDHWm0GsYuZQHaHa?w=231&h=231&c=7&o=5&pid=1.7"
-      />
+    .image-text-container {
+      width: max-content;
+      height: 50px;
+      text-align: center;
+      background-color: white;
+      font-size: large;
+      font-family: Arial, Helvetica, sans-serif;
+      border-radius: 15px;
+      justify-content: center;
+    }
+
+    .image-text-container h1 {
+      margin: 0px;
+      margin-left: 10px;
+      margin-top: 5px;
+      text-align: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>This is a template for a soon to come website...</h1>
+  <div class="image-contain">
+    <div class="image-text-container">
+      <h1>Hello</h1>
     </div>
-    <div class="image-contain">
-      <div class="image-text-container"><h1>World</h1></div>
-      <img
-        src="https://th.bing.com/th/id/OIP.jLLKrp6HGpiDHWm0GsYuZQHaHa?w=231&h=231&c=7&o=5&pid=1.7"
-      />
+    <img src="https://th.bing.com/th/id/OIP.jLLKrp6HGpiDHWm0GsYuZQHaHa?w=231&h=231&c=7&o=5&pid=1.7" />
+  </div>
+  <div class="image-contain">
+    <div class="image-text-container">
+      <h1>World</h1>
     </div>
-  </body>
+    <img src="https://th.bing.com/th/id/OIP.jLLKrp6HGpiDHWm0GsYuZQHaHa?w=231&h=231&c=7&o=5&pid=1.7" />
+  </div>
+</body>
+
 </html>
