@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best_codes Printables Home Page</title>
+    <style>
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5em;
+            background-color: white;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar-list {
+            display: flex;
+            list-style-type: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .navbar-item {
+            color: rgb(255, 152, 34);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-item::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: rgb(255, 152, 34);
+            transition: width 0.3s;
+        }
+
+        .navbar-item:hover::after {
+            width: 100%;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('http://192.168.2.58:1237/download/best_codes_printables_cover2.webp?view=true') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .overlay::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .overlay-heading {
+            position: relative;
+            color: rgb(255, 166, 0);
+            font-size: 75px;
+            padding-top: 1em;
+        }
+
+        /* Content Container */
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container-item {
+            margin: 10px;
+            text-align: center;
+        }
+
+        .content-image {
+            width: 400px;
+            height: 400px;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+
+        .content-image:hover {
+            transform: scale(1.01);
+            transition: 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-image:not(:hover) {
+            transform: scale(1);
+            transition: 0.3s ease;
+        }
+
+        .content-link {
+            text-decoration: none;
+            color: rgb(255, 166, 0);
+        }
+
+        .content-link:hover {
+            text-decoration: underline;
+            color: rgb(214, 139, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul class="navbar-list">
+            <li style="margin-right: 10px;"><a href="#" class="navbar-item">Printables</a></li>
+            <li style="margin-right: 10px;"><a href="#" class="navbar-item">About Me</a></li>
+            <li style="margin-right: 10px;"><a href="#" class="navbar-item">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay">
+        <h1 class="overlay-heading">Best_codes on Printables</h1>
+    </div>
+    <div class="content-container">
+        <div class="container-flex">
+            <div class="container-item">
+                <img src="http://192.168.2.58:1237/download/image_2023-12-05_134315801.png?view=true" alt="image"
+                    class="content-image" onclick="window.open('https://printables.com/@Best_codes', '_blank')" />
+                <h1><a href="https://printables.com/@Best_codes" target="_blank" class="content-link">My Printables Account</a></h1>
+            </div>
+            <div class="container-item">
+                <img src="https://placeholder.pics/svg/400x400" alt="image" class="content-image" />
+                <h1 class="container-heading">I 3D Print</h1>
+            </div>
+            <div class="container-item">
+                <img src="https://placeholder.pics/svg/400x400" alt="image" class="content-image" />
+                <h1 class="container-heading">I am on Printables</h1>
+            </div>
+            <div class="container-item">
+                <img src="https://placeholder.pics/svg/400x400" alt="image" class="content-image" />
+                <h1 class="container-heading">I use PrusaSlicer</h1>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
