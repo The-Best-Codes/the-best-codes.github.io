@@ -121,6 +121,35 @@
             text-align: center;
         }
 
+        /*Overlay 3*/
+        .overlay-3 {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('images/about_prusa_cropped.webp') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .overlay-3::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .overlay-heading-3 {
+            position: relative;
+            color: rgb(212, 126, 27);
+            font-size: 6em;
+            text-align: center;
+        }
+
         /* Content Container */
         .content-container {
             display: flex;
@@ -266,6 +295,50 @@
     </div>
     <div class="content-container">
         <h1 id="services" style="margin-top: 50px;">My Services</h1>
+    </div>
+    <div class="content-container">
+        <div class="container-flex">
+            <div class="container-item">
+                <img src="images/train_benchy.webp" alt="image" class="content-image"
+                    onclick="window.open('https://www.printables.com/model/665235-new-benchy-train-benchy-benchy-style-printer-bench', '_blank')"
+                    loading="lazy" />
+                <h1 class="container-heading"><a
+                        href="https://www.printables.com/model/665235-new-benchy-train-benchy-benchy-style-printer-bench"
+                        target="_blank" class="content-link">Train Benchy</a></h1>
+                <p>A new style of Benchy Print Test — A train. Model is designed to be a printer test. Requires
+                    supports.</p>
+            </div>
+            <div class="container-item">
+                <img src="images/cookie_cutter_cover_pro.webp" alt="image" class="content-image" loading="lazy"
+                    onclick="window.open('https://www.printables.com/model/627840-cookie-cutter-cookie-cutter-cookie-cutter-cookie-c', '_blank')" />
+                <h1 class="container-heading"><a
+                        href="https://www.printables.com/model/627840-cookie-cutter-cookie-cutter-cookie-cutter-cookie-c"
+                        target="_blank" class="content-link">Cookie Cutters</a></h1>
+                <p style="max-width: 100%;">Just some cookie cutters.</p>
+            </div>
+            <div class="container-item">
+                <img src="images/cat_vs_dog_crop.webp" alt="image" class="content-image"
+                    onclick="window.open('https://www.printables.com/model/656090-cat-cat-cat-cat-cat-cat-cat-dog-dog-dog-dog-dog-do', '_blank')" />
+                <h1 class="container-heading"><a
+                        href="https://www.printables.com/model/656090-cat-cat-cat-cat-cat-cat-cat-dog-dog-dog-dog-dog-do"
+                        class="content-link" target="_blank">Cat v.s. Dog</a></h1>
+                <p>Are cats or dogs better? Cast your vote! (Like for cat, download for dog).</p>
+            </div>
+            <div class="container-item">
+                <img src="https://media.printables.com/media/prints/629369/images/5214657_9324dcac-9a47-4f14-94ee-84fe54a696c6_b06e848e-ccf2-4026-8d76-2eee4df1a058/thumbs/inside/1280x960/jpg/image_2023-11-27_155436823.webp"
+                    alt="image" class="content-image"
+                    onclick="window.open('https://www.printables.com/model/629369-scraper-scraper-scraper', '_blank')" />
+                <h1 class="container-heading"><a href="https://www.printables.com/model/629369-scraper-scraper-scraper"
+                        class="content-link" target="_blank">Print Scraper</a></h1>
+                <p>Just a simple printbed scraper I made for peeling up prints.</p>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-3">
+        <h1 class="overlay-heading-3">Some More Stuff</h1>
+    </div>
+    <div class="content-container">
+        <h1 id="soon" style="margin-top: 50px;">Coming Soon: More Content</h1>
     </div>
     <div class="content-container">
         <div class="container-flex">
