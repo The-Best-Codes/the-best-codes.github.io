@@ -88,8 +88,9 @@
         .overlay-heading {
             position: relative;
             color: rgb(212, 126, 27);
-            font-size: 75px;
+            font-size: 5em;
             padding-top: 1em;
+            text-align: center;
         }
 
         /* Content Container */
@@ -109,6 +110,8 @@
         .container-item {
             margin: 10px;
             text-align: center;
+            max-width: 400px;
+            overflow-wrap: break-word;
         }
 
         .content-image {
@@ -154,7 +157,7 @@
         <h1 class="overlay-heading">Best codes on Printables</h1>
     </div>
     <div class="content-container">
-        <h1>Overview</h1>
+        <h1 style="margin-top: 50px;">Overview</h1>
     </div>
     <div class="content-container">
         <div class="container-flex">
@@ -190,24 +193,26 @@
         </div>
     </div>
     <div class="content-container">
-        <h1>My Recent Activity</h1>
+        <h1 style="margin-top: 50px;">My Recent Activity</h1>
     </div>
     <div class="content-container">
         <div class="container-flex">
             <div class="container-item">
-                <img src="images/best_codes_sample_386x386.webp" alt="image" class="content-image"
-                    onclick="window.open('https://printables.com/@Best_codes', '_blank')" loading="lazy" />
-                <h1 class="container-heading"><a href="https://printables.com/@Best_codes" target="_blank"
-                        class="content-link">My Printables
-                        Account</a></h1>
-                <p>On printables.com</p>
+                <img src="images/train_benchy.webp" alt="image" class="content-image"
+                    onclick="window.open('https://www.printables.com/model/665235-new-benchy-train-benchy-benchy-style-printer-bench', '_blank')"
+                    loading="lazy" />
+                <h1 class="container-heading"><a
+                        href="https://www.printables.com/model/665235-new-benchy-train-benchy-benchy-style-printer-bench"
+                        target="_blank" class="content-link">Train Benchy</a></h1>
+                <p>A new style of Benchy Print Test — A train. Model is designed to be a printer test. Requires
+                    supports.</p>
             </div>
             <div class="container-item">
                 <img src="images/about_prusa_cropped.webp" alt="image" class="content-image" loading="lazy"
                     onclick="window.open('https://www.prusa3d.com/page/about-us_77/', '_blank')" />
                 <h1 class="container-heading"><a href="https://www.prusa3d.com/page/about-us_77/" target="_blank"
                         class="content-link">About Prusa Research</a></h1>
-                <p>I use PrusaSlicer and Printables</p>
+                <p style="max-width: 100%;">I use PrusaSlicer and Printables</p>
             </div>
             <div class="container-item">
                 <img src="images/about_prusaslicer.webp" alt="image" class="content-image"
