@@ -281,12 +281,29 @@
 
         #contact-form input,
         #contact-form textarea {
-            width: 95%;
+            width: 100%;
             padding: 10px;
             margin-top: 5px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 15px;
+            box-sizing: border-box;
+        }
+
+        #contact-form input:hover,
+        #contact-form textarea:hover {
+            border-color: rgb(212, 126, 27);
+        }
+
+        #contact-form input:focus,
+        #contact-form textarea:focus {
+            outline: none;
+            border-color: rgb(170, 101, 22);
+        }
+
+        #contact-form textarea {
+            height: 150px;
+            resize: none;
         }
 
         #contact-form button {
