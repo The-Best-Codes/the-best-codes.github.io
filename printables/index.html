@@ -22,6 +22,18 @@
             font-size: 16px;
         }
 
+        a {
+            color: rgb(212, 126, 27);
+        }
+
+        a:hover {
+            color: rgb(214, 128, 29);
+        }
+
+        a:visited {
+            color: rgb(216, 126, 27);
+        }
+
         /* Navbar */
         .navbar {
             display: flex;
@@ -204,7 +216,7 @@
             width: 380px;
             height: 380px;
             overflow-wrap: break-word;
-            background: url('images/about_me_social.webp') no-repeat center center fixed;
+            background-image: url('images/about_me_social.webp');
             background-size: cover;
             border-radius: 15px;
             padding: 10px;
@@ -214,6 +226,12 @@
             transform: scale(1.01);
             transition: 0.3s ease;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .text-content:not(:hover) {
+            transform: scale(1);
+            transition: 0.3s ease;
+            box-shadow: 0 0 0 0;
         }
     </style>
 </head>
@@ -378,8 +396,8 @@
                 <p>I research dent de lion castle. I think it is cool.</p>
             </div>
             <div class="container-item">
-                <div id="text-content" class="text-content">
-                    <h2 style="margin-top: 0px; color: white;">Programming</h2>
+                <div id="text-content" class="text-content" style="color: white; font-size: 18px;">
+                    <h2 style="margin-top: 0px;">Programming</h2>
                     <a href="https://github.com/The-Best-Codes" target="_blank">Github</a><span> My account on
                         GitHub</span>
                     <br />
@@ -398,8 +416,8 @@
                     <a href="https://www.printables.com/@Best_codes" target="_blank">Printables</a><span> My favorite
                         account: Printables</span>
                     <br />
-                    <a href="https://www.printables.com/@Best_codes/collections" target="_blank"> My
-                        Collections</a><span>My collections on Printables</span>
+                    <a href="https://www.printables.com/@Best_codes/collections" target="_blank">My
+                        Collections</a><span> My collections on Printables</span>
                     <br />
                     <a href="https://www.thingiverse.com/best_codes/designs" target="_blank">Thingiverse</a><span> My
                         designs on Thingiverse</span>
