@@ -262,6 +262,47 @@
             transition: 0.3s ease;
             box-shadow: 0 0 0 0;
         }
+
+        /*Form styles*/
+        #contact-form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        #contact-form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        #contact-form button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #5cb85c;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #contact-form button:hover {
+            background-color: #4cae4c;
+        }
     </style>
 </head>
 
@@ -463,7 +504,7 @@
         </div>
     </div>
     <div class="overlay-4">
-        <h1 id="contact" class="content-heading">Contact Me</h1>
+        <h1 id="contact" class="overlay-heading-4">Contact Me</h1>
     </div>
     <div class="content-container">
         <h1 style="margin-top: 50px;">Get in touch</h1>
@@ -478,6 +519,19 @@
             <button type="submit">Submit</button>
         </form>
     </div>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+
+            var mailtoLink = 'mailto:example@example.com?subject=Contact%20Form%20Submission&body=Name:%20' + name + '%0D%0AEmail:%20' + email + '%0D%0AMessage:%20' + message;
+
+            window.location.href = mailtoLink;
+        });
+    </script>
 </body>
 
 </html>
