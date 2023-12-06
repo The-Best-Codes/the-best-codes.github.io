@@ -41,7 +41,7 @@
             padding: 0.5em;
             background-color: white;
             position: sticky;
-            width: 100vw;
+            /*width: 100vw;*/
             z-index: 1;
             top: 0;
             left: 0;
@@ -162,6 +162,35 @@
             text-align: center;
         }
 
+        /*Overlay 4*/
+        .overlay-4 {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('images/contact_me.webp') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .overlay-4::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .overlay-heading-4 {
+            position: relative;
+            color: rgb(212, 126, 27);
+            font-size: 6em;
+            text-align: center;
+        }
+
         /* Content Container */
         .content-container {
             display: flex;
@@ -242,6 +271,7 @@
             <li style="margin-right: 20px; margin-left: 20px;"><a href="#home" class="navbar-item">Home</a></li>
             <li style="margin-right: 20px;"><a href="#services" class="navbar-item">Services</a></li>
             <li style="margin-right: 20px;"><a href="#about" class="navbar-item">About Me</a></li>
+            <li style="margin-right: 20px;"><a href="#contact" class="navbar-item">Contact</a></li>
         </ul>
     </nav>
 
@@ -404,7 +434,7 @@
                     <a href="https://dev.to/best_codes" target="_blank">Dev.to</a><span> My blog on Dev.to</span>
                     <br />
                     <a href="https://stackoverflow.com/users/20392792/best-codes"
-                        target="_blank">Stackoverflow</a><span>My account on Stackoverflow</span>
+                        target="_blank">Stackoverflow</a><span> My account on Stackoverflow</span>
                     <br />
                     <a href="https://planet.mblock.cc/u/1428526" target="_blank">mBlock</a><span> My account on
                         mBlock</span>
@@ -432,6 +462,21 @@
             </div>
         </div>
     </div>
+    <div class="overlay-4">
+        <h1 id="contact" class="content-heading">Contact Me</h1>
+    </div>
+    <div class="content-container">
+        <h1 style="margin-top: 50px;">Get in touch</h1>
+        <p>Feel free to contact me about web development, 3D design, or something completely random. 😊</p>
+        <form id="contact-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
     </div>
 </body>
 
