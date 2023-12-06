@@ -288,6 +288,7 @@
             border: 1px solid #ccc;
             border-radius: 15px;
             box-sizing: border-box;
+            transition: 0.3s ease;
         }
 
         #contact-form input:hover,
@@ -527,6 +528,10 @@
     <div class="content-container">
         <h1 style="margin-top: 50px;">Get in touch</h1>
         <p>Feel free to contact me about web development, 3D design, or something completely random. 😊</p>
+        <p>I'll get back to you as soon as possible.</p>
+        <p>The form below will only work if you have an email handling app (e.g., Thunderbird) installed.</p>
+        <p>Otherwise, you can email me via my coding email: <a
+                href="mailto:best-codes@proton.me">best-codes@proton.me</a></p>
         <form id="contact-form">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
@@ -545,9 +550,12 @@
             var email = document.getElementById('email').value;
             var message = document.getElementById('message').value;
 
-            var mailtoLink = 'mailto:example@example.com?subject=Contact%20Form%20Submission&body=Name:%20' + name + '%0D%0AEmail:%20' + email + '%0D%0AMessage:%20' + message;
+            var mailtoLink = 'mailto:best-codes@proton.me?subject=Contacting%20Best%20Codes&body=Hi%20Best%20Codes%20%0D%0A...%0D%0A%0D%0AName:%20' + name + '%0D%0AEmail:%20' + email + '%0D%0AMessage:%20' + message;
 
             window.location.href = mailtoLink;
+
+            // Reset the form
+            document.getElementById('contact-form').reset();
         });
     </script>
 </body>
