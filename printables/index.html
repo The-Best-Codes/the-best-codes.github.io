@@ -560,13 +560,14 @@
         document.getElementById('contact-form').addEventListener('submit', function (event) {
             event.preventDefault();
 
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-            var message = document.getElementById('message').value;
+            var name = encodeURIComponent(document.getElementById('name').value);
+            var email = encodeURIComponent(document.getElementById('email').value);
+            var message = encodeURIComponent(document.getElementById('message').value);
 
             var mailtoLink = 'mailto:best-codes@proton.me?subject=Contacting%20Best%20Codes&body=Hi%20Best%20Codes%20%0D%0A...%0D%0A%0D%0AName:%20' + name + '%0D%0AEmail:%20' + email + '%0D%0AMessage:%20' + message;
-            var encodedURI = encodeURIComponent(mailtoLink);
-            window.location.href = encodedURI;
+
+            // Do not encode the whole URI, only parameters
+            window.location.href = mailtoLink;
 
             // Reset the form
             document.getElementById('contact-form').reset();
