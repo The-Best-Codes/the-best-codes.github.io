@@ -202,7 +202,25 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            /* align-items: center; */
+            overflow: auto;
+            height: 600px;
+            flex-direction: column;
+        }
+
+        /* Styles for wide screens */
+        @media screen and (min-width: 1200px) {
+            .container-flex {
+                flex-direction: row;
+                height: auto;
+            }
+        }
+
+        /* Styles for mobile */
+        @media screen and (max-width: 767px) {
+            .container-flex {
+                height: auto;
+                flex-direction: column;
+            }
         }
 
         .container-item {
