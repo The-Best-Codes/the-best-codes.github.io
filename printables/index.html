@@ -29,7 +29,7 @@
             padding: 0.5em;
             background-color: white;
             position: sticky;
-            width: 100%;
+            width: 100vw;
             z-index: 1;
             top: 0;
             left: 0;
@@ -201,11 +201,19 @@
 
         .text-content {
             text-align: left;
-            width: 400px;
-            height: 400px;
+            width: 380px;
+            height: 380px;
             overflow-wrap: break-word;
-            background: url('images/best_codes_printables_cover.webp') no-repeat center center fixed;
+            background: url('images/about_me_social.webp') no-repeat center center fixed;
             background-size: cover;
+            border-radius: 15px;
+            padding: 10px;
+        }
+
+        .text-content:hover {
+            transform: scale(1.01);
+            transition: 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
@@ -371,7 +379,7 @@
             </div>
             <div class="container-item">
                 <div id="text-content" class="text-content">
-                    <h2>Programming</h2>
+                    <h2 style="margin-top: 0px; color: white;">Programming</h2>
                     <a href="https://github.com/The-Best-Codes" target="_blank">Github</a><span> My account on
                         GitHub</span>
                     <br />
