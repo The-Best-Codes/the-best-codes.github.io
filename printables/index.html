@@ -312,7 +312,8 @@
             padding: 10px;
             border: none;
             border-radius: 15px;
-            background-color: rgb(212, 126, 27);
+            background-color: rgb(192, 114, 25) !important;
+            /* A darker color than normal to pass audits by SEO spiders, above */
             color: white;
             font-size: 16px;
             cursor: pointer;
@@ -321,6 +322,16 @@
         #contact-form button:hover {
             background-color: rgb(170, 101, 22);
             transition: 0.3s ease;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(192, 114, 25);
+            color: white;
+            padding: 20px;
         }
     </style>
 </head>
@@ -542,6 +553,9 @@
             <button type="submit">Submit</button>
         </form>
     </div>
+    <div class="footer">
+        <p>&copy; 2023 Best Codes. All rights reserved.</p>
+    </div>
     <script>
         document.getElementById('contact-form').addEventListener('submit', function (event) {
             event.preventDefault();
@@ -551,8 +565,8 @@
             var message = document.getElementById('message').value;
 
             var mailtoLink = 'mailto:best-codes@proton.me?subject=Contacting%20Best%20Codes&body=Hi%20Best%20Codes%20%0D%0A...%0D%0A%0D%0AName:%20' + name + '%0D%0AEmail:%20' + email + '%0D%0AMessage:%20' + message;
-
-            window.location.href = mailtoLink;
+            var encodedURI = encodeURIComponent(mailtoLink);
+            window.location.href = encodedURI;
 
             // Reset the form
             document.getElementById('contact-form').reset();
