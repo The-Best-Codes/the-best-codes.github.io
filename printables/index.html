@@ -198,11 +198,28 @@
             align-items: center;
         }
 
+
         .container-flex {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            /* align-items: center; */
+            overflow: auto;
+        }
+
+        /* Styles for desktop */
+        @media screen and (min-width: 768px) {
+            .container-flex {
+                height: 600px;
+                flex-direction: column;
+            }
+        }
+
+        /* Styles for mobile */
+        @media screen and (max-width: 767px) {
+            .container-flex {
+                /* Remove the height and flex-direction properties */
+                display: flex;
+            }
         }
 
         .container-item {
@@ -553,7 +570,7 @@
         </form>
     </div>
     <div class="footer">
-        <p>&copy; 2023 Best_codes. All rights reserved.</p>
+        <h2>&copy; 2023 Best_codes. All rights reserved.</h2>
     </div>
     <script>
         document.getElementById('contact-form').addEventListener('submit', function (event) {
