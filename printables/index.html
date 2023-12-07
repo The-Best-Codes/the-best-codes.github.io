@@ -265,7 +265,9 @@
 
         /*Form styles*/
         #contact-form {
-            width: 600px;
+            width: 50%;
+            max-width: 500px;
+            min-width: 300px;
             margin: 20px auto;
             padding: 20px;
             border: 1px solid #ccc;
@@ -331,6 +333,35 @@
             background-color: rgb(212, 126, 27);
             color: white;
             padding: 20px;
+        }
+
+        /* Scrollbar Styles */
+        /* Width */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: rgb(216, 216, 216);
+            border-radius: 15px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: rgb(212, 126, 27);
+            border-radius: 10px;
+            min-height: 10px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(170, 101, 22);
+        }
+
+        ::-webkit-scrollbar-corner {
+            display: none;
         }
     </style>
 </head>
