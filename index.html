@@ -34,7 +34,7 @@
 
       /* Navbar */
       .navbar {
-        display: flex;
+        display: block;
         justify-content: space-between;
         padding: 0.5em;
         background-color: var(--main-bg-color);
@@ -333,7 +333,7 @@
         </svg>
       </div>
       <ul class="navbar-list">
-        <li style="margin-right: 20px; margin-left: 20px">
+        <li>
           <a href="#home" class="navbar-item">Home</a>
         </li>
         <li style="margin-right: 20px">
@@ -805,7 +805,7 @@
 
         menuIcon.addEventListener("click", function () {
           navbarList.style.display =
-            navbarList.style.display === "flex" ? "none" : "flex";
+            navbarList.style.display === "block" ? "none" : "block";
         });
       });
     </script>
