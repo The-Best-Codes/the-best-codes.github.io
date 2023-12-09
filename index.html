@@ -73,6 +73,25 @@
         width: 100%;
       }
 
+      /* Hide menu icon on larger screens */
+      .menu-icon {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        /* Hide the navbar list */
+        .navbar-list {
+          display: none;
+          /* additional styles for when the menu is open */
+        }
+
+        /* Show the menu icon */
+        .menu-icon {
+          display: block;
+          cursor: pointer;
+        }
+      }
+
       .overlay {
         position: relative;
         width: 100%;
@@ -299,6 +318,20 @@
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <nav class="navbar">
+      <div class="menu-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+        >
+          <!-- SVG path for menu icon -->
+          <path
+            fill="currentColor"
+            d="M1,4 H18 V6 H1 V4 M1,9 H18 V11 H1 V7 M3,14 H18 V16 H1 V14"
+          />
+        </svg>
+      </div>
       <ul class="navbar-list">
         <li style="margin-right: 20px; margin-left: 20px">
           <a href="#home" class="navbar-item">Home</a>
@@ -764,6 +797,17 @@
           // Reset the form
           document.getElementById("contact-form").reset();
         });
+
+      //Mobile menu codes
+      document.addEventListener("DOMContentLoaded", function () {
+        var menuIcon = document.querySelector(".menu-icon");
+        var navbarList = document.querySelector(".navbar-list");
+
+        menuIcon.addEventListener("click", function () {
+          navbarList.style.display =
+            navbarList.style.display === "flex" ? "none" : "flex";
+        });
+      });
     </script>
     <!-- Google tag (gtag.js) -->
     <script
