@@ -142,9 +142,19 @@
 
       .container-flex {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        /* flex-wrap: wrap; */
+        /* justify-content: center; */
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 100%;
+        overflow: auto;
         /* align-items: center; */
+      }
+
+      @media (max-width: 768px) {
+        .container-flex {
+          flex-direction: column;
+        }
       }
 
       .container-item {
@@ -407,37 +417,31 @@
         </div>
         <div class="container-item">
           <img
-            src="images/about_prusaslicer.webp"
+            src="images/best_codes_original_cropped_resized_compress.webp"
             alt="image"
             class="content-image"
-            onclick="window.open('https://www.prusa3d.com/page/prusaslicer_424/', '_blank')"
+            onclick="window.open('about:blank', '_blank')"
           />
           <h1 class="container-heading">
-            <a
-              href="https://www.prusa3d.com/page/prusaslicer_424/"
-              class="content-link"
-              target="_blank"
-              >About PrusaSlicer</a
+            <a href="about:blank" class="content-link" target="_blank"
+              >Coming Soon</a
             >
           </h1>
-          <p>The best 3D slicer ever</p>
+          <p>Coming Soon</p>
         </div>
         <div class="container-item">
           <img
-            src="images/about_printables.webp"
+            src="images/best_codes_original_cropped_resized_compress.webp"
             alt="image"
             class="content-image"
-            onclick="window.open('https://www.printables.com/model', '_blank')"
+            onclick="window.open('chrome://settings', '_blank')"
           />
           <h1 class="container-heading">
-            <a
-              href="https://www.printables.com/model"
-              class="content-link"
-              target="_blank"
-              >About Printables</a
+            <a href="chrome://settings" class="content-link" target="_blank"
+              >Coming Soon</a
             >
           </h1>
-          <p>The ultimate 3D model database</p>
+          <p>Coming Soon</p>
         </div>
       </div>
     </div>
@@ -518,7 +522,7 @@
       });
       document.addEventListener("resize", function () {
         if (window.innerWidth > 768) {
-          document.querySelector(".navbar-list").style.display = "block";
+          document.querySelector(".navbar-list").style.display = "flex";
           document.querySelector(".menu-icon").style.display = "none";
         } else {
           document.querySelector(".navbar-list").style.display = "none";
