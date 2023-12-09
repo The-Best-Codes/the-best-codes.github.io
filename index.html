@@ -102,7 +102,7 @@
       .overlay {
         position: relative;
         width: 100%;
-        height: 50vh;
+        height: min(50vh, 750px);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -204,29 +204,6 @@
       .content-link:hover {
         text-decoration: underline;
         color: var(--secondary-color);
-      }
-
-      .text-content {
-        text-align: left;
-        width: 380px;
-        height: 380px;
-        overflow-wrap: break-word;
-        background-image: url("images/about_me_social.webp");
-        background-size: cover;
-        border-radius: 15px;
-        padding: 10px;
-      }
-
-      .text-content:hover {
-        transform: scale(1.01);
-        transition: 0.3s ease;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      }
-
-      .text-content:not(:hover) {
-        transform: scale(1);
-        transition: 0.3s ease;
-        box-shadow: 0 0 0 0;
       }
 
       /*Form styles*/
