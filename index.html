@@ -138,8 +138,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        border-radius: 20px;
-        border: #ccc 1px solid;
+      }
+
+      .border-container {
+        border: 2px solid var(--main-color);
+        border-radius: 15px;
         padding: 10px;
         margin: 10px;
       }
@@ -367,84 +370,86 @@
     <div class="content-container">
       <h1 style="margin-top: 50px">About This Website</h1>
     </div>
-    <div class="content-container">
-      <div class="container-flex">
-        <div class="container-item">
-          <img
-            src="images/my_github_profile_resized_compress.webp"
-            alt="image"
-            class="content-image"
-            onclick="window.open('https://github.com/the-best-codes', '_blank')"
-            loading="lazy"
-          />
-          <h1 class="container-heading">
-            <a
-              href="https://github.com/the-best-codes"
-              target="_blank"
-              class="content-link"
-              >My GitHub Profile</a
-            >
-          </h1>
-          <p>
-            This site is hosted on github.io, from a repository on my GitHub
-            account.
-          </p>
-        </div>
-        <div class="container-item">
-          <img
-            src="images/best_codes_original_cropped_resized.webp"
-            alt="image"
-            class="content-image"
-            loading="lazy"
-            onclick="window.open('https://the-best-codes.github.io/', '_blank')"
-          />
-          <h1 class="container-heading">
-            <a
-              href="https://the-best-codes.github.io/"
-              target="_blank"
-              class="content-link"
-              >For Myself</a
-            >
-          </h1>
-          <p>
-            This is a website I made for myself so that I can market my services
-            and share my projects with the world.
-          </p>
-        </div>
-        <div class="container-item">
-          <img
-            src="images/about_me_coding_resize_compress.webp"
-            alt="image"
-            class="content-image"
-            onclick="window.open('https://the-best-codes.github.io/', '_blank')"
-          />
-          <h1 class="container-heading">
-            <a
-              href="https://the-best-codes.github.io/"
-              class="content-link"
-              target="_blank"
-              >I Love Coding</a
-            >
-          </h1>
-          <p>
-            I do General Programming, Web Development, Software, APIs, and
-            Arduinos. It's kindof my hobby! I love it, and it's what I am best
-            at.
-          </p>
-        </div>
-        <div class="container-item">
-          <img
-            src="images/best_codes_original_cropped_resized_compress.webp"
-            alt="image"
-            class="content-image"
-            onclick="window.open('chrome://settings', '_blank')"
-          />
-          <h1 class="container-heading">
-            <a href="chrome://settings" class="content-link" target="_blank"
-              >Coming Soon</a
-            >
-          </h1>
-          <p>Coming Soon</p>
+    <div class="border-container">
+      <div class="content-container">
+        <div class="container-flex">
+          <div class="container-item">
+            <img
+              src="images/my_github_profile_resized_compress.webp"
+              alt="image"
+              class="content-image"
+              onclick="window.open('https://github.com/the-best-codes', '_blank')"
+              loading="lazy"
+            />
+            <h1 class="container-heading">
+              <a
+                href="https://github.com/the-best-codes"
+                target="_blank"
+                class="content-link"
+                >My GitHub Profile</a
+              >
+            </h1>
+            <p>
+              This site is hosted on github.io, from a repository on my GitHub
+              account.
+            </p>
+          </div>
+          <div class="container-item">
+            <img
+              src="images/best_codes_original_cropped_resized.webp"
+              alt="image"
+              class="content-image"
+              loading="lazy"
+              onclick="window.open('https://the-best-codes.github.io/', '_blank')"
+            />
+            <h1 class="container-heading">
+              <a
+                href="https://the-best-codes.github.io/"
+                target="_blank"
+                class="content-link"
+                >For Myself</a
+              >
+            </h1>
+            <p>
+              This is a website I made for myself so that I can market my
+              services and share my projects with the world.
+            </p>
+          </div>
+          <div class="container-item">
+            <img
+              src="images/about_me_coding_resize_compress.webp"
+              alt="image"
+              class="content-image"
+              onclick="window.open('https://the-best-codes.github.io/', '_blank')"
+            />
+            <h1 class="container-heading">
+              <a
+                href="https://the-best-codes.github.io/"
+                class="content-link"
+                target="_blank"
+                >I Love Coding</a
+              >
+            </h1>
+            <p>
+              I do General Programming, Web Development, Software, APIs, and
+              Arduinos. It's kindof my hobby! I love it, and it's what I am best
+              at.
+            </p>
+          </div>
+          <div class="container-item">
+            <img
+              src="images/best_codes_original_cropped_resized_compress.webp"
+              alt="image"
+              class="content-image"
+              onclick="window.open('chrome://settings', '_blank')"
+            />
+            <h1 class="container-heading">
+              <a href="chrome://settings" class="content-link" target="_blank"
+                >Coming Soon</a
+              >
+            </h1>
+            <p>Coming Soon</p>
+          </div>
         </div>
       </div>
     </div>
@@ -525,11 +530,15 @@
       });
       document.addEventListener("resize", function () {
         if (window.innerWidth > 768) {
-          document.querySelector(".navbar-list").style.display = "flex";
-          document.querySelector(".menu-icon").style.display = "none";
+          document.getElementsByClassName(".navbar-list")[0].style.display =
+            "flex";
+          document.getElementsByClassName(".menu-icon")[0].style.display =
+            "none";
         } else {
-          document.querySelector(".navbar-list").style.display = "none";
-          document.querySelector(".menu-icon").style.display = "block";
+          document.getElementsByClassName(".navbar-list")[0].style.display =
+            "none";
+          document.getElementsByClassName(".menu-icon")[0].style.display =
+            "block";
         }
       });
     </script>
