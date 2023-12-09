@@ -809,6 +809,15 @@
             navbarList.style.display === "block" ? "none" : "block";
         });
       });
+      document.addEventListener("resize", function () {
+        if (window.innerWidth > 768) {
+          document.querySelector(".navbar-list").style.display = "block";
+          document.querySelector(".menu-icon").style.display = "none";
+        } else {
+          document.querySelector(".navbar-list").style.display = "none";
+          document.querySelector(".menu-icon").style.display = "block";
+        }
+      });
     </script>
     <!-- Google tag (gtag.js) -->
     <script
