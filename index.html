@@ -1,542 +1,804 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Best Codes  Home Page | Code to Help Others"
+    />
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000" />
+    <!-- <meta http-equiv="Expires" content="31536000"> -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="best_codes_bestcodes_best-codes_official_b_logo_new_colorized_enhanced.png"
+    />
+    <title>Best Codes Home Page</title>
+    <style>
+      /* General */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        font-size: 16px;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="Best Codes  Home Page | Code to Help Others">
-  <meta http-equiv="Cache-Control" content="public, max-age=31536000">
-  <!-- <meta http-equiv="Expires" content="31536000"> -->
-  <link rel="icon" type="image/png" href="best_codes_bestcodes_best-codes_official_b_logo_new_colorized_enhanced.png" />
-  <title>Best Codes Home Page</title>
-  <style>
-    /* General */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: rgb(255, 255, 255);
-      color: rgb(0, 0, 0);
-      font-size: 16px;
-    }
+      :root {
+        --main-color: rgb(0, 140, 255);
+        --secondary-color: rgb(0, 100, 182);
+        --main-text-color: rgb(255, 255, 255);
+        --secondary-text-color: rgb(0, 0, 0);
+        --main-bg-color: rgb(255, 255, 255);
+        --secondary-bg-color: rgb(0, 0, 0);
+      }
 
-    :root {
-      --main-color: rgb(0, 140, 255);
-      --secondary-color: rgb(0, 100, 182);
-      --main-text-color: rgb(255, 255, 255);
-      --secondary-text-color: rgb(0, 0, 0);
-      --main-bg-color: rgb(255, 255, 255);
-      --secondary-bg-color: rgb(0, 0, 0);
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5em;
+        background-color: var(--main-bg-color);
+        position: sticky;
+        /*width: 100vw;*/
+        z-index: 1;
+        top: 0;
+        left: 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
 
-    }
+      .navbar-list {
+        display: flex;
+        list-style-type: none;
+        margin-left: 0;
+        padding-left: 0;
+      }
 
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.5em;
-      background-color: var(--main-bg-color);
-      position: sticky;
-      /*width: 100vw;*/
-      z-index: 1;
-      top: 0;
-      left: 0;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
+      .navbar-item {
+        color: var(--main-color);
+        text-decoration: none;
+        font-size: 24px;
+        transition: all 0.3s ease;
+      }
 
-    .navbar-list {
-      display: flex;
-      list-style-type: none;
-      margin-left: 0;
-      padding-left: 0;
-    }
+      .navbar-item::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: var(--main-color);
+        transition: width 0.3s;
+      }
 
-    .navbar-item {
-      color: var(--main-color);
-      text-decoration: none;
-      font-size: 24px;
-      transition: all 0.3s ease;
-    }
+      .navbar-item:hover::after {
+        width: 100%;
+      }
 
-    .navbar-item::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 2px;
-      background: var(--main-color);
-      transition: width 0.3s;
-    }
+      .overlay {
+        position: relative;
+        width: 100%;
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-    .navbar-item:hover::after {
-      width: 100%;
-    }
+      .overlay img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
 
-    /* Overlay */
-    .overlay {
-      position: relative;
-      width: 100%;
-      height: 60vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: url('images/best_codes_printables_cover.webp') no-repeat center center fixed;
-      background-size: cover;
-    }
+      .overlay::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+      }
 
-    .overlay::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: rgba(0, 0, 0, 0.5);
-    }
+      .overlay-heading {
+        position: relative;
+        color: var(--main-color);
+        font-size: 6em;
+        text-align: center;
+        z-index: 1;
+      }
 
-    .overlay-heading {
-      position: relative;
-      color: var(--main-color);
-      font-size: 6em;
-      text-align: center;
-    }
+      /* Content Container */
+      .content-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-    /* Content Container */
-    .content-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+      .container-flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* align-items: center; */
+      }
 
-    .container-flex {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      /* align-items: center; */
-    }
+      .container-item {
+        margin: 10px;
+        text-align: center;
+        max-width: 400px;
+        overflow-wrap: break-word;
+      }
 
-    .container-item {
-      margin: 10px;
-      text-align: center;
-      max-width: 400px;
-      overflow-wrap: break-word;
-    }
+      .content-image {
+        width: 400px;
+        height: 400px;
+        cursor: pointer;
+        border-radius: 15px;
+      }
 
-    .content-image {
-      width: 400px;
-      height: 400px;
-      cursor: pointer;
-      border-radius: 15px;
-    }
+      .content-image:hover {
+        transform: scale(1.01);
+        transition: 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
 
-    .content-image:hover {
-      transform: scale(1.01);
-      transition: 0.3s ease;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
+      .content-image:not(:hover) {
+        transform: scale(1);
+        transition: 0.3s ease;
+      }
 
-    .content-image:not(:hover) {
-      transform: scale(1);
-      transition: 0.3s ease;
-    }
+      .content-link {
+        text-decoration: none;
+        color: var(--main-color);
+      }
 
-    .content-link {
-      text-decoration: none;
-      color: var(--main-color);
-    }
+      .content-link:hover {
+        text-decoration: underline;
+        color: var(--secondary-color);
+      }
 
-    .content-link:hover {
-      text-decoration: underline;
-      color: var(--secondary-color);
-    }
+      .text-content {
+        text-align: left;
+        width: 380px;
+        height: 380px;
+        overflow-wrap: break-word;
+        background-image: url("images/about_me_social.webp");
+        background-size: cover;
+        border-radius: 15px;
+        padding: 10px;
+      }
 
-    .text-content {
-      text-align: left;
-      width: 380px;
-      height: 380px;
-      overflow-wrap: break-word;
-      background-image: url('images/about_me_social.webp');
-      background-size: cover;
-      border-radius: 15px;
-      padding: 10px;
-    }
+      .text-content:hover {
+        transform: scale(1.01);
+        transition: 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
 
-    .text-content:hover {
-      transform: scale(1.01);
-      transition: 0.3s ease;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
+      .text-content:not(:hover) {
+        transform: scale(1);
+        transition: 0.3s ease;
+        box-shadow: 0 0 0 0;
+      }
 
-    .text-content:not(:hover) {
-      transform: scale(1);
-      transition: 0.3s ease;
-      box-shadow: 0 0 0 0;
-    }
+      /*Form styles*/
+      #contact-form {
+        width: 50%;
+        max-width: 500px;
+        min-width: 300px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
 
-    /*Form styles*/
-    #contact-form {
-      width: 50%;
-      max-width: 500px;
-      min-width: 300px;
-      margin: 20px auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: #f9f9f9;
-    }
+      #contact-form label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+      }
 
-    #contact-form label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-    }
+      #contact-form input,
+      #contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        box-sizing: border-box;
+        transition: 0.3s ease;
+      }
 
-    #contact-form input,
-    #contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 15px;
-      box-sizing: border-box;
-      transition: 0.3s ease;
-    }
+      #contact-form input:hover,
+      #contact-form textarea:hover {
+        border-color: var(--main-color);
+      }
 
-    #contact-form input:hover,
-    #contact-form textarea:hover {
-      border-color: var(--main-color);
-    }
+      #contact-form input:focus,
+      #contact-form textarea:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+      }
 
-    #contact-form input:focus,
-    #contact-form textarea:focus {
-      outline: none;
-      border-color: var(--secondary-color);
-    }
+      #contact-form textarea {
+        height: 150px;
+        resize: none;
+      }
 
-    #contact-form textarea {
-      height: 150px;
-      resize: none;
-    }
+      #contact-form button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 15px;
+        background-color: var(--main-color);
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
 
-    #contact-form button {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 15px;
-      background-color: var(--main-color);
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
+      #contact-form button:hover {
+        background-color: var(--secondary-color);
+        transition: 0.3s ease;
+      }
 
-    #contact-form button:hover {
-      background-color: var(--secondary-color);
-      transition: 0.3s ease;
-    }
+      /* Footer */
+      .footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--main-color);
+        color: white;
+        padding: 20px;
+      }
 
-    /* Footer */
-    .footer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--main-color);
-      color: white;
-      padding: 20px;
-    }
+      /* Scrollbar Styles */
+      /* Width */
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+        cursor: pointer;
+      }
 
-    /* Scrollbar Styles */
-    /* Width */
-    ::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
-      cursor: pointer;
-    }
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: rgb(216, 216, 216);
+        border-radius: 15px;
+      }
 
-    /* Track */
-    ::-webkit-scrollbar-track {
-      background: rgb(216, 216, 216);
-      border-radius: 15px;
-    }
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: var(--main-color);
+        border-radius: 10px;
+        min-height: 10px;
+      }
 
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: var(--main-color);
-      border-radius: 10px;
-      min-height: 10px;
-    }
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--secondary-color);
+      }
 
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--secondary-color);
-    }
+      ::-webkit-scrollbar-corner {
+        display: none;
+      }
+    </style>
+  </head>
 
-    ::-webkit-scrollbar-corner {
-      display: none;
-    }
-  </style>
-</head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-WFB88JQV"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <nav class="navbar">
+      <ul class="navbar-list">
+        <li style="margin-right: 20px; margin-left: 20px">
+          <a href="#home" class="navbar-item">Home</a>
+        </li>
+        <li style="margin-right: 20px">
+          <a href="#services" class="navbar-item">Services</a>
+        </li>
+        <li style="margin-right: 20px">
+          <a href="#about" class="navbar-item">About Me</a>
+        </li>
+        <li style="margin-right: 20px">
+          <a href="#contact" class="navbar-item">Contact</a>
+        </li>
+      </ul>
+    </nav>
 
-<body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WFB88JQV" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  <nav class="navbar">
-    <ul class="navbar-list">
-      <li style="margin-right: 20px; margin-left: 20px;"><a href="#home" class="navbar-item">Home</a></li>
-      <li style="margin-right: 20px;"><a href="#services" class="navbar-item">Services</a></li>
-      <li style="margin-right: 20px;"><a href="#about" class="navbar-item">About Me</a></li>
-      <li style="margin-right: 20px;"><a href="#contact" class="navbar-item">Contact</a></li>
-    </ul>
-  </nav>
-
-  <div class="overlay">
-    <h1 id="home" class="overlay-heading">Best Codes</h1>
-  </div>
-  <div class="content-container">
-    <h1 style="margin-top: 50px;">About this site</h1>
-  </div>
-  <div class="content-container">
-    <div class="container-flex">
-      <div class="container-item">
-        <img src="images/best_codes_sample_386x386.webp" alt="image" class="content-image"
-          onclick="window.open('https://printables.com/@Best_codes', '_blank')" loading="lazy" />
-        <h1 class="container-heading"><a href="https://printables.com/@Best_codes" target="_blank"
-            class="content-link">My Printables
-            Account</a></h1>
-        <p>On printables.com</p>
-      </div>
-      <div class="container-item">
-        <img src="images/about_prusa_cropped.webp" alt="image" class="content-image" loading="lazy"
-          onclick="window.open('https://www.prusa3d.com/page/about-us_77/', '_blank')" />
-        <h1 class="container-heading"><a href="https://www.prusa3d.com/page/about-us_77/" target="_blank"
-            class="content-link">About Prusa Research</a></h1>
-        <p>I use PrusaSlicer and Printables</p>
-      </div>
-      <div class="container-item">
-        <img src="images/about_prusaslicer.webp" alt="image" class="content-image"
-          onclick="window.open('https://www.prusa3d.com/page/prusaslicer_424/', '_blank')" />
-        <h1 class="container-heading"><a href="https://www.prusa3d.com/page/prusaslicer_424/" class="content-link"
-            target="_blank">About PrusaSlicer</a></h1>
-        <p>The best 3D slicer ever</p>
-      </div>
-      <div class="container-item">
-        <img src="images/about_printables.webp" alt="image" class="content-image"
-          onclick="window.open('https://www.printables.com/model', '_blank')" />
-        <h1 class="container-heading"><a href="https://www.printables.com/model" class="content-link"
-            target="_blank">About Printables</a></h1>
-        <p>The ultimate 3D model database</p>
-      </div>
+    <div class="overlay">
+      <img src="images/programming_resize_compress.webp" />
+      <h1 id="home" class="overlay-heading">Best Codes</h1>
     </div>
-  </div>
-  <div class="content-container">
-    <h1 id="activity" style="margin-top: 50px;">My Projects</h1>
-  </div>
-  <div class="content-container">
-    <div class="container-flex">
-      <div class="container-item">
-        <img src="images/train_benchy.webp" alt="image" class="content-image"
-          onclick="window.open('https://www.printables.com/model/665235-new-benchy-train-benchy-benchy-style-printer-bench', '_blank')"
-          loading="lazy" />
-        <h1 class="container-heading"><a
-            href="https://www.printables.com/model/665235-new-benchy-train-benchy-benchy-style-printer-bench"
-            target="_blank" class="content-link">Train Benchy</a></h1>
-        <p>A new style of Benchy Print Test — A train. Model is designed to be a printer test. Requires
-          supports.</p>
-      </div>
-      <div class="container-item">
-        <img src="images/cookie_cutter_cover_pro.webp" alt="image" class="content-image" loading="lazy"
-          onclick="window.open('https://www.printables.com/model/627840-cookie-cutter-cookie-cutter-cookie-cutter-cookie-c', '_blank')" />
-        <h1 class="container-heading"><a
-            href="https://www.printables.com/model/627840-cookie-cutter-cookie-cutter-cookie-cutter-cookie-c"
-            target="_blank" class="content-link">Cookie Cutters</a></h1>
-        <p style="max-width: 100%;">Just some cookie cutters.</p>
-      </div>
-      <div class="container-item">
-        <img src="images/cat_vs_dog_crop.webp" alt="image" class="content-image"
-          onclick="window.open('https://www.printables.com/model/656090-cat-cat-cat-cat-cat-cat-cat-dog-dog-dog-dog-dog-do', '_blank')" />
-        <h1 class="container-heading"><a
-            href="https://www.printables.com/model/656090-cat-cat-cat-cat-cat-cat-cat-dog-dog-dog-dog-dog-do"
-            class="content-link" target="_blank">Cat v.s. Dog</a></h1>
-        <p>Are cats or dogs better? Cast your vote! (Like for cat, download for dog).</p>
-      </div>
-      <div class="container-item">
-        <img src="images/cover_scraper_3d_print.webp" alt="image" class="content-image"
-          onclick="window.open('https://www.printables.com/model/629369-scraper-scraper-scraper', '_blank')" />
-        <h1 class="container-heading"><a href="https://www.printables.com/model/629369-scraper-scraper-scraper"
-            class="content-link" target="_blank">Print Scraper</a></h1>
-        <p>Just a simple printbed scraper I made for peeling up prints.</p>
-      </div>
+    <div class="content-container">
+      <h1 style="margin-top: 50px">About this site</h1>
     </div>
-  </div>
-  <div class="overlay-2">
-    <h1 id="services" class="overlay-heading-2">My Services</h1>
-  </div>
-  <div class="content-container">
-    <h1 id="services-head" style="margin-top: 50px;">What I Do</h1>
-  </div>
-  <div class="content-container">
-    <div class="container-flex">
-      <div class="container-item">
-        <img src="images/custom_service_cookie_cutter.webp" alt="image" class="content-image"
-          onclick="window.open('https://www.printables.com/messenger/', '_blank')" loading="lazy" />
-        <h1 class="container-heading"><a href="https://www.printables.com/messenger/" target="_blank"
-            class="content-link">Custom Cookie Cutters</a></h1>
-        <p>I make custom cookie cutters 3D models. Message me about it on Printables.</p>
-      </div>
-      <div class="container-item">
-        <img src="images/custom_service_keychain.webp" alt="image" class="content-image" loading="lazy"
-          onclick="window.open('https://www.printables.com/messenger', '_blank')" />
-        <h1 class="container-heading"><a href="https://www.printables.com/messenger/" target="_blank"
-            class="content-link">Custom Keychains</a></h1>
-        <p style="max-width: 100%;">I also make custom keychains. Message me about it on Printables. <a
-            href="https://www.printables.com/model/542791-keychain/comments#preview-comment">Image
-            Credit</a></p>
-      </div>
-      <div class="container-item">
-        <img src="images/custom_service_voronoi.webp" alt="image" class="content-image"
-          onclick="window.open('https://www.printables.com/messenger', '_blank')" />
-        <h1 class="container-heading"><a href="https://www.printables.com/messenger" class="content-link"
-            target="_blank">Custom 2D Voronoi</a></h1>
-        <p>I do custom 2D voronoi models. Message me about it on Printables.</p>
-      </div>
-      <div class="container-item">
-        <img src="images/custom_service_other.webp" alt="image" class="content-image"
-          onclick="window.open('https://www.printables.com/messenger', '_blank')" />
-        <h1 class="container-heading"><a href="https://www.printables.com/messenger" class="content-link"
-            target="_blank">Other Custom Prints</a></h1>
-        <p>I occasionally make custom models. Message me about it on Printables.</p>
-      </div>
-    </div>
-  </div>
-  <div class="overlay-3">
-    <h1 id="about" class="overlay-heading-3">About Me</h1>
-  </div>
-  <div class="content-container">
-    <h1 id="soon" style="margin-top: 50px;">About Me</h1>
-  </div>
-  <div class="content-container">
-    <div class="container-flex">
-      <div class="container-item">
-        <img src="images/about_me_coding.webp" alt="image" class="content-image"
-          onclick="window.open('https://github.com/The-Best-Codes/', '_blank')" loading="lazy" />
-        <h1 class="container-heading"><a href="https://github.com/The-Best-Codes/" target="_blank"
-            class="content-link">Programming</a></h1>
-        <p>I am a full-stack web developer. I love coding in web languages and Node. I also do some micropython,
-          bash, c++, etc. I am @Best_codes pretty much everywhere.</p>
-      </div>
-      <div class="container-item">
-        <img src="images/about_me_3d.webp" alt="image" class="content-image" loading="lazy"
-          onclick="window.open('https://www.printables.com/@Best_codes', '_blank')" />
-        <h1 class="container-heading"><a href="https://www.printables.com/@Best_codes" target="_blank"
-            class="content-link">3D Designing</a></h1>
-        <p style="max-width: 100%;">I love 3D desgining. I do lots of 3D printing. I own a Creality CR-10 V2.
-        </p>
-      </div>
-      <div class="container-item">
-        <img src="images/dentdelion_500_500.webp" alt="image" class="content-image"
-          onclick="window.open('https://www.google.com/maps/place/Dent-De+Lion+Ct,+Margate,+UK/', '_blank')" />
-        <h1 class="container-heading"><a href="https://www.google.com/maps/place/Dent-De+Lion+Ct,+Margate,+UK/"
-            class="content-link" target="_blank">Dentdelion Castle</a></h1>
-        <p>I research dent de lion castle. I think it is cool.</p>
-      </div>
-      <div class="container-item">
-        <div id="text-content" class="text-content" style="color: white; font-size: 18px;">
-          <h2 style="margin-top: 0px;">Programming</h2>
-          <a href="https://github.com/The-Best-Codes" target="_blank">Github</a><span> My account on
-            GitHub</span>
-          <br />
-          <a href="https://dev.to/best_codes" target="_blank">Dev.to</a><span> My blog on Dev.to</span>
-          <br />
-          <a href="https://stackoverflow.com/users/20392792/best-codes" target="_blank">Stackoverflow</a><span> My
-            account on Stackoverflow</span>
-          <br />
-          <a href="https://planet.mblock.cc/u/1428526" target="_blank">mBlock</a><span> My account on
-            mBlock</span>
-          <br />
-          <a href="https://codeium.com/profile/best_codes" target="_blank">Codeium</a><span> My account on
-            Codeium</span>
-          <br />
-          <h2>3D Designing</h2>
-          <a href="https://www.printables.com/@Best_codes" target="_blank">Printables</a><span> My favorite
-            account: Printables</span>
-          <br />
-          <a href="https://www.printables.com/@Best_codes/collections" target="_blank">My
-            Collections</a><span> My collections on Printables</span>
-          <br />
-          <a href="https://www.thingiverse.com/best_codes/designs" target="_blank">Thingiverse</a><span> My
-            designs on Thingiverse</span>
-          <br />
-          <a href="https://www.tinkercad.com/users/f7uvvU1fuSn" target="_blank">Tinkercad</a><span> My
-            designs on Tinkercad</span>
+    <div class="content-container">
+      <div class="container-flex">
+        <div class="container-item">
+          <img
+            src="images/best_codes_sample_386x386.webp"
+            alt="image"
+            class="content-image"
+            onclick="window.open('https://printables.com/@Best_codes', '_blank')"
+            loading="lazy"
+          />
+          <h1 class="container-heading">
+            <a
+              href="https://printables.com/@Best_codes"
+              target="_blank"
+              class="content-link"
+              >My Printables Account</a
+            >
+          </h1>
+          <p>On printables.com</p>
         </div>
-
-        <h1 class="container-heading"><a href="https://github.com/The-Best-Codes" class="content-link"
-            target="_blank">Social Media</a></h1>
-        <p>Links to my various social media accounts</p>
+        <div class="container-item">
+          <img
+            src="images/about_prusa_cropped.webp"
+            alt="image"
+            class="content-image"
+            loading="lazy"
+            onclick="window.open('https://www.prusa3d.com/page/about-us_77/', '_blank')"
+          />
+          <h1 class="container-heading">
+            <a
+              href="https://www.prusa3d.com/page/about-us_77/"
+              target="_blank"
+              class="content-link"
+              >About Prusa Research</a
+            >
+          </h1>
+          <p>I use PrusaSlicer and Printables</p>
+        </div>
+        <div class="container-item">
+          <img
+            src="images/about_prusaslicer.webp"
+            alt="image"
+            class="content-image"
+            onclick="window.open('https://www.prusa3d.com/page/prusaslicer_424/', '_blank')"
+          />
+          <h1 class="container-heading">
+            <a
+              href="https://www.prusa3d.com/page/prusaslicer_424/"
+              class="content-link"
+              target="_blank"
+              >About PrusaSlicer</a
+            >
+          </h1>
+          <p>The best 3D slicer ever</p>
+        </div>
+        <div class="container-item">
+          <img
+            src="images/about_printables.webp"
+            alt="image"
+            class="content-image"
+            onclick="window.open('https://www.printables.com/model', '_blank')"
+          />
+          <h1 class="container-heading">
+            <a
+              href="https://www.printables.com/model"
+              class="content-link"
+              target="_blank"
+              >About Printables</a
+            >
+          </h1>
+          <p>The ultimate 3D model database</p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="overlay-4">
-    <h1 id="contact" class="overlay-heading-4">Contact Me</h1>
-  </div>
-  <div class="content-container">
-    <h1 style="margin-top: 50px;">Get in touch</h1>
-    <p>Feel free to contact me about web development, 3D design, or something completely random. 😊</p>
-    <p>I'll get back to you as soon as possible.</p>
-    <p>The form below will only work if you have an email handling app (e.g., Thunderbird) installed.</p>
-    <p>Otherwise, you can email me via my coding email: <a href="mailto:best-codes@proton.me">best-codes@proton.me</a>
-    </p>
-    <form id="contact-form">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required></textarea>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-  <div class="footer">
-    <h2>&copy; 2023 Best_codes. All rights reserved.</h2>
-  </div>
-  <script>
-    document.getElementById('contact-form').addEventListener('submit', function (event) {
-      event.preventDefault();
+    <div class="content-container">
+      <h1 id="activity" style="margin-top: 50px">My Projects</h1>
+    </div>
+    <div class="content-container">
+      <div class="container-flex">
+        <div class="container-item">
+          <img
+            src="images/train_benchy.webp"
+            alt="image"
+            class="content-image"
+            onclick="window.open('https://www.printables.com/model/665235-new-benchy-train-benchy-benchy-style-printer-bench', '_blank')"
+            loading="lazy"
+          />
+          <h1 class="container-heading">
+            <a
+              href="https://www.printables.com/model/665235-new-benchy-train-benchy-benchy-style-printer-bench"
+              target="_blank"
+              class="content-link"
+              >Train Benchy</a
+            >
+          </h1>
+          <p>
+            A new style of Benchy Print Test — A train. Model is designed to be
+            a printer test. Requires supports.
+          </p>
+        </div>
+        <div class="container-item">
+          <img
+            src="images/cookie_cutter_cover_pro.webp"
+            alt="image"
+            class="content-image"
+            loading="lazy"
+            onclick="window.open('https://www.printables.com/model/627840-cookie-cutter-cookie-cutter-cookie-cutter-cookie-c', '_blank')"
+          />
+          <h1 class="container-heading">
+            <a
+              href="https://www.printables.com/model/627840-cookie-cutter-cookie-cutter-cookie-cutter-cookie-c"
+              target="_blank"
+              class="content-link"
+              >Cookie Cutters</a
+            >
+          </h1>
+          <p style="max-width: 100%">Just some cookie cutters.</p>
+        </div>
+        <div class="container-item">
+          <img
+            src="images/cat_vs_dog_crop.webp"
+            alt="image"
+            class="content-image"
+            onclick="window.open('https://www.printables.com/model/656090-cat-cat-cat-cat-cat-cat-cat-dog-dog-dog-dog-dog-do', '_blank')"
+          />
+          <h1 class="container-heading">
+            <a
+              href="https://www.printables.com/model/656090-cat-cat-cat-cat-cat-cat-cat-dog-dog-dog-dog-dog-do"
+              class="content-link"
+              target="_blank"
+              >Cat v.s. Dog</a
+            >
+          </h1>
+          <p>
+            Are cats or dogs better? Cast your vote! (Like for cat, download for
+            dog).
+          </p>
+        </div>
+        <div class="container-item">
+          <img
+            src="images/cover_scraper_3d_print.webp"
+            alt="image"
+            class="content-image"
+            onclick="window.open('https://www.printables.com/model/629369-scraper-scraper-scraper', '_blank')"
+          />
+          <h1 class="container-heading">
+            <a
+              href="https://www.printables.com/model/629369-scraper-scraper-scraper"
+              class="content-link"
+              target="_blank"
+              >Print Scraper</a
+            >
+          </h1>
+          <p>Just a simple printbed scraper I made for peeling up prints.</p>
+        </div>
+      </div>
+    </div>
+    <div class="overlay-2">
+      <h1 id="services" class="overlay-heading-2">My Services</h1>
+    </div>
+    <div class="content-container">
+      <h1 id="services-head" style="margin-top: 50px">What I Do</h1>
+    </div>
+    <div class="content-container">
+      <div class="container-flex">
+        <div class="container-item">
+          <img
+            src="images/custom_service_cookie_cutter.webp"
+            alt="image"
+            class="content-image"
+            onclick="window.open('https://www.printables.com/messenger/', '_blank')"
+            loading="lazy"
+          />
+          <h1 class="container-heading">
+            <a
+              href="https://www.printables.com/messenger/"
+              target="_blank"
+              class="content-link"
+              >Custom Cookie Cutters</a
+            >
+          </h1>
+          <p>
+            I make custom cookie cutters 3D models. Message me about it on
+            Printables.
+          </p>
+        </div>
+        <div class="container-item">
+          <img
+            src="images/custom_service_keychain.webp"
+            alt="image"
+            class="content-image"
+            loading="lazy"
+            onclick="window.open('https://www.printables.com/messenger', '_blank')"
+          />
+          <h1 class="container-heading">
+            <a
+              href="https://www.printables.com/messenger/"
+              target="_blank"
+              class="content-link"
+              >Custom Keychains</a
+            >
+          </h1>
+          <p style="max-width: 100%">
+            I also make custom keychains. Message me about it on Printables.
+            <a
+              href="https://www.printables.com/model/542791-keychain/comments#preview-comment"
+              >Image Credit</a
+            >
+          </p>
+        </div>
+        <div class="container-item">
+          <img
+            src="images/custom_service_voronoi.webp"
+            alt="image"
+            class="content-image"
+            onclick="window.open('https://www.printables.com/messenger', '_blank')"
+          />
+          <h1 class="container-heading">
+            <a
+              href="https://www.printables.com/messenger"
+              class="content-link"
+              target="_blank"
+              >Custom 2D Voronoi</a
+            >
+          </h1>
+          <p>
+            I do custom 2D voronoi models. Message me about it on Printables.
+          </p>
+        </div>
+        <div class="container-item">
+          <img
+            src="images/custom_service_other.webp"
+            alt="image"
+            class="content-image"
+            onclick="window.open('https://www.printables.com/messenger', '_blank')"
+          />
+          <h1 class="container-heading">
+            <a
+              href="https://www.printables.com/messenger"
+              class="content-link"
+              target="_blank"
+              >Other Custom Prints</a
+            >
+          </h1>
+          <p>
+            I occasionally make custom models. Message me about it on
+            Printables.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="overlay-3">
+      <h1 id="about" class="overlay-heading-3">About Me</h1>
+    </div>
+    <div class="content-container">
+      <h1 id="soon" style="margin-top: 50px">About Me</h1>
+    </div>
+    <div class="content-container">
+      <div class="container-flex">
+        <div class="container-item">
+          <img
+            src="images/about_me_coding.webp"
+            alt="image"
+            class="content-image"
+            onclick="window.open('https://github.com/The-Best-Codes/', '_blank')"
+            loading="lazy"
+          />
+          <h1 class="container-heading">
+            <a
+              href="https://github.com/The-Best-Codes/"
+              target="_blank"
+              class="content-link"
+              >Programming</a
+            >
+          </h1>
+          <p>
+            I am a full-stack web developer. I love coding in web languages and
+            Node. I also do some micropython, bash, c++, etc. I am @Best_codes
+            pretty much everywhere.
+          </p>
+        </div>
+        <div class="container-item">
+          <img
+            src="images/about_me_3d.webp"
+            alt="image"
+            class="content-image"
+            loading="lazy"
+            onclick="window.open('https://www.printables.com/@Best_codes', '_blank')"
+          />
+          <h1 class="container-heading">
+            <a
+              href="https://www.printables.com/@Best_codes"
+              target="_blank"
+              class="content-link"
+              >3D Designing</a
+            >
+          </h1>
+          <p style="max-width: 100%">
+            I love 3D desgining. I do lots of 3D printing. I own a Creality
+            CR-10 V2.
+          </p>
+        </div>
+        <div class="container-item">
+          <img
+            src="images/dentdelion_500_500.webp"
+            alt="image"
+            class="content-image"
+            onclick="window.open('https://www.google.com/maps/place/Dent-De+Lion+Ct,+Margate,+UK/', '_blank')"
+          />
+          <h1 class="container-heading">
+            <a
+              href="https://www.google.com/maps/place/Dent-De+Lion+Ct,+Margate,+UK/"
+              class="content-link"
+              target="_blank"
+              >Dentdelion Castle</a
+            >
+          </h1>
+          <p>I research dent de lion castle. I think it is cool.</p>
+        </div>
+        <div class="container-item">
+          <div
+            id="text-content"
+            class="text-content"
+            style="color: white; font-size: 18px"
+          >
+            <h2 style="margin-top: 0px">Programming</h2>
+            <a href="https://github.com/The-Best-Codes" target="_blank"
+              >Github</a
+            ><span> My account on GitHub</span>
+            <br />
+            <a href="https://dev.to/best_codes" target="_blank">Dev.to</a
+            ><span> My blog on Dev.to</span>
+            <br />
+            <a
+              href="https://stackoverflow.com/users/20392792/best-codes"
+              target="_blank"
+              >Stackoverflow</a
+            ><span> My account on Stackoverflow</span>
+            <br />
+            <a href="https://planet.mblock.cc/u/1428526" target="_blank"
+              >mBlock</a
+            ><span> My account on mBlock</span>
+            <br />
+            <a href="https://codeium.com/profile/best_codes" target="_blank"
+              >Codeium</a
+            ><span> My account on Codeium</span>
+            <br />
+            <h2>3D Designing</h2>
+            <a href="https://www.printables.com/@Best_codes" target="_blank"
+              >Printables</a
+            ><span> My favorite account: Printables</span>
+            <br />
+            <a
+              href="https://www.printables.com/@Best_codes/collections"
+              target="_blank"
+              >My Collections</a
+            ><span> My collections on Printables</span>
+            <br />
+            <a
+              href="https://www.thingiverse.com/best_codes/designs"
+              target="_blank"
+              >Thingiverse</a
+            ><span> My designs on Thingiverse</span>
+            <br />
+            <a
+              href="https://www.tinkercad.com/users/f7uvvU1fuSn"
+              target="_blank"
+              >Tinkercad</a
+            ><span> My designs on Tinkercad</span>
+          </div>
 
-      var name = encodeURIComponent(document.getElementById('name').value);
-      var email = encodeURIComponent(document.getElementById('email').value);
-      var message = encodeURIComponent(document.getElementById('message').value);
+          <h1 class="container-heading">
+            <a
+              href="https://github.com/The-Best-Codes"
+              class="content-link"
+              target="_blank"
+              >Social Media</a
+            >
+          </h1>
+          <p>Links to my various social media accounts</p>
+        </div>
+      </div>
+    </div>
+    <div class="overlay-4">
+      <h1 id="contact" class="overlay-heading-4">Contact Me</h1>
+    </div>
+    <div class="content-container">
+      <h1 style="margin-top: 50px">Get in touch</h1>
+      <p>
+        Feel free to contact me about web development, 3D design, or something
+        completely random. 😊
+      </p>
+      <p>I'll get back to you as soon as possible.</p>
+      <p>
+        The form below will only work if you have an email handling app (e.g.,
+        Thunderbird) installed.
+      </p>
+      <p>
+        Otherwise, you can email me via my coding email:
+        <a href="mailto:best-codes@proton.me">best-codes@proton.me</a>
+      </p>
+      <form id="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="footer">
+      <h2>&copy; 2023 Best_codes. All rights reserved.</h2>
+    </div>
+    <script>
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
 
-      var mailtoLink = 'mailto:best-codes@proton.me?subject=Contacting%20Best%20Codes&body=' + message + '%0D%0A%0D%0AName:%20' + name + '%0D%0AEmail:%20' + email;
+          var name = encodeURIComponent(document.getElementById("name").value);
+          var email = encodeURIComponent(
+            document.getElementById("email").value
+          );
+          var message = encodeURIComponent(
+            document.getElementById("message").value
+          );
 
-      // Do not encode the whole URI, only parameters
-      window.location.href = mailtoLink;
+          var mailtoLink =
+            "mailto:best-codes@proton.me?subject=Contacting%20Best%20Codes&body=" +
+            message +
+            "%0D%0A%0D%0AName:%20" +
+            name +
+            "%0D%0AEmail:%20" +
+            email;
 
-      // Reset the form
-      document.getElementById('contact-form').reset();
-    });
-  </script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X54TMF3ST6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+          // Do not encode the whole URI, only parameters
+          window.location.href = mailtoLink;
 
-    gtag('config', 'G-X54TMF3ST6');
-  </script>
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-WFB88JQV');</script>
-  <!-- End Google Tag Manager -->
-</body>
+          // Reset the form
+          document.getElementById("contact-form").reset();
+        });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-X54TMF3ST6"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
+      gtag("config", "G-X54TMF3ST6");
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-WFB88JQV");
+    </script>
+    <!-- End Google Tag Manager -->
+  </body>
 </html>
