@@ -44,6 +44,7 @@
         top: 0;
         left: 0;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        padding-left: 20px;
       }
 
       .navbar-list {
@@ -76,6 +77,7 @@
       /* Hide menu icon on larger screens */
       .menu-icon {
         display: none;
+        margin-top: 10px;
       }
 
       @media (max-width: 768px) {
@@ -327,13 +329,13 @@
         >
           <!-- SVG path for menu icon -->
           <path
-            fill="currentColor"
+            fill="var(--main-color)"
             d="M1,4 H18 V6 H1 V4 M1,9 H18 V11 H1 V7 M3,14 H18 V16 H1 V14"
           />
         </svg>
       </div>
       <ul class="navbar-list">
-        <li>
+        <li style="margin-right: 20px">
           <a href="#home" class="navbar-item">Home</a>
         </li>
         <li style="margin-right: 20px">
