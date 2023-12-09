@@ -508,31 +508,34 @@
           document.getElementById("contact-form").reset();
         });
 
-      //Mobile menu codes
       document.addEventListener("DOMContentLoaded", function () {
         var menuIcon = document.querySelector(".menu-icon");
         var navbarList = document.querySelector(".navbar-list");
 
+        // Toggle mobile menu visibility
         menuIcon.addEventListener("click", function () {
           navbarList.style.display =
             navbarList.style.display === "block" ? "none" : "block";
         });
       });
-      document.addEventListener("resize", function () {
+
+      window.addEventListener("resize", function () {
+        var navbarList = document.querySelector(".navbar-list");
+        var menuIcon = document.querySelector(".menu-icon");
+
+        // Ensure correct display of the navbar and menu icon on window resize
         if (window.innerWidth > 768) {
-          document.getElementsByClassName(".navbar-list")[0].style.display =
-            "flex";
-          document.getElementsByClassName(".menu-icon")[0].style.display =
-            "none";
+          navbarList.style.display = "flex";
+          menuIcon.style.display = "none";
         } else {
-          document.getElementsByClassName(".navbar-list")[0].style.display =
-            "none";
-          document.getElementsByClassName(".menu-icon")[0].style.display =
-            "block";
+          if (navbarList.style.display === "flex") {
+            navbarList.style.display = "none";
+          }
+          menuIcon.style.display = "block";
         }
       });
     </script>
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) 
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-X54TMF3ST6"
@@ -545,7 +548,7 @@
       gtag("js", new Date());
 
       gtag("config", "G-X54TMF3ST6");
-    </script>
+    </script>-->
     <!-- Google Tag Manager
     <script>
       (function (w, d, s, l, i) {
