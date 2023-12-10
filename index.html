@@ -31,10 +31,24 @@
       :root {
         --main-color: rgb(0, 140, 255);
         --secondary-color: rgb(0, 100, 182);
+        --darker-color: rgb(0, 75, 136);
+        --secondary-darker-color: rgb(0, 50, 91);
         --main-text-color: rgb(255, 255, 255);
         --secondary-text-color: rgb(0, 0, 0);
         --main-bg-color: rgb(255, 255, 255);
         --secondary-bg-color: rgb(0, 0, 0);
+      }
+
+      a {
+        color: var(--darker-color);
+      }
+
+      a:hover {
+        color: var(--secondary-color);
+      }
+
+      a:visited {
+        color: var(--secondary-darker-color);
       }
 
       /* Navbar */
@@ -141,22 +155,23 @@
       /* Left aligned text with background image */
       .image-text-content {
         position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         text-align: left;
+        padding: 10px;
+        width: 80vw;
+        height: 80vw !important;
+        max-width: 400px;
+        max-height: 400px;
       }
 
-      .image-text-content::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 0;
+      .image-text-content:hover {
+        transform: scale(1.01);
+        transition: 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .image-text-content:not(:hover) {
+        transform: scale(1);
+        transition: 0.3s ease;
       }
 
       .image-text-content img {
