@@ -374,7 +374,6 @@
         border-radius: 15px;
         padding: 40px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin-top: 30px;
       }
       .section-title {
         font-size: 2rem;
@@ -394,8 +393,11 @@
         gap: 15px;
       }
       .service-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: #fff;
-        border: 1px solid #ddd;
+        border: 1px solid var(--main-color);
         border-radius: 10px;
         padding: 15px;
         text-align: center;
@@ -408,11 +410,11 @@
       .contact-prompt {
         font-size: 1rem;
         margin-top: 3rem;
-        color: #686767;
+        color: #333;
       }
       .contact-link {
         font-weight: bold;
-        color: #0d6efd;
+        color: var(--secondary-color);
         text-decoration: none;
       }
       .contact-link:hover {
@@ -867,7 +869,6 @@
         <li class="service-item">Custom 3D Models</li>
         <li class="service-item">Miscellaneous Programming</li>
         <li class="service-item">API Development & Integration</li>
-        <li class="service-item">Responsive Web Design</li>
         <li class="service-item">Dentdelion Castle</li>
       </ul>
       <p class="contact-prompt">
