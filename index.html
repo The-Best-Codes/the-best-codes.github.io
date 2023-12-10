@@ -138,6 +138,37 @@
         z-index: 1;
       }
 
+      /* Left aligned text with background image */
+      .image-text-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+      }
+
+      .image-text-content::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+      }
+
+      .image-text-content img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
       /* Content Container */
       .content-container {
         display: flex;
@@ -638,6 +669,11 @@
       </div>
     </div>
     <div class="overlay">
+      <img
+        src="images/about_me_web_dev_compress.webp"
+        alt="image"
+        class="overlay-image"
+      />
       <h1 id="about" class="overlay-heading">About Me</h1>
     </div>
     <div class="content-container">
@@ -711,6 +747,11 @@
             class="image-text-content"
             style="color: white; font-size: 18px"
           >
+            <img
+              src="images/about_me_social_compress.webp"
+              alt="image"
+              class="content-image"
+            />
             <h2 style="margin-top: 0px">Programming</h2>
             <a href="https://github.com/The-Best-Codes" target="_blank"
               >Github</a
