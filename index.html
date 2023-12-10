@@ -368,6 +368,56 @@
       ::-webkit-scrollbar-corner {
         display: none;
       }
+
+      .modern-rounded-section {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+      }
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+      .section-description {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #555;
+      }
+      .services-list {
+        list-style-type: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+      }
+      .service-item {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        transition: transform 0.3s;
+      }
+      .service-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      .contact-prompt {
+        font-size: 1rem;
+        margin-top: 3rem;
+        color: #686767;
+      }
+      .contact-link {
+        font-weight: bold;
+        color: #0d6efd;
+        text-decoration: none;
+      }
+      .contact-link:hover {
+        text-decoration: underline;
+      }
     </style>
   </head>
 
@@ -839,7 +889,14 @@
       </div>
     </div>
 
-    <h1 id="services" class="overlay-heading">My Services</h1>
+    <div class="overlay">
+      <img
+        src="images/my_services_compress.webp"
+        alt="image"
+        class="overlay-image"
+      />
+      <h1 id="services" class="overlay-heading">My Services</h1>
+    </div>
     <div class="text-center modern-rounded-section">
       <h2 class="section-title">What I Do</h2>
       <p class="section-description">I specialize in:</p>
@@ -856,58 +913,6 @@
         <a href="#contact" class="contact-link">Contact me</a> to learn more.
       </p>
     </div>
-
-    <style>
-      .modern-rounded-section {
-        background: #f8f9fa;
-        border-radius: 15px;
-        padding: 40px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin-top: 30px;
-      }
-      .section-title {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: #333;
-      }
-      .section-description {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-        color: #555;
-      }
-      .services-list {
-        list-style-type: none;
-        padding: 0;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
-      }
-      .service-item {
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 15px;
-        text-align: center;
-        transition: transform 0.3s;
-      }
-      .service-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      }
-      .contact-prompt {
-        font-size: 1rem;
-        margin-top: 3rem;
-        color: #666;
-      }
-      .contact-link {
-        font-weight: bold;
-        color: #0d6efd;
-        text-decoration: none;
-      }
-      .contact-link:hover {
-        text-decoration: underline;
-      }
-    </style>
 
     <div class="overlay">
       <img
