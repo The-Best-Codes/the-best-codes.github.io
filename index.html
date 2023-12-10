@@ -323,6 +323,12 @@
         transition: 0.3s ease;
       }
 
+      .text-center {
+        text-align: center;
+        font-size: 16px;
+        font-family: "Arial", sans-serif;
+      }
+
       /* Footer */
       .footer {
         display: flex;
@@ -832,6 +838,27 @@
         </div>
       </div>
     </div>
+
+    <h1 id="services" class="overlay-heading">My Services</h1>
+    <div class="text-center">
+      <h2>What I Do</h2>
+      <p>I do:</p>
+    </div>
+    <ul class="text-center">
+      <li>Web Development</li>
+      <li>JS Libraries</li>
+      <li>3D Designing</li>
+      <li>3D Printing</li>
+      <li>Custom 3D Models</li>
+      <li>Miscellaneous Programming</li>
+    </ul>
+
+    <div class="text-center">
+      <p>
+        Contact me to learn more or ask for something not on the list above.
+      </p>
+    </div>
+
     <div class="overlay">
       <img
         src="images/contact_me_resize_compress.webp"
@@ -842,19 +869,21 @@
     </div>
     <div class="content-container">
       <h1 style="margin-top: 50px">Get in touch</h1>
-      <p>
-        Feel free to contact me about web development, 3D design, or something
-        completely random. 😊
-      </p>
-      <p>I'll get back to you as soon as possible.</p>
-      <p>
-        The form below will only work if you have an email handling app (e.g.,
-        Thunderbird) installed.
-      </p>
-      <p>
-        Otherwise, you can email me via my coding email:
-        <a href="mailto:best-codes@proton.me">best-codes@proton.me</a>
-      </p>
+      <div class="text-center">
+        <p>
+          Feel free to contact me about web development, 3D design, or something
+          completely random. 😊
+        </p>
+        <p>I'll get back to you as soon as possible.</p>
+        <p>
+          The form below will only work if you have an email handling app (e.g.,
+          Thunderbird) installed.
+        </p>
+        <p>
+          Otherwise, you can email me via my coding email:
+          <a href="mailto:best-codes@proton.me">best-codes@proton.me</a>
+        </p>
+      </div>
       <form id="contact-form">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required />
