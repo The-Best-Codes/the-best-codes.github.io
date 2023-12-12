@@ -429,6 +429,20 @@
     .contact-link:hover {
       text-decoration: underline;
     }
+
+    #notification {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999999;
+      background-color: #f8f9fa;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 25px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: opacity 0.5s ease;
+    }
   </style>
 </head>
 
@@ -854,6 +868,27 @@ https://the-best-codes.github.io/ -->
     </div>
   </noscript>
   <!-- End of Statcounter Code -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const site = urlParams.get('site') || 'Unknown';
+
+      // Create notification element
+      const notification = document.createElement('div');
+      notification.id = 'notification';
+      notification.textContent = `Referred from ${site}`;
+      document.body.appendChild(notification);
+
+      // Fade out the notification after 3 seconds
+      setTimeout(function () {
+        notification.style.opacity = '0';
+        // Remove the element from the DOM after fade out
+        setTimeout(function () {
+          document.body.removeChild(notification);
+        }, 500); // This should match the transition time
+      }, 3000);
+    });
+  </script>
 </body>
 
 </html>
