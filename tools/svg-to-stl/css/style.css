@@ -87,11 +87,12 @@ div.notsupported .small {
     text-align: center;
     max-width: 180px;
     margin: 10 auto;
+    cursor: pointer;
+    transition: 0.5s ease;
 }
 
 .button:hover {
     background: var(--secondary-color);
-    transition: 0.5s ease;
 }
 
 .button:not(:hover) {

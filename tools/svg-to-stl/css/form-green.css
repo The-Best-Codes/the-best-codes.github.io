@@ -1,33 +1,39 @@
 /* solid-light-green */
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
-html{
+html {
   height: 100%;
 }
 
-label.title.baseShape.disabled{
-    color: #cccccc;
-}
-label.title.buffer.disabled{
-    color: #cccccc;
-}
-label.title.baseDepth.disabled{
-    color: #cccccc;
-}
-input:disabled + span{
-    color: #cccccc;
+label.title.baseShape.disabled {
+  color: #cccccc;
 }
 
-.formoid-solid-light-green{
-  margin:0 auto;
+label.title.buffer.disabled {
+  color: #cccccc;
 }
+
+label.title.baseDepth.disabled {
+  color: #cccccc;
+}
+
+input:disabled+span {
+  color: #cccccc;
+}
+
+.formoid-solid-light-green {
+  margin: 0 auto;
+}
+
 .formoid-solid-light-green>div,
-.formoid-solid-light-green>.title{
+.formoid-solid-light-green>.title {
   margin: 8px;
 }
-.formoid-solid-light-green .error-field .required{
-  color:#FF9999;
+
+.formoid-solid-light-green .error-field .required {
+  color: #FF9999;
 }
+
 .formoid-solid-light-green .error-field input,
 .formoid-solid-light-green .error-field input[type=text],
 .formoid-solid-light-green .error-field input[type=password],
@@ -36,16 +42,18 @@ input:disabled + span{
 .formoid-solid-light-green .error-field input[type=date],
 .formoid-solid-light-green .error-field input[type=number],
 .formoid-solid-light-green .error-field input[type=tel],
-.formoid-solid-light-green .error-field textarea{
-  border-color:#D893A1;
+.formoid-solid-light-green .error-field textarea {
+  border-color: #D893A1;
   background-color: #FBE6F2;
 }
-.formoid-solid-light-green label.error{
-  display:inline-block;
-  font-size:0.9em;
+
+.formoid-solid-light-green label.error {
+  display: inline-block;
+  font-size: 0.9em;
 }
+
 .formoid-solid-light-green .error,
-.formoid-solid-light-green .error #recaptcha_widget_div{
+.formoid-solid-light-green .error #recaptcha_widget_div {
   padding: 3px 14px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   background-color: #fcf8e3;
@@ -57,6 +65,7 @@ input:disabled + span{
   border-color: #eed3d7;
   color: #c09853;
 }
+
 .formoid-solid-light-green .error h4 {
   color: #b94a48;
   margin: 0;
@@ -68,44 +77,58 @@ input:disabled + span{
   right: -21px;
   line-height: 20px;
 }
-.formoid-solid-light-green .column{
-  float:left; 
+
+.formoid-solid-light-green .column {
+  float: left;
 }
+
 /* width = parseInt(100/columns.length)*/
-.formoid-solid-light-green .column1{ width:100%;}
-.formoid-solid-light-green .column2{ width:50%; }
-.formoid-solid-light-green .column3{ width:33%; }
-.formoid-solid-light-green .column4{ width:25%; }
-.formoid-solid-light-green .column5{ width:20%; }
-
-
-
-.formoid-solid-light-green .large{
+.formoid-solid-light-green .column1 {
   width: 100%;
-  *width: 94%;
 }
-.formoid-solid-light-green .medium{
+
+.formoid-solid-light-green .column2 {
   width: 50%;
-  *width: 47%;
-}
-.formoid-solid-light-green .small{
-  width: 25%;
-  *width: 23%;
 }
 
-.formoid-solid-light-green textarea.large{
+.formoid-solid-light-green .column3 {
+  width: 33%;
+}
+
+.formoid-solid-light-green .column4 {
+  width: 25%;
+}
+
+.formoid-solid-light-green .column5 {
+  width: 20%;
+}
+
+
+
+.formoid-solid-light-green .large {
   width: 100%;
-  *width: 94%;
+}
+
+.formoid-solid-light-green .medium {
+  width: 50%;
+}
+
+.formoid-solid-light-green .small {
+  width: 25%;
+}
+
+.formoid-solid-light-green textarea.large {
+  width: 100%;
   height: 20em;
 }
-.formoid-solid-light-green textarea.medium{
+
+.formoid-solid-light-green textarea.medium {
   width: 100%;
-  *width: 94%;
   height: 10em;
 }
-.formoid-solid-light-green textarea.small{
+
+.formoid-solid-light-green textarea.small {
   width: 100%;
-  *width: 94%;
   height: 5.5em;
 }
 
@@ -114,12 +137,14 @@ input:disabled + span{
   position: relative;
 }
 
-.frmd{
-  display:none;
+.frmd {
+  display: none;
 }
+
 .clearfix {
-  *zoom: 1;
+  zoom: 1;
 }
+
 .clearfix:before,
 .clearfix:after {
   display: table;
@@ -129,25 +154,38 @@ input:disabled + span{
 
 
 .blurBg,
-.blurBg-true{
+.blurBg-true {
   background-attachment: fixed;
   background-image:
-    -webkit-linear-gradient(5deg, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 20%), /* linear bottom */
-    -webkit-radial-gradient(40% 60%, ellipse farthest-side, rgba(255, 255, 255, 0.45) -10%, rgba(255, 255, 255, 0) 100%),/* center white */
-    -webkit-radial-gradient(50% -10%, circle farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 30%),/* top center white */
-    -webkit-radial-gradient(100% 0%, ellipse farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 20%),/* top right white */
-    -webkit-radial-gradient(0% 0%, ellipse farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 10%),/* top left white */
-    -webkit-radial-gradient(90% 60%, ellipse farthest-side, rgba(0, 0, 0, 0.35) -10%, rgba(0, 0, 0, 0) 100%),/* center right black */
+    -webkit-linear-gradient(5deg, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 20%),
+    /* linear bottom */
+    -webkit-radial-gradient(40% 60%, ellipse farthest-side, rgba(255, 255, 255, 0.45) -10%, rgba(255, 255, 255, 0) 100%),
+    /* center white */
+    -webkit-radial-gradient(50% -10%, circle farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 30%),
+    /* top center white */
+    -webkit-radial-gradient(100% 0%, ellipse farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 20%),
+    /* top right white */
+    -webkit-radial-gradient(0% 0%, ellipse farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 10%),
+    /* top left white */
+    -webkit-radial-gradient(90% 60%, ellipse farthest-side, rgba(0, 0, 0, 0.35) -10%, rgba(0, 0, 0, 0) 100%),
+    /* center right black */
     -webkit-radial-gradient(20% 10%, circle farthest-side, rgba(0, 0, 0, 0.25) -10%, rgba(0, 0, 0, 0) 20%);
-  
+
   background-image:
-    linear-gradient(85deg, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 20%), /* linear bottom */
-    radial-gradient(40% 60%,ellipse farthest-side, rgba(255, 255, 255, 0.45) -10%, rgba(255, 255, 255, 0) 100%),/* center white */
-    radial-gradient(50% -10%,circle farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 30%),/* top center white */
-    radial-gradient(100% 0%,ellipse farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 20%),/* top right white */
-    radial-gradient(0% 0%,ellipse farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 10%),/* top left white */
-    radial-gradient(90% 60%,ellipse farthest-side, rgba(0, 0, 0, 0.35) -10%, rgba(0, 0, 0, 0) 100%),/* center right black */
-    radial-gradient(20% 10%,circle farthest-side, rgba(0, 0, 0, 0.25) -10%, rgba(0, 0, 0, 0) 20%);/* top left black */
+    linear-gradient(85deg, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 20%),
+    /* linear bottom */
+    radial-gradient(40% 60%, ellipse farthest-side, rgba(255, 255, 255, 0.45) -10%, rgba(255, 255, 255, 0) 100%),
+    /* center white */
+    radial-gradient(50% -10%, circle farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 30%),
+    /* top center white */
+    radial-gradient(100% 0%, ellipse farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 20%),
+    /* top right white */
+    radial-gradient(0% 0%, ellipse farthest-side, rgba(255, 255, 255, 0.35) -10%, rgba(255, 255, 255, 0) 10%),
+    /* top left white */
+    radial-gradient(90% 60%, ellipse farthest-side, rgba(0, 0, 0, 0.35) -10%, rgba(0, 0, 0, 0) 100%),
+    /* center right black */
+    radial-gradient(20% 10%, circle farthest-side, rgba(0, 0, 0, 0.25) -10%, rgba(0, 0, 0, 0) 20%);
+  /* top left black */
   /*
     radial-gradient(40% 60%,ellipse farthest-side, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%),
     radial-gradient(50% -10%,circle closest-corner, rgba(255, 255, 255, 0.3) 20%, rgba(255, 255, 255, 0) 50%),
@@ -166,7 +204,9 @@ input:disabled + span{
   color: #c09853;
   font-size: 12px;
   max-width: 100%;
-}/*
+}
+
+/*
 
 
 Solid style
@@ -175,60 +215,68 @@ Solid style
 */
 @font-face {
   font-family: formoid;
-  src:url('formoid.eot');
-  src:url('formoid.eot?#iefix') format('embedded-opentype'),
-  url('formoid.ttf') format('truetype'),
-  url('formoid.woff') format('woff'),
-  url('formoid.svg#formoid') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'icons';
-  src: url('icons.eot');
-  src: url('icons.eot#iefix') format('embedded-opentype'),
-       url('icons.woff') format('woff'),
-       url('icons.ttf') format('truetype'),
-       url('icons.svg#icons') format('svg');
+  src: url('formoid.eot');
+  src: url('formoid.eot?#iefix') format('embedded-opentype'),
+    url('formoid.ttf') format('truetype'),
+    url('formoid.woff') format('woff'),
+    url('formoid.svg#formoid') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-.formoid-solid-light-green{
+@font-face {
+  font-family: 'icons';
+  src: url('icons.eot');
+  src: url('icons.eot#iefix') format('embedded-opentype'),
+    url('icons.woff') format('woff'),
+    url('icons.ttf') format('truetype'),
+    url('icons.svg#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.formoid-solid-light-green {
   font-size: 1em;
   line-height: 1.231;
 
   border-radius: 5px 5px 0 0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
 }
-.formoid-solid-light-green label.title{
+
+.formoid-solid-light-green label.title {
   font-size: 1em;
   font-weight: 500;
   width: auto;
 }
-.formoid-solid-light-green input[type=button]{
+
+.formoid-solid-light-green input[type=button] {
   outline: none;
   font-size: 1em;
 }
-.formoid-solid-light-green input[type=submit]{
+
+.formoid-solid-light-green input[type=submit] {
   outline: none;
   font-size: 1.2em;
 }
-.formoid-solid-light-green>div{
+
+.formoid-solid-light-green>div {
   position: relative;
   margin-left: 5px;
   margin-right: 5px;
 }
+
 .formoid-solid-light-green h2 {
   margin: 0.2em 0;
   font-size: 20px;
   font-weight: 300;
   color: #222222;
 }
+
 .formoid-solid-light-green h3.title {
   margin-bottom: 0.5em;
   margin-top: 1.5em;
 }
+
 .formoid-solid-light-green h3.section-break-title {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -240,10 +288,20 @@ Solid style
   clear: both;
 }
 
-.formoid-solid-light-green div, .formoid-solid-light-green span, .formoid-solid-light-green label, .formoid-solid-light-green input, .formoid-solid-light-green textarea, .formoid-solid-light-green select, .formoid-solid-light-green button, .formoid-solid-light-green ul, .formoid-solid-light-green li, .formoid-solid-light-green a{
+.formoid-solid-light-green div,
+.formoid-solid-light-green span,
+.formoid-solid-light-green label,
+.formoid-solid-light-green input,
+.formoid-solid-light-green textarea,
+.formoid-solid-light-green select,
+.formoid-solid-light-green button,
+.formoid-solid-light-green ul,
+.formoid-solid-light-green li,
+.formoid-solid-light-green a {
   font-family: inherit;
   color: inherit;
 }
+
 /* Global Declaration */
 
 /*
@@ -256,28 +314,33 @@ Not advised to edit stuff below this line
 
 /* submit + title */
 .formoid-solid-light-green div.submit,
-.formoid-solid-light-green div.title{
+.formoid-solid-light-green div.title {
   margin: 0;
   /*padding-top: 1em;*/
   /*padding-bottom: 1em;*/
 }
-.formoid-solid-light-green div.submit{
+
+.formoid-solid-light-green div.submit {
   vertical-align: middle;
   text-align: right;
   border-top: 2px solid #d6dbdf;
   background-color: #F3F5FA;
 }
+
 .formoid-solid-light-green div.title {
   /*border-radius: 5px 5px 0 0;*/
 }
-.formoid-solid-light-green div.title h2{
-  margin-left: 27px;
+
+.formoid-solid-light-green div.title h2 {
+  /* margin-left: 27px; */
+  text-align: center;
+  color: white;
 }
 
 
 /* Button & submit*/
 .formoid-solid-light-green input[type=button],
-.formoid-solid-light-green input[type=submit]{
+.formoid-solid-light-green input[type=submit] {
   display: inline-block;
   padding: 4px 12px;
   margin-bottom: 1px;
@@ -294,7 +357,7 @@ Not advised to edit stuff below this line
   border: 2px solid #bdc3c7;
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
-  border-radius:3px;
+  border-radius: 3px;
   box-shadow: inset 0 -0.3em 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -303,7 +366,7 @@ Not advised to edit stuff below this line
   opacity: 0.65;
 }
 
-.formoid-solid-light-green input[type=submit]{
+.formoid-solid-light-green input[type=submit] {
   text-align: center;
   opacity: 1;
   color: #222222;
@@ -313,20 +376,23 @@ Not advised to edit stuff below this line
   padding: 11px 20px;
 }
 
-.formoid-solid-light-green input[type=submit]:hover{
+.formoid-solid-light-green input[type=submit]:hover {
   text-decoration: none;
 }
-.formoid-solid-light-green input[type=submit]:active{
+
+.formoid-solid-light-green input[type=submit]:active {
   box-shadow: inset 0 -0.15em 0 rgba(0, 0, 0, 0.2);
 }
 
 /* File input */
-.formoid-solid-light-green .element-file label{
+.formoid-solid-light-green .element-file label {
   position: relative;
 }
-.formoid-solid-light-green .element-file .title{
+
+.formoid-solid-light-green .element-file .title {
   position: static;
 }
+
 .formoid-solid-light-green .element-file .button {
   z-index: 1;
   position: absolute;
@@ -345,10 +411,12 @@ Not advised to edit stuff below this line
   -webkit-transition: all .25s ease-in-out;
   transition: all .25s ease-in-out;
 }
-.formoid-solid-light-green .element-file .button:active{
+
+.formoid-solid-light-green .element-file .button:active {
   box-shadow: inset 0 -0.15em 0 rgba(0, 0, 0, 0.2);
 }
-.formoid-solid-light-green .element-file .file_text{
+
+.formoid-solid-light-green .element-file .file_text {
   overflow: hidden;
   color: #A9A9A9;
   background-color: #fff;
@@ -367,8 +435,9 @@ Not advised to edit stuff below this line
   filter: alpha(opacity=0);
   width: 100%;
 }
+
 * html .formoid-solid-light-green .element-file .file_input,
-*+html .formoid-solid-light-green .element-file .file_input{
+*+html .formoid-solid-light-green .element-file .file_input {
   position: relative;
   left: auto;
   right: auto;
@@ -378,33 +447,38 @@ Not advised to edit stuff below this line
   opacity: 1;
   filter: alpha(opacity=100);
 }
+
 * html .formoid-solid-light-green .element-file .button,
-*+html .formoid-solid-light-green .element-file .button{
+*+html .formoid-solid-light-green .element-file .button {
   display: none;
 }
+
 * html .formoid-solid-light-green .element-file label,
 *+html .formoid-solid-light-green .element-file label,
 * html .formoid-solid-light-green .element-file .file_text,
-*+html .formoid-solid-light-green .element-file .file_text{
+*+html .formoid-solid-light-green .element-file .file_text {
   border: none;
 }
+
 * html .formoid-solid-light-green .element-file .title,
-*+html .formoid-solid-light-green .element-file .title{
+*+html .formoid-solid-light-green .element-file .title {
   display: block;
 }
 
 
 /* Radio & checkbox */
-.formoid-solid-light-green div.element-checkbox, .formoid-solid-light-green div.element-radio{
-  overflow:hidden;
+.formoid-solid-light-green div.element-checkbox,
+.formoid-solid-light-green div.element-radio {
+  overflow: hidden;
   line-height: 2.2;
 }
+
 .formoid-solid-light-green input[type=checkbox],
-.formoid-solid-light-green input[type=radio]{
-  z-index:1;
-  position:absolute;
+.formoid-solid-light-green input[type=radio] {
+  z-index: 1;
+  position: absolute;
   float: left;
-  opacity:0.01;
+  opacity: 0.01;
   font-size: 1.3em;
   width: 1.2em;
   height: 1em;
@@ -413,31 +487,33 @@ Not advised to edit stuff below this line
 }
 
 .formoid-solid-light-green input[type=radio]+span,
-.formoid-solid-light-green input[type=checkbox]+span{
-  margin-right:-19px;
+.formoid-solid-light-green input[type=checkbox]+span {
+  margin-right: -19px;
   padding-top: 0;
-  z-index:0;
+  z-index: 0;
   position: relative;
   left: 0;
   top: 0;
-  vertical-align:top;
+  vertical-align: top;
   font-size: 1em;
   line-height: 1.3;
   cursor: pointer;
 }
-.formoid-solid-light-green input[type=checkbox]+span:before{
+
+.formoid-solid-light-green input[type=checkbox]+span:before {
   position: relative;
   font-family: formoid;
   margin-right: 0.2em;
   color: transparent;
   font-size: 1em;
   line-height: 1;
-  vertical-align:top;
+  vertical-align: top;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 /* checkbox */
-.formoid-solid-light-green input[type=checkbox]+span:before{
+.formoid-solid-light-green input[type=checkbox]+span:before {
   content: "\e004";
   font-size: 0.65em;
   padding: 0.3em;
@@ -448,7 +524,7 @@ Not advised to edit stuff below this line
   border-width: 0.3em;
   -webkit-transition: border-color .5s ease-in-out;
   transition: border-color .5s ease-in-out;
-  border-radius:0.3em;
+  border-radius: 0.3em;
 }
 
 /* radio */
@@ -459,16 +535,18 @@ Not advised to edit stuff below this line
   color: transparent;
   font-size: 1.4em;
   line-height: 1;
-  vertical-align:top;
+  vertical-align: top;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-transition: color .5s ease-in-out;
   transition: color .5s ease-in-out;
 }
-.formoid-solid-light-green input[type=radio]+span:before{
+
+.formoid-solid-light-green input[type=radio]+span:before {
   content: "\e001";
 }
-.formoid-solid-light-green input[type=radio]:checked+span:before{
+
+.formoid-solid-light-green input[type=radio]:checked+span:before {
   content: "\e000";
 }
 
@@ -479,20 +557,24 @@ Not advised to edit stuff below this line
   display: inline-block;
   position: relative;
 }
+
 .formoid-solid-light-green .rating-input {
   display: none;
 }
+
 .formoid-solid-light-green .rating-star:after {
   font-family: formoid;
   font-size: 2em;
   -webkit-transition: color .5s ease-in-out;
   transition: color .5s ease-in-out;
 }
+
 .formoid-solid-light-green .rating:hover .rating-star:hover:after,
-.formoid-solid-light-green .rating:hover .rating-star:hover ~ .rating-star:after,
-.formoid-solid-light-green .rating-input:checked ~ .rating-star:after {
+.formoid-solid-light-green .rating:hover .rating-star:hover~.rating-star:after,
+.formoid-solid-light-green .rating-input:checked~.rating-star:after {
   content: '\e006';
 }
+
 .formoid-solid-light-green .rating-star,
 .formoid-solid-light-green .rating:hover .rating-star {
   position: relative;
@@ -503,6 +585,7 @@ Not advised to edit stuff below this line
   width: 2.4em;
   height: 2em;
 }
+
 .formoid-solid-light-green .rating-star:after,
 .formoid-solid-light-green .rating:hover .rating-star:after {
   content: '\e007';
@@ -519,41 +602,44 @@ Not advised to edit stuff below this line
 .formoid-solid-light-green input[type=tel],
 .formoid-solid-light-green textarea,
 .formoid-solid-light-green .element-file .file_text,
-.formoid-solid-light-green select{
+.formoid-solid-light-green select {
   border-style: solid;
   border-width: 2px;
   border-color: #bdc3c7;
   -webkit-transition: border-color 0.5s ease-in-out;
   transition: border-color 0.5s ease-in-out;
-  border-radius:3px;
+  border-radius: 3px;
 
   padding: 5px 10px 4px 1.8em;
-  
-  outline:none;
+
+  outline: none;
   -o-box-sizing: border-box;
   box-sizing: border-box;
 
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: normal;
-  
+
   font-size: 1em;
 }
+
 .formoid-solid-light-green .element-address input[type=text],
 .formoid-solid-light-green .element-name input[type=text],
 .formoid-solid-light-green .element-file .file_text,
-.formoid-solid-light-green textarea{
+.formoid-solid-light-green textarea {
   width: 100%;
-  *width: 94%;
 }
-.formoid-solid-light-green textarea{
+
+.formoid-solid-light-green textarea {
   height: auto;
 }
-.formoid-solid-light-green  select{
+
+.formoid-solid-light-green select {
   cursor: pointer;
   text-align: left;
   width: 100%;
 }
+
 .formoid-solid-light-green .element-address input[type=text] {
   margin-bottom: 6px;
 }
@@ -603,43 +689,54 @@ Not advised to edit stuff below this line
 .formoid-solid-light-green .element-textarea .item-cont .icon-place:before {
   content: '\e800';
 }
+
 .formoid-solid-light-green .element-select .item-cont .icon-place:before,
 .formoid-solid-light-green .element-multiple .item-cont .icon-place:before,
 .formoid-solid-light-green .element-address .country .icon-place:before {
   top: 12px;
   content: '\e801';
 }
+
 .formoid-solid-light-green .element-date .item-cont .icon-place:before {
   content: '\e802';
 }
+
 .formoid-solid-light-green .element-number .item-cont .icon-place:before,
 .formoid-solid-light-green .element-address .zip .icon-place:before {
   content: '\e803';
 }
+
 .formoid-solid-light-green .element-file .item-cont .icon-place:before {
   content: '\e804';
 }
+
 .formoid-solid-light-green .element-email .item-cont .icon-place:before {
   content: '\e805';
 }
+
 .formoid-solid-light-green .element-url .item-cont .icon-place:before {
   content: '\e806';
 }
+
 .formoid-solid-light-green .element-password .item-cont .icon-place:before {
   content: '\e807';
 }
+
 .formoid-solid-light-green .element-phone .item-cont .icon-place:before {
   content: '\e808';
 }
+
 .formoid-solid-light-green .element-name .nameFirst .icon-place:before,
 .formoid-solid-light-green .element-name .nameLast .icon-place:before {
   content: '\e80B';
 }
+
 .formoid-solid-light-green .element-address .addr1 .icon-place:before,
 .formoid-solid-light-green .element-address .addr2 .icon-place:before {
   top: 0;
   content: '\e809';
 }
+
 .formoid-solid-light-green .element-address .city .icon-place:before,
 .formoid-solid-light-green .element-address .state .icon-place:before {
   content: '\e80A';
@@ -648,78 +745,77 @@ Not advised to edit stuff below this line
 
 
 /* NAME last first */
-.formoid-solid-light-green .element-name .nameFirst{
+.formoid-solid-light-green .element-name .nameFirst {
   width: 40%;
-  *width: 39%;
   left: 0;
   display: inline-block;
   margin-right: 5%;
   vertical-align: top;
   zoom: 1;
-  *display: inline;
 }
-.formoid-solid-light-green .element-name .nameLast{
+
+.formoid-solid-light-green .element-name .nameLast {
   width: 55%;
-  *width: 50%;
   display: inline-block;
   vertical-align: top;
   zoom: 1;
-  *display: inline;
 }
+
 /* ADDRESS */
 .formoid-solid-light-green .element-address .city,
-.formoid-solid-light-green .element-address .zip{
+.formoid-solid-light-green .element-address .zip {
   width: 47%;
-  *width: 44%;
   display: inline-block;
   zoom: 1;
-  *display: inline;
   vertical-align: top;
   margin-right: 6%;
 }
+
 .formoid-solid-light-green .element-address .state,
-.formoid-solid-light-green .element-address .country{
+.formoid-solid-light-green .element-address .country {
   width: 47%;
-  *width: 44%;
   display: inline-block;
   zoom: 1;
-  *display: inline;
   vertical-align: top;
 }
-.formoid-solid-light-green .element-address .country select{
+
+.formoid-solid-light-green .element-address .country select {
   cursor: pointer;
 }
+
 .formoid-solid-light-green .element-address label,
-.formoid-solid-light-green .element-name label{
+.formoid-solid-light-green .element-name label {
   font-size: 0.8em;
 }
+
 .formoid-solid-light-green .element-address label.title,
-.formoid-solid-light-green .element-name label.title{
+.formoid-solid-light-green .element-name label.title {
   font-size: 1em;
 }
 
 /* type number */
-.formoid-solid-light-green input[type=number]::-webkit-inner-spin-button, 
-.formoid-solid-light-green input[type=number]::-webkit-outer-spin-button{ 
+.formoid-solid-light-green input[type=number]::-webkit-inner-spin-button,
+.formoid-solid-light-green input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
 /* recaptcha */
 .formoid-solid-light-green .recaptchatable,
 .formoid-solid-light-green .recaptchatable #recaptcha_image,
-.formoid-solid-light-green .recaptchatable #recaptcha_challenge_field_holder input{
+.formoid-solid-light-green .recaptchatable #recaptcha_challenge_field_holder input {
   border-collapse: separate !important;
   border: 2px solid #BDC3C7 !important;
   border-radius: 6px;
 }
-.formoid-solid-light-green .recaptchatable #recaptcha_image img{
+
+.formoid-solid-light-green .recaptchatable #recaptcha_image img {
   border-color: transparent;
   border-radius: 6px;
 }
 
 /* ERRORs */
 .formoid-solid-light-green .error,
-.formoid-solid-light-green .error #recaptcha_widget_div{
+.formoid-solid-light-green .error #recaptcha_widget_div {
   display: block;
   background-color: #FBDBCF;
   text-shadow: none;
@@ -729,18 +825,22 @@ Not advised to edit stuff below this line
   margin-left: 25px;
   line-height: 1;
 }
+
 .formoid-solid-light-green label.error {
   line-height: 1;
   display: block;
 }
+
 .formoid-solid-light-green .error-label {
   line-height: 1;
   color: #900;
 }
+
 .tooltip {
   position: relative;
   margin-top: 6px;
 }
+
 .tooltip-arrow {
   position: absolute;
   width: 0;
@@ -755,6 +855,7 @@ Not advised to edit stuff below this line
   border-bottom-color: #FBDBCF;
   border-width: 0 8px 8px;
 }
+
 .alert {
   padding: 8px 35px 8px 14px;
   margin-bottom: 20px;
@@ -763,6 +864,7 @@ Not advised to edit stuff below this line
   border: 1px solid #fbeed5;
   border-radius: 4px;
 }
+
 .alert,
 .alert h4 {
   color: #900;
@@ -809,7 +911,8 @@ Not advised to edit stuff below this line
 
 
 
-@media all and (max-width:400px){
+@media all and (max-width:400px) {
+
   .formoid-solid-light-green .element-radio .column,
   .formoid-solid-light-green .element-checkbox .column,
   .formoid-solid-light-green .element-name .nameFirst,
@@ -817,12 +920,14 @@ Not advised to edit stuff below this line
   .formoid-solid-light-green .element-address .city,
   .formoid-solid-light-green .element-address span.state,
   .formoid-solid-light-green .element-address .zip,
-  .formoid-solid-light-green .element-address .country{
+  .formoid-solid-light-green .element-address .country {
     width: 100%;
     display: block;
     margin-right: 0;
   }
-}/* .formoid-solid-light-green color scheme begin */
+}
+
+/* .formoid-solid-light-green color scheme begin */
 /*
     first: #2ECC71;
     second: #18B159;
@@ -833,75 +938,88 @@ Not advised to edit stuff below this line
 .formoid-solid-light-green input[type=button]:active,
 .formoid-solid-light-green input[type=button]:hover,
 .formoid-solid-light-green input[type=button][disabled] {
-  border-color: #2ECC71;
-}
-.formoid-solid-light-green div.title{
-  background-color: #2ECC71;
-  border-top: 1px solid #6CDB9B;
-  border-bottom: 5px solid #18B159;
+  border-color: rgb(0, 140, 255);
 }
 
-.formoid-solid-light-green input[type=submit]{
-  background-color: #2ECC71;
+.formoid-solid-light-green div.title {
+  background-color: rgb(0, 140, 255);
+  /* border-top: 1px solid #6CDB9B;
+  border-bottom: 5px solid #18B159; */
+  padding: 10px;
 }
 
-.formoid-solid-light-green input[type=submit]:hover{
-  background-color: #6CDB9B;
+.formoid-solid-light-green input[type=submit] {
+  background-color: rgb(0, 140, 255);
 }
-.formoid-solid-light-green input[type=submit]:active{
-  background-color: #18B159;
+
+.formoid-solid-light-green input[type=submit]:hover {
+  background-color: rgb(0, 140, 255);
+}
+
+.formoid-solid-light-green input[type=submit]:active {
+  background-color: rgb(0, 140, 255);
 }
 
 /* File input */
 .formoid-solid-light-green .element-file .button {
-  background-color: #2ECC71;
+  background-color: rgb(0, 140, 255);
 }
-.formoid-solid-light-green .element-file .file_text{
+
+.formoid-solid-light-green .element-file .file_text {
   border-color: #bdc3c7;
 }
-.formoid-solid-light-green .element-file label:hover .file_text{
-  border-color: #6CDB9B;
+
+.formoid-solid-light-green .element-file label:hover .file_text {
+  border-color: rgb(0, 140, 255);
 }
+
 .formoid-solid-light-green .element-file .button:hover {
-  background-color: #6CDB9B;
+  background-color: rgb(0, 140, 255);
 }
+
 .formoid-solid-light-green .element-file .button:active {
-  background-color: #18B159;
+  background-color: rgb(0, 140, 255);
 }
-.formoid-solid-light-green .element-file label:active .file_text{
-  border-color: #2ECC71;
+
+.formoid-solid-light-green .element-file label:active .file_text {
+  border-color: rgb(0, 140, 255);
 }
 
 /* element-submit + element-text */
-.formoid-solid-light-green > .submit,
-.formoid-solid-light-green > .title{
+.formoid-solid-light-green>.submit,
+.formoid-solid-light-green>.title {
   background-color: #bcc3ca;
 }
-.formoid-solid-light-green > .submit{
+
+.formoid-solid-light-green>.submit {
   background-color: #edeff1;
   border-top: 2px solid #d6dbdf;
 }
 
 /* checkbox & radio*/
-.formoid-solid-light-green input[type=checkbox]+span:before{
+.formoid-solid-light-green input[type=checkbox]+span:before {
   border-color: #bdc3c7;
 }
-.formoid-solid-light-green input[type=checkbox]:hover+span:before{
-  border-color: #6CDB9B;
+
+.formoid-solid-light-green input[type=checkbox]:hover+span:before {
+  border-color: rgb(0, 140, 255);
 }
-.formoid-solid-light-green input[type=checkbox]:checked+span:before{
+
+.formoid-solid-light-green input[type=checkbox]:checked+span:before {
   color: #2ECC71;
   border-color: #2ECC71;
 }
 
 /* radio */
-.formoid-solid-light-green input[type=radio]+span:before{
+.formoid-solid-light-green input[type=radio]+span:before {
   color: #bdc3c7;
 }
-.formoid-solid-light-green input[type=radio]:hover+span:before{
+
+.formoid-solid-light-green input[type=radio]:hover+span:before {
   color: #6CDB9B;
 }
-.formoid-solid-light-green input[type=radio]:checked+span:before{
+
+.formoid-solid-light-green input[type=radio]:checked+span:before {
   color: #2ECC71;
 }
 
@@ -910,11 +1028,13 @@ Not advised to edit stuff below this line
 .formoid-solid-light-green .rating:hover .rating-star:after {
   color: #bdc3c7;
 }
+
 .formoid-solid-light-green .rating:hover .rating-star:hover:after,
-.formoid-solid-light-green .rating:hover .rating-star:hover ~ .rating-star:after {
+.formoid-solid-light-green .rating:hover .rating-star:hover~.rating-star:after {
   color: #6CDB9B;
 }
-.formoid-solid-light-green .rating-input:checked ~ .rating-star:after {
+
+.formoid-solid-light-green .rating-input:checked~.rating-star:after {
   color: #2ECC71;
 }
 
@@ -931,6 +1051,7 @@ Not advised to edit stuff below this line
 .formoid-solid-light-green select:hover {
   border-color: #6CDB9B;
 }
+
 .formoid-solid-light-green input[type=text]:focus,
 .formoid-solid-light-green input[type=tel]:focus,
 .formoid-solid-light-green input[type=password]:focus,
@@ -940,55 +1061,59 @@ Not advised to edit stuff below this line
 .formoid-solid-light-green input[type=number]:focus,
 .formoid-solid-light-green input[type=file]:focus,
 .formoid-solid-light-green textarea:focus,
-.formoid-solid-light-green select:focus{
+.formoid-solid-light-green select:focus {
   border-color: #2ECC71;
 }
 
 
 
 /* element icons */
-.formoid-solid-light-green input:focus ~ .icon-place:before,
-.formoid-solid-light-green textarea:focus ~ .icon-place:before,
-.formoid-solid-light-green select:focus ~ .icon-place:before,
-.formoid-solid-light-green .select.open ~ .icon-place:before,
-.formoid-solid-light-green input[type=file]:focus ~ .icon-place:before,
-.formoid-solid-light-green .button:focus ~ .icon-place:before,
-.formoid-solid-light-green .file_text:focus ~ .icon-place:before {
+.formoid-solid-light-green input:focus~.icon-place:before,
+.formoid-solid-light-green textarea:focus~.icon-place:before,
+.formoid-solid-light-green select:focus~.icon-place:before,
+.formoid-solid-light-green .select.open~.icon-place:before,
+.formoid-solid-light-green input[type=file]:focus~.icon-place:before,
+.formoid-solid-light-green .button:focus~.icon-place:before,
+.formoid-solid-light-green .file_text:focus~.icon-place:before {
   color: #2ECC71;
 }
 
 
 
 /* bootstrap select */
-.formoid-solid-light-green .dropdown-menu li.active > a,
-.formoid-solid-light-green .dropdown-menu li.selected > a,
-.formoid-solid-light-green .dropdown-menu li.active > a.highlighted,
-.formoid-solid-light-green .dropdown-menu li.selected > a.highlighted,
-.formoid-solid-light-green .dropdown-inverse li.active > a,
-.formoid-solid-light-green .dropdown-inverse li.selected > a {
+.formoid-solid-light-green .dropdown-menu li.active>a,
+.formoid-solid-light-green .dropdown-menu li.selected>a,
+.formoid-solid-light-green .dropdown-menu li.active>a.highlighted,
+.formoid-solid-light-green .dropdown-menu li.selected>a.highlighted,
+.formoid-solid-light-green .dropdown-inverse li.active>a,
+.formoid-solid-light-green .dropdown-inverse li.selected>a {
   background-color: #2ECC71;
 }
+
 .formoid-solid-light-green .btn.btn-primary:hover,
 .formoid-solid-light-green .btn.btn-primary:focus,
 .formoid-solid-light-green .btn-group:focus .btn.btn-primary.dropdown-toggle {
   border-color: #6CDB9B;
 }
+
 .formoid-solid-light-green .btn.btn-primary:active,
 .formoid-solid-light-green .btn-group.open .btn.btn-primary.dropdown-toggle,
 .formoid-solid-light-green .btn.btn-primary.active,
-.formoid-solid-light-green .dropdown-menu li.active > a:hover,
-.formoid-solid-light-green .dropdown-menu li.selected > a:hover,
-.formoid-solid-light-green .dropdown-menu li.active > a.highlighted:hover,
-.formoid-solid-light-green .dropdown-menu li.selected > a.highlighted:hover,
-.formoid-solid-light-green .dropdown-menu li.active > a:focus,
-.formoid-solid-light-green .dropdown-menu li.selected > a:focus,
-.formoid-solid-light-green .dropdown-menu li.active > a.highlighted:focus,
-.formoid-solid-light-green .dropdown-menu li.selected > a.highlighted:focus {
+.formoid-solid-light-green .dropdown-menu li.active>a:hover,
+.formoid-solid-light-green .dropdown-menu li.selected>a:hover,
+.formoid-solid-light-green .dropdown-menu li.active>a.highlighted:hover,
+.formoid-solid-light-green .dropdown-menu li.selected>a.highlighted:hover,
+.formoid-solid-light-green .dropdown-menu li.active>a:focus,
+.formoid-solid-light-green .dropdown-menu li.selected>a:focus,
+.formoid-solid-light-green .dropdown-menu li.active>a.highlighted:focus,
+.formoid-solid-light-green .dropdown-menu li.selected>a.highlighted:focus {
   border-color: #2ECC71;
 }
+
 .formoid-solid-light-green .dropdown-arrow {
   border-bottom: 8px solid #2ECC71;
 }
+
 .formoid-solid-light-green .dropdown-menu {
   border: 2px solid #2ECC71;
 }
@@ -1000,9 +1125,11 @@ Not advised to edit stuff below this line
 .datepicker {
   border: 2px solid #2ECC71;
 }
+
 .datepicker:before {
   border-bottom: 7px solid #2ECC71;
 }
+
 .datepicker td.active,
 .datepicker td.active:hover,
 .datepicker td.active:hover:hover,
@@ -1026,13 +1153,14 @@ Not advised to edit stuff below this line
 .datepicker td span.active:active,
 .datepicker td span.active.active,
 .datepicker td span.active.disabled,
-.datepicker td span.active[disabled]{
+.datepicker td span.active[disabled] {
   color: #ffffff;
   background-image: none;
   background-color: #2ECC71;
 }
 
-/* .formoid-solid-light-green color scheme begin end *//* 
+/* .formoid-solid-light-green color scheme begin end */
+/* 
 
 bootstrap 
 
@@ -1054,28 +1182,28 @@ bootstrap
   border-radius: 3px;
 }
 
-.formoid-solid-light-green .dropdown-menu > li > a:hover,
-.formoid-solid-light-green .dropdown-menu > li > a:focus,
-.formoid-solid-light-green .dropdown-submenu:hover > a,
-.formoid-solid-light-green .dropdown-submenu:focus > a {
+.formoid-solid-light-green .dropdown-menu>li>a:hover,
+.formoid-solid-light-green .dropdown-menu>li>a:focus,
+.formoid-solid-light-green .dropdown-submenu:hover>a,
+.formoid-solid-light-green .dropdown-submenu:focus>a {
   text-decoration: none;
 }
 
 .formoid-solid-light-green .btn-group {
   position: relative;
   display: inline-block;
-  *display: inline;
-  *margin-left: .3em;
+  /*   *display: inline;
+  *margin-left: .3em; */
   white-space: nowrap;
   vertical-align: middle;
-  *zoom: 1;
+  /*   *zoom: 1; */
 }
 
-.formoid-solid-light-green .btn-group > .dropdown-menu{
+.formoid-solid-light-green .btn-group>.dropdown-menu {
   font-size: 1em;
 }
 
-.formoid-solid-light-green .btn{
+.formoid-solid-light-green .btn {
   text-align: left;
   border: 0;
   cursor: pointer;
@@ -1084,7 +1212,7 @@ bootstrap
   height: 100%;
   padding: 10px 10px 9px 2.3em;
 
-  outline:none;
+  outline: none;
 
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -1101,11 +1229,13 @@ bootstrap
 
   font-size: 1em;
 }
+
 .formoid-solid-light-green .btn:active,
 .formoid-solid-light-green .btn-group.open .btn.dropdown-toggle,
 .formoid-solid-light-green .btn.active {
   box-shadow: none;
 }
+
 .formoid-solid-light-green .btn.disabled,
 .formoid-solid-light-green .btn[disabled] {
   background-color: #bdc3c7;
@@ -1130,16 +1260,18 @@ bootstrap
 .formoid-solid-light-green .select .btn .dropdown-toggle {
   border-radius: 6px;
 }
+
 .formoid-solid-light-green .select .btn .dropdown-menu {
   min-width: 100%;
   box-sizing: border-box;
 }
-.formoid-solid-light-green .select .btn .dropdown-menu li:not(.disabled) > a:hover small {
+
+.formoid-solid-light-green .select .btn .dropdown-menu li:not(.disabled)>a:hover small {
   color: rgba(255, 255, 255, 0.004);
 }
 
-.formoid-solid-light-green .select .btn > .disabled,
-.formoid-solid-light-green .select .btn .dropdown-menu li.disabled > a {
+.formoid-solid-light-green .select .btn>.disabled,
+.formoid-solid-light-green .select .btn .dropdown-menu li.disabled>a {
   cursor: default;
 }
 
@@ -1154,38 +1286,43 @@ bootstrap
   transition: 0.25s;
   -webkit-backface-visibility: hidden;
 }
+
 .formoid-solid-light-green .dropdown-menu.typeahead {
   display: none;
   opacity: 1;
   visibility: visible;
   width: auto;
 }
-.formoid-solid-light-green .open > .dropdown-menu {
+
+.formoid-solid-light-green .open>.dropdown-menu {
   margin-top: 8px;
   opacity: 1;
   visibility: visible;
 }
-.formoid-solid-light-green .dropdown-menu li:first-child dt + a {
+
+.formoid-solid-light-green .dropdown-menu li:first-child dt+a {
   border-radius: 0;
 }
-.formoid-solid-light-green .dropdown-menu li.active > a,
-.formoid-solid-light-green .dropdown-menu li.selected > a,
-.formoid-solid-light-green .dropdown-menu li.active > a.highlighted,
-.formoid-solid-light-green .dropdown-menu li.selected > a.highlighted,
-.formoid-solid-light-green .dropdown-menu li.active > a:hover,
-.formoid-solid-light-green .dropdown-menu li.selected > a:hover,
-.formoid-solid-light-green .dropdown-menu li.active > a.highlighted:hover,
-.formoid-solid-light-green .dropdown-menu li.selected > a.highlighted:hover,
-.formoid-solid-light-green .dropdown-menu li.active > a:focus,
-.formoid-solid-light-green .dropdown-menu li.selected > a:focus,
-.formoid-solid-light-green .dropdown-menu li.active > a.highlighted:focus,
-.formoid-solid-light-green .dropdown-menu li.selected > a.highlighted:focus {
+
+.formoid-solid-light-green .dropdown-menu li.active>a,
+.formoid-solid-light-green .dropdown-menu li.selected>a,
+.formoid-solid-light-green .dropdown-menu li.active>a.highlighted,
+.formoid-solid-light-green .dropdown-menu li.selected>a.highlighted,
+.formoid-solid-light-green .dropdown-menu li.active>a:hover,
+.formoid-solid-light-green .dropdown-menu li.selected>a:hover,
+.formoid-solid-light-green .dropdown-menu li.active>a.highlighted:hover,
+.formoid-solid-light-green .dropdown-menu li.selected>a.highlighted:hover,
+.formoid-solid-light-green .dropdown-menu li.active>a:focus,
+.formoid-solid-light-green .dropdown-menu li.selected>a:focus,
+.formoid-solid-light-green .dropdown-menu li.active>a.highlighted:focus,
+.formoid-solid-light-green .dropdown-menu li.selected>a.highlighted:focus {
   color: #ffffff;
 }
-.formoid-solid-light-green .dropdown-menu li > a {
+
+.formoid-solid-light-green .dropdown-menu li>a {
   padding: 6px 15px 6px;
   text-decoration: none;
-  *zoom: 1;
+  /*   *zoom: 1; */
   -webkit-backface-visibility: hidden;
   display: block;
   clear: both;
@@ -1193,24 +1330,29 @@ bootstrap
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-.formoid-solid-light-green .dropdown-menu li > a:before,
-.formoid-solid-light-green .dropdown-menu li > a:after {
+
+.formoid-solid-light-green .dropdown-menu li>a:before,
+.formoid-solid-light-green .dropdown-menu li>a:after {
   display: table;
   content: "";
 }
-.formoid-solid-light-green .dropdown-menu li > a:after {
+
+.formoid-solid-light-green .dropdown-menu li>a:after {
   clear: both;
 }
-.formoid-solid-light-green .dropdown-menu li > a.highlighted {
+
+.formoid-solid-light-green .dropdown-menu li>a.highlighted {
   background: #c9cfd4;
   color: #ffffff;
 }
-.formoid-solid-light-green .dropdown-menu li > a.highlighted:hover,
-.formoid-solid-light-green .dropdown-menu li > a.highlighted:focus {
+
+.formoid-solid-light-green .dropdown-menu li>a.highlighted:hover,
+.formoid-solid-light-green .dropdown-menu li>a.highlighted:focus {
   background: #bac1c8;
   color: #ffffff;
 }
-.formoid-solid-light-green .dropdown-menu li > a:before {
+
+.formoid-solid-light-green .dropdown-menu li>a:before {
   margin-top: 3px;
 }
 
@@ -1219,46 +1361,57 @@ bootstrap
   margin-top: 12px;
   padding: 0 15px;
 }
+
 .formoid-solid-light-green .dropdown-inverse {
   padding-top: 4px;
 }
+
 .formoid-solid-light-green .dropdown-inverse li {
   margin: 0 4px -2px;
 }
-.formoid-solid-light-green .dropdown-inverse li:first-child > a,
-.formoid-solid-light-green .dropdown-inverse li:last-child > a {
+
+.formoid-solid-light-green .dropdown-inverse li:first-child>a,
+.formoid-solid-light-green .dropdown-inverse li:last-child>a {
   border-radius: 0;
   padding-bottom: 7px;
 }
-.formoid-solid-light-green .dropdown-inverse li.active > a,
-.formoid-solid-light-green .dropdown-inverse li.selected > a {
+
+.formoid-solid-light-green .dropdown-inverse li.active>a,
+.formoid-solid-light-green .dropdown-inverse li.selected>a {
   position: relative;
   z-index: 1;
   border-radius: 3px;
 }
+
 .formoid-solid-light-green .dropdown-inverse li dt {
   padding-left: 11px;
   padding-right: 11px;
 }
+
 .formoid-solid-light-green .dropdown-inverse li .divider {
   margin-left: 11px;
   margin-right: 11px;
 }
-.formoid-solid-light-green .dropdown-inverse li > a.highlighted {
+
+.formoid-solid-light-green .dropdown-inverse li>a.highlighted {
   background: #526476;
 }
-.formoid-solid-light-green .dropdown-inverse li > a.highlighted:hover,
-.formoid-solid-light-green .dropdown-inverse li > a.highlighted:focus {
+
+.formoid-solid-light-green .dropdown-inverse li>a.highlighted:hover,
+.formoid-solid-light-green .dropdown-inverse li>a.highlighted:focus {
   background: #677786;
 }
+
 .formoid-solid-light-green .dropdown-inverse li .divider {
   background-color: #526476;
   border-bottom-color: #526476;
 }
+
 .formoid-solid-light-green .dropdown-menu.pull-right {
   right: 0;
   left: auto;
 }
+
 .formoid-solid-light-green .dropdown-arrow {
   margin-top: 0;
   opacity: 0;
@@ -1268,16 +1421,19 @@ bootstrap
   -webkit-transition: 0.25s;
   transition: 0.25s;
   -webkit-backface-visibility: hidden;
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   z-index: 10;
 }
-.formoid-solid-light-green .open > .dropdown-arrow {
+
+.formoid-solid-light-green .open>.dropdown-arrow {
   margin-top: 0;
   opacity: 1;
-}/*!
+}
+
+/*!
  * Datepicker for Bootstrap
  *
  * Copyright 2012 Stefan Petre
@@ -1299,6 +1455,7 @@ bootstrap
   display: none;
   z-index: 10;
 }
+
 .datepicker:before {
   content: '';
   display: inline-block;
@@ -1308,6 +1465,7 @@ bootstrap
   top: -9px;
   left: 6px;
 }
+
 .datepicker:after {
   content: '';
   display: inline-block;
@@ -1318,30 +1476,37 @@ bootstrap
   top: -6px;
   left: 7px;
 }
-.datepicker > div {
+
+.datepicker>div {
   display: none;
 }
+
 .datepicker table {
   width: 100%;
   margin: 0;
 }
+
 .datepicker td,
 .datepicker th {
   text-align: center;
   width: 2.9em;
   border-radius: 4px;
 }
+
 .datepicker td.day:hover {
   background: #eeeeee;
   cursor: pointer;
 }
+
 .datepicker td.day.disabled {
   color: #eeeeee;
 }
+
 .datepicker td.old,
 .datepicker td.new {
   color: #999999;
 }
+
 .datepicker td.active,
 .datepicker td.active:hover {
   color: #ffffff;
@@ -1359,15 +1524,18 @@ bootstrap
   cursor: pointer;
   border-radius: 4px;
 }
+
 .datepicker .datepicker-months td span,
 .datepicker .datepicker-years td span {
   width: 3.5em;
   height: 3em;
   line-height: 3;
 }
+
 .datepicker td span:hover {
   background: #eeeeee;
 }
+
 .datepicker td span.active {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
@@ -1375,12 +1543,15 @@ bootstrap
 .datepicker td span.old {
   color: #999999;
 }
+
 .datepicker thead tr:first-child th {
   cursor: pointer;
 }
+
 .datepicker thead tr:first-child th:hover {
   background: #eeeeee;
 }
+
 .input-append.date .add-on i,
 .input-prepend.date .add-on i {
   display: block;
