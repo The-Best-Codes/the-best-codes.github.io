@@ -358,7 +358,6 @@ Not advised to edit stuff below this line
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
   border-radius: 3px;
-  box-shadow: inset 0 -0.3em 0 rgba(0, 0, 0, 0.2);
 }
 
 .formoid-solid-light-green input[type=button][disabled] {
@@ -369,7 +368,7 @@ Not advised to edit stuff below this line
 .formoid-solid-light-green input[type=submit] {
   text-align: center;
   opacity: 1;
-  color: #222222;
+  color: white;
   border: none;
   right: 20px;
   margin: 6px 43px;
@@ -931,7 +930,7 @@ Not advised to edit stuff below this line
 /*
     first: rgb(0, 140, 255);
     second: #18B159;
-    third: rgb(0, 200, 255);
+    third: rgb(0, 140, 255);
 */
 
 .formoid-solid-light-green input[type=button]:focus,
@@ -943,7 +942,7 @@ Not advised to edit stuff below this line
 
 .formoid-solid-light-green div.title {
   background-color: rgb(0, 140, 255);
-  /* border-top: 1px solid rgb(0, 200, 255);
+  /* border-top: 1px solid rgb(0, 140, 255);
   border-bottom: 5px solid #18B159; */
   padding: 10px;
 }
@@ -1016,7 +1015,7 @@ Not advised to edit stuff below this line
 }
 
 .formoid-solid-light-green input[type=radio]:hover+span:before {
-  color: rgb(0, 200, 255);
+  color: rgb(0, 140, 255);
 }
 
 .formoid-solid-light-green input[type=radio]:checked+span:before {
@@ -1031,7 +1030,7 @@ Not advised to edit stuff below this line
 
 .formoid-solid-light-green .rating:hover .rating-star:hover:after,
 .formoid-solid-light-green .rating:hover .rating-star:hover~.rating-star:after {
-  color: rgb(0, 200, 255);
+  color: rgb(0, 140, 255);
 }
 
 .formoid-solid-light-green .rating-input:checked~.rating-star:after {
@@ -1049,7 +1048,7 @@ Not advised to edit stuff below this line
 .formoid-solid-light-green input[type=file]:hover,
 .formoid-solid-light-green textarea:hover,
 .formoid-solid-light-green select:hover {
-  border-color: rgb(0, 200, 255);
+  border-color: rgb(0, 140, 255);
 }
 
 .formoid-solid-light-green input[type=text]:focus,
@@ -1093,7 +1092,7 @@ Not advised to edit stuff below this line
 .formoid-solid-light-green .btn.btn-primary:hover,
 .formoid-solid-light-green .btn.btn-primary:focus,
 .formoid-solid-light-green .btn-group:focus .btn.btn-primary.dropdown-toggle {
-  border-color: rgb(0, 200, 255);
+  border-color: rgb(0, 140, 255);
 }
 
 .formoid-solid-light-green .btn.btn-primary:active,
