@@ -1,977 +1,816 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta
-      name="description"
-      content="Best Codes  Home Page | Code to Help Others"
-    />
-    <meta http-equiv="Cache-Control" content="public, max-age=31536000" />
-    <!-- <meta http-equiv="Expires" content="31536000"> -->
-    <link rel="icon" type="image/png" href="favicon_32_32_compress.ico" />
-    <title>Best Codes Home Page</title>
-    <style>
-      /* General */
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
-        font-size: 16px;
-      }
 
-      ::selection {
-        background-color: var(--secondary-color);
-        color: var(--main-bg-color);
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="google-site-verification" content="hhnejMQlUqf4bzWI591kf2ZfrFQ4z-zf8_OZmOq-ip0" />
+  <meta name="description" content="Best Codes  Home Page | Code to Help Others" />
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000" />
+  <!-- <meta http-equiv="Expires" content="31536000"> -->
+  <link rel="icon" type="image/png" href="favicon_32_32_compress.ico" />
+  <title>Best Codes Home Page</title>
+  <style>
+    /* General */
+    html {
+      scroll-behavior: smooth;
+    }
 
-      :root {
-        --main-color: rgb(0, 140, 255);
-        --secondary-color: rgb(0, 100, 182);
-        --darker-color: rgb(0, 75, 136);
-        --secondary-darker-color: rgb(0, 50, 91);
-        --main-text-color: rgb(255, 255, 255);
-        --secondary-text-color: rgb(0, 0, 0);
-        --main-bg-color: rgb(255, 255, 255);
-        --secondary-bg-color: rgb(0, 0, 0);
-      }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
+      font-size: 16px;
+    }
 
-      a {
-        color: var(--main-color);
-      }
+    ::selection {
+      background-color: var(--secondary-color);
+      color: var(--main-bg-color);
+    }
 
-      a:hover {
-        color: var(--secondary-darker-color);
-      }
+    :root {
+      --main-color: rgb(0, 140, 255);
+      --secondary-color: rgb(0, 100, 182);
+      --darker-color: rgb(0, 75, 136);
+      --secondary-darker-color: rgb(0, 50, 91);
+      --main-text-color: rgb(255, 255, 255);
+      --secondary-text-color: rgb(0, 0, 0);
+      --main-bg-color: rgb(255, 255, 255);
+      --secondary-bg-color: rgb(0, 0, 0);
+    }
 
-      a:visited {
-        color: var(--main-color);
-      }
+    a {
+      color: var(--main-color);
+    }
 
-      a:visited:hover {
-        color: var(--secondary-darker-color);
-      }
+    a:hover {
+      color: var(--secondary-darker-color);
+    }
 
-      /* Navbar */
-      .navbar {
-        display: block;
-        justify-content: space-between;
-        padding: 0.5em;
-        background-color: var(--main-bg-color);
-        position: sticky;
-        /*width: 100vw;*/
-        z-index: 9999;
-        top: 0;
-        left: 0;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        padding-left: 20px;
-      }
+    a:visited {
+      color: var(--main-color);
+    }
 
+    a:visited:hover {
+      color: var(--secondary-darker-color);
+    }
+
+    /* Navbar */
+    .navbar {
+      display: block;
+      justify-content: space-between;
+      padding: 0.5em;
+      background-color: var(--main-bg-color);
+      position: sticky;
+      /*width: 100vw;*/
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      padding-left: 20px;
+    }
+
+    .navbar-list {
+      display: flex;
+      list-style-type: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    .navbar-item {
+      color: var(--main-color);
+      text-decoration: none;
+      font-size: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-item::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--main-color);
+      transition: width 0.3s;
+    }
+
+    .navbar-item:hover::after {
+      width: 100%;
+    }
+
+    /* Hide menu icon on larger screens */
+    .menu-icon {
+      display: none;
+      /* margin-top: 10px; */
+    }
+
+    @media (max-width: 768px) {
+
+      /* Hide the navbar list */
       .navbar-list {
-        display: flex;
-        list-style-type: none;
-        margin-left: 0;
-        padding-left: 0;
+        display: none;
+        /* additional styles for when the menu is open */
       }
 
-      .navbar-item {
-        color: var(--main-color);
-        text-decoration: none;
-        font-size: 24px;
-        transition: all 0.3s ease;
-      }
-
-      .navbar-item::after {
-        content: "";
-        display: block;
-        width: 0;
-        height: 2px;
-        background: var(--main-color);
-        transition: width 0.3s;
-      }
-
-      .navbar-item:hover::after {
-        width: 100%;
-      }
-
-      /* Hide menu icon on larger screens */
+      /* Show the menu icon */
       .menu-icon {
-        display: none;
-        /* margin-top: 10px; */
-      }
-
-      @media (max-width: 768px) {
-        /* Hide the navbar list */
-        .navbar-list {
-          display: none;
-          /* additional styles for when the menu is open */
-        }
-
-        /* Show the menu icon */
-        .menu-icon {
-          display: block;
-          cursor: pointer;
-        }
-      }
-
-      .overlay {
-        position: relative;
-        width: 100%;
-        height: min(50vh, 750px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-      }
-
-      .overlay img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-      }
-
-      .overlay::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 0;
-      }
-
-      .overlay-heading {
-        position: relative;
-        color: var(--main-color);
-        font-size: min(15vw, 160px);
-        text-align: center;
-        z-index: 1;
-      }
-
-      /* Left aligned text with background image */
-      .image-text-content {
-        position: relative;
-        text-align: left;
-        border-radius: 15px;
-        padding: 10px;
-        width: 80vw;
-        height: 80vw !important;
-        max-width: 380px;
-        max-height: 380px;
-      }
-
-      .image-text-content:hover {
-        transform: scale(1.01);
-        transition: 0.3s ease;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      }
-
-      .image-text-content:not(:hover) {
-        transform: scale(1);
-        transition: 0.3s ease;
-      }
-
-      .image-text-content img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        border-radius: 15px;
-        top: 0;
-        left: 0;
-        z-index: -1;
-      }
-
-      /* Content Container */
-      .content-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .border-container {
-        border: 1px solid var(--main-color);
-        border-radius: 15px;
-        padding: 10px;
-        margin: 10px;
-      }
-
-      .container-flex {
-        display: flex;
-        /* flex-wrap: wrap; */
-        /* justify-content: center; */
-        flex-direction: row;
-        justify-content: space-between;
-        max-width: 100%;
-        overflow: auto;
-        /* align-items: center; */
-      }
-
-      @media (max-width: 768px) {
-        .container-flex {
-          flex-direction: column;
-        }
-      }
-
-      .container-item {
-        margin: 10px;
-        text-align: center;
-        max-width: 400px;
-        overflow-wrap: break-word;
-      }
-
-      .content-image {
-        max-width: 400px;
-        max-height: 400px;
-        width: 80vw;
-        height: auto;
-        cursor: pointer;
-        border-radius: 15px;
-      }
-
-      .content-image:hover {
-        transform: scale(1.01);
-        transition: 0.3s ease;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      }
-
-      .content-image:not(:hover) {
-        transform: scale(1);
-        transition: 0.3s ease;
-      }
-
-      .content-link {
-        text-decoration: none;
-        color: var(--main-color);
-      }
-
-      .content-link:hover {
-        text-decoration: underline;
-        color: var(--secondary-color);
-      }
-
-      /*Form styles*/
-      #contact-form {
-        width: 50%;
-        max-width: 500px;
-        min-width: 300px;
-        margin: 20px auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #f9f9f9;
-      }
-
-      #contact-form label {
         display: block;
-        margin-top: 10px;
-        font-weight: bold;
-      }
-
-      #contact-form input,
-      #contact-form textarea {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 15px;
-        box-sizing: border-box;
-        transition: 0.3s ease;
-      }
-
-      #contact-form input:hover,
-      #contact-form textarea:hover {
-        border-color: var(--main-color);
-      }
-
-      #contact-form input:focus,
-      #contact-form textarea:focus {
-        outline: none;
-        border-color: var(--secondary-color);
-      }
-
-      #contact-form textarea {
-        height: 150px;
-        resize: none;
-      }
-
-      #contact-form button {
-        width: 100%;
-        padding: 10px;
-        border: none;
-        border-radius: 15px;
-        background-color: var(--secondary-color);
-        color: white;
-        font-size: 16px;
         cursor: pointer;
       }
+    }
 
-      #contact-form button:hover {
-        background-color: var(--main-color);
-        transition: 0.3s ease;
-      }
+    .overlay {
+      position: relative;
+      width: 100%;
+      height: min(50vh, 750px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
-      .text-center {
-        text-align: center;
-        font-size: 16px;
-        font-family: "Arial", sans-serif;
-      }
+    .overlay img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
 
-      /* Footer */
-      .footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--main-color);
-        color: white;
-        padding: 20px;
-      }
+    .overlay::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
 
-      /* Scrollbar Styles */
-      /* Width */
-      ::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
-        cursor: pointer;
-      }
+    .overlay-heading {
+      position: relative;
+      color: var(--main-color);
+      font-size: min(15vw, 160px);
+      text-align: center;
+      z-index: 1;
+    }
 
-      /* Track */
-      ::-webkit-scrollbar-track {
-        background: rgb(216, 216, 216);
-        border-radius: 15px;
-      }
+    /* Left aligned text with background image */
+    .image-text-content {
+      position: relative;
+      text-align: left;
+      border-radius: 15px;
+      padding: 10px;
+      width: 80vw;
+      height: 80vw !important;
+      max-width: 380px;
+      max-height: 380px;
+    }
 
-      /* Handle */
-      ::-webkit-scrollbar-thumb {
-        background: var(--main-color);
-        border-radius: 10px;
-        min-height: 10px;
-      }
+    .image-text-content:hover {
+      transform: scale(1.01);
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
 
-      /* Handle on hover */
-      ::-webkit-scrollbar-thumb:hover {
-        background: var(--secondary-color);
-      }
+    .image-text-content:not(:hover) {
+      transform: scale(1);
+      transition: 0.3s ease;
+    }
 
-      ::-webkit-scrollbar-corner {
-        display: none;
-      }
+    .image-text-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      border-radius: 15px;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
 
-      .modern-rounded-section {
-        background: #f8f9fa;
-        border-radius: 15px;
-        padding: 40px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-      .section-title {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: #333;
-      }
-      .section-description {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-        color: #555;
-      }
-      .services-list {
-        list-style-type: none;
-        padding: 0;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
-      }
-      .service-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #fff;
-        border: 1px solid var(--main-color);
-        border-radius: 10px;
-        padding: 15px;
-        text-align: center;
-        transition: transform 0.3s;
-      }
-      .service-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      }
-      .contact-prompt {
-        font-size: 1rem;
-        margin-top: 3rem;
-        color: #333;
-      }
-      .contact-link {
-        font-weight: bold;
-        color: var(--secondary-color);
-        text-decoration: none;
-      }
-      .contact-link:hover {
-        text-decoration: underline;
-      }
-    </style>
-  </head>
+    /* Content Container */
+    .content-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-  <body>
-    <nav class="navbar">
-      <div class="menu-icon">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          style="width: 30px; height: 30px"
-          viewBox="0 0 20 20"
-        >
-          <!-- SVG path for menu icon -->
-          <path
-            fill="var(--main-color)"
-            d="M1,4 H18 V6 H1 V4 M1,9 H18 V11 H1 V7 M3,14 H18 V16 H1 V14"
-          />
-        </svg>
-      </div>
-      <ul class="navbar-list">
-        <li style="margin-right: 20px">
-          <a href="#home" class="navbar-item">Home</a>
-        </li>
-        <li style="margin-right: 20px">
-          <a href="#services" class="navbar-item">Services</a>
-        </li>
-        <li style="margin-right: 20px">
-          <a href="#about" class="navbar-item">About Me</a>
-        </li>
-        <li style="margin-right: 20px">
-          <a href="#contact" class="navbar-item">Contact</a>
-        </li>
-      </ul>
-    </nav>
+    .border-container {
+      border: 1px solid var(--main-color);
+      border-radius: 15px;
+      padding: 10px;
+      margin: 10px;
+    }
 
-    <div class="overlay">
-      <img
-        src="images/programming_resize_compress.webp"
-        alt="image"
-        class="overlay-image"
-      />
-      <h1 id="home" class="overlay-heading">Best Codes</h1>
+    .container-flex {
+      display: flex;
+      /* flex-wrap: wrap; */
+      /* justify-content: center; */
+      flex-direction: row;
+      justify-content: space-between;
+      max-width: 100%;
+      overflow: auto;
+      /* align-items: center; */
+    }
+
+    @media (max-width: 768px) {
+      .container-flex {
+        flex-direction: column;
+      }
+    }
+
+    .container-item {
+      margin: 10px;
+      text-align: center;
+      max-width: 400px;
+      overflow-wrap: break-word;
+    }
+
+    .content-image {
+      max-width: 400px;
+      max-height: 400px;
+      width: 80vw;
+      height: auto;
+      cursor: pointer;
+      border-radius: 15px;
+    }
+
+    .content-image:hover {
+      transform: scale(1.01);
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .content-image:not(:hover) {
+      transform: scale(1);
+      transition: 0.3s ease;
+    }
+
+    .content-link {
+      text-decoration: none;
+      color: var(--main-color);
+    }
+
+    .content-link:hover {
+      text-decoration: underline;
+      color: var(--secondary-color);
+    }
+
+    /*Form styles*/
+    #contact-form {
+      width: 50%;
+      max-width: 500px;
+      min-width: 300px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    #contact-form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      box-sizing: border-box;
+      transition: 0.3s ease;
+    }
+
+    #contact-form input:hover,
+    #contact-form textarea:hover {
+      border-color: var(--main-color);
+    }
+
+    #contact-form input:focus,
+    #contact-form textarea:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+    }
+
+    #contact-form textarea {
+      height: 150px;
+      resize: none;
+    }
+
+    #contact-form button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 15px;
+      background-color: var(--secondary-color);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #contact-form button:hover {
+      background-color: var(--main-color);
+      transition: 0.3s ease;
+    }
+
+    .text-center {
+      text-align: center;
+      font-size: 16px;
+      font-family: "Arial", sans-serif;
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--main-color);
+      color: white;
+      padding: 20px;
+    }
+
+    /* Scrollbar Styles */
+    /* Width */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+      cursor: pointer;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: rgb(216, 216, 216);
+      border-radius: 15px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: var(--main-color);
+      border-radius: 10px;
+      min-height: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--secondary-color);
+    }
+
+    ::-webkit-scrollbar-corner {
+      display: none;
+    }
+
+    .modern-rounded-section {
+      background: #f8f9fa;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .section-description {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    .services-list {
+      list-style-type: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .service-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 1px solid var(--main-color);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-prompt {
+      font-size: 1rem;
+      margin-top: 3rem;
+      color: #333;
+    }
+
+    .contact-link {
+      font-weight: bold;
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="menu-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" style="width: 30px; height: 30px" viewBox="0 0 20 20">
+        <!-- SVG path for menu icon -->
+        <path fill="var(--main-color)" d="M1,4 H18 V6 H1 V4 M1,9 H18 V11 H1 V7 M3,14 H18 V16 H1 V14" />
+      </svg>
     </div>
+    <ul class="navbar-list">
+      <li style="margin-right: 20px">
+        <a href="#home" class="navbar-item">Home</a>
+      </li>
+      <li style="margin-right: 20px">
+        <a href="#services" class="navbar-item">Services</a>
+      </li>
+      <li style="margin-right: 20px">
+        <a href="#about" class="navbar-item">About Me</a>
+      </li>
+      <li style="margin-right: 20px">
+        <a href="#contact" class="navbar-item">Contact</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="overlay">
+    <img src="images/programming_resize_compress.webp" alt="image" class="overlay-image" />
+    <h1 id="home" class="overlay-heading">Best Codes</h1>
+  </div>
+  <div class="content-container">
+    <h1 style="margin-top: 50px; text-align: center">About This Website</h1>
+  </div>
+  <div class="border-container">
     <div class="content-container">
-      <h1 style="margin-top: 50px; text-align: center">About This Website</h1>
-    </div>
-    <div class="border-container">
-      <div class="content-container">
-        <div class="container-flex">
-          <div class="container-item">
-            <img
-              src="images/my_github_profile_resized_compress.webp"
-              alt="image"
-              class="content-image"
-              onclick="window.open('https://github.com/the-best-codes', '_blank')"
-              loading="lazy"
-            />
-            <h1 class="container-heading">
-              <a
-                href="https://github.com/the-best-codes"
-                target="_blank"
-                class="content-link"
-                >My GitHub Profile</a
-              >
-            </h1>
-            <p>
-              This site is hosted on github.io, from a repository on my GitHub
-              account.
-            </p>
-          </div>
-          <div class="container-item">
-            <img
-              src="images/best_codes_original_cropped_resized.webp"
-              alt="image"
-              class="content-image"
-              loading="lazy"
-              onclick="window.open('https://the-best-codes.github.io/', '_blank')"
-            />
-            <h1 class="container-heading">
-              <a
-                href="https://the-best-codes.github.io/"
-                target="_blank"
-                class="content-link"
-                >For Myself</a
-              >
-            </h1>
-            <p>
-              This is a website I made for myself so that I can market my
-              services and share my projects with the world.
-            </p>
-          </div>
-          <div class="container-item">
-            <img
-              src="images/about_me_coding_resize_compress.webp"
-              alt="image"
-              class="content-image"
-              onclick="window.open('https://the-best-codes.github.io/', '_blank')"
-            />
-            <h1 class="container-heading">
-              <a
-                href="https://the-best-codes.github.io/"
-                class="content-link"
-                target="_blank"
-                >I Love Coding</a
-              >
-            </h1>
-            <p>
-              I do General Programming, Web Development, Software, APIs, and
-              Arduinos. It's kindof my hobby! I love it, and it's what I am best
-              at.
-            </p>
-          </div>
-          <div class="container-item">
-            <img
-              src="images/about_me_3d_resize_compress.webp"
-              alt="image"
-              class="content-image"
-              onclick="window.open('https://the-best-codes.github.io/printables', '_blank')"
-            />
-            <h1 class="container-heading">
-              <a
-                href="https://the-best-codes.github.io/printables"
-                class="content-link"
-                target="_blank"
-                >I love 3D Designing</a
-              >
-            </h1>
-            <p>
-              I 3D desgin as well. I have a Creality CR-10 V2 Printer, and a
-              <a href="https://www.printables.com/@Best_codes" target="_blank"
-                >printables.com account.</a
-              >
-            </p>
-          </div>
+      <div class="container-flex">
+        <div class="container-item">
+          <img src="images/my_github_profile_resized_compress.webp" alt="image" class="content-image"
+            onclick="window.open('https://github.com/the-best-codes', '_blank')" loading="lazy" />
+          <h1 class="container-heading">
+            <a href="https://github.com/the-best-codes" target="_blank" class="content-link">My GitHub Profile</a>
+          </h1>
+          <p>
+            This site is hosted on github.io, from a repository on my GitHub
+            account.
+          </p>
+        </div>
+        <div class="container-item">
+          <img src="images/best_codes_original_cropped_resized.webp" alt="image" class="content-image" loading="lazy"
+            onclick="window.open('https://the-best-codes.github.io/', '_blank')" />
+          <h1 class="container-heading">
+            <a href="https://the-best-codes.github.io/" target="_blank" class="content-link">For Myself</a>
+          </h1>
+          <p>
+            This is a website I made for myself so that I can market my
+            services and share my projects with the world.
+          </p>
+        </div>
+        <div class="container-item">
+          <img src="images/about_me_coding_resize_compress.webp" alt="image" class="content-image"
+            onclick="window.open('https://the-best-codes.github.io/', '_blank')" />
+          <h1 class="container-heading">
+            <a href="https://the-best-codes.github.io/" class="content-link" target="_blank">I Love Coding</a>
+          </h1>
+          <p>
+            I do General Programming, Web Development, Software, APIs, and
+            Arduinos. It's kindof my hobby! I love it, and it's what I am best
+            at.
+          </p>
+        </div>
+        <div class="container-item">
+          <img src="images/about_me_3d_resize_compress.webp" alt="image" class="content-image"
+            onclick="window.open('https://the-best-codes.github.io/printables', '_blank')" />
+          <h1 class="container-heading">
+            <a href="https://the-best-codes.github.io/printables" class="content-link" target="_blank">I love 3D
+              Designing</a>
+          </h1>
+          <p>
+            I 3D desgin as well. I have a Creality CR-10 V2 Printer, and a
+            <a href="https://www.printables.com/@Best_codes" target="_blank">printables.com account.</a>
+          </p>
         </div>
       </div>
     </div>
+  </div>
+  <div class="content-container">
+    <h1 style="margin-top: 50px; text-align: center">Things I've Made</h1>
+  </div>
+  <div class="border-container">
     <div class="content-container">
-      <h1 style="margin-top: 50px; text-align: center">Things I've Made</h1>
-    </div>
-    <div class="border-container">
-      <div class="content-container">
-        <div class="container-flex">
-          <div class="container-item">
-            <img
-              src="images/my_accomp_extension_downloader_cropped_resized_compress.webp"
-              alt="image"
-              class="content-image"
-              onclick="window.open('https://forums.opera.com/topic/68220/bestcodes-audio-video-downloader', '_blank')"
-              loading="lazy"
-            />
-            <h1 class="container-heading">
-              <a
-                href="https://forums.opera.com/topic/68220/bestcodes-audio-video-downloader"
-                target="_blank"
-                class="content-link"
-                >Media Downloader Extension</a
-              >
-            </h1>
-            <p>
-              I made this simple video and audio file downloader extension for
-              Opera. It snatches the files from the current page and allow you
-              to download and customize them.
-            </p>
-          </div>
-          <div class="container-item">
-            <img
-              src="images/bc-holiday_js_cropped_resize_compress.webp"
-              alt="image"
-              class="content-image"
-              loading="lazy"
-              onclick="window.open('https://github.com/The-Best-Codes/bc-holiday.js/tree/main', '_blank')"
-            />
-            <h1 class="container-heading">
-              <a
-                href="https://github.com/The-Best-Codes/bc-holiday.js/tree/main"
-                target="_blank"
-                class="content-link"
-                >bc-holiday.js</a
-              >
-            </h1>
-            <p>
-              A compact but powerful JavaScript library I made that calculates
-              the holidays for the current day or in a date range. Who knew how
-              complicated adding the holiday that occurs on the first Sunday
-              following the first full moon that occurs on or after the vernal
-              equinox, which is the moment when the sun crosses the celestial
-              equator, marking the start of spring in the northern hemisphere,
-              (e.g., Easter!), could be?
-            </p>
-          </div>
-          <div class="container-item">
-            <img
-              src="images/my_accomp_printables_site_resize_compress.webp"
-              alt="image"
-              class="content-image"
-              onclick="window.open('https://the-best-codes.github.io/printables', '_blank')"
-            />
-            <h1 class="container-heading">
-              <a
-                href="https://the-best-codes.github.io/printables"
-                class="content-link"
-                target="_blank"
-                >My Printables Portfolio</a
-              >
-            </h1>
-            <p>A simple website I made using HTML, CSS, and JavaScript.</p>
-          </div>
-          <div class="container-item">
-            <img
-              src="images/my_accomp_mblock_ext_cropped_resized_compress.webp"
-              alt="image"
-              class="content-image"
-              onclick="window.open('https://planet.mblock.cc/u/1428526', '_blank')"
-            />
-            <h1 class="container-heading">
-              <a
-                href="https://planet.mblock.cc/u/1428526"
-                class="content-link"
-                target="_blank"
-                >mBlock Extensions and Devices</a
-              >
-            </h1>
-            <p>
-              I have developed extensions and devices for mBlock, a block based
-              coding language editor. Amoung them are Weather+ & JS Powerful
-              Tools (shown above), Arduino UNO Plus, Osoyoo Arduino Cat, and
-              more.
-            </p>
-          </div>
+      <div class="container-flex">
+        <div class="container-item">
+          <img src="images/my_accomp_extension_downloader_cropped_resized_compress.webp" alt="image"
+            class="content-image"
+            onclick="window.open('https://forums.opera.com/topic/68220/bestcodes-audio-video-downloader', '_blank')"
+            loading="lazy" />
+          <h1 class="container-heading">
+            <a href="https://forums.opera.com/topic/68220/bestcodes-audio-video-downloader" target="_blank"
+              class="content-link">Media Downloader Extension</a>
+          </h1>
+          <p>
+            I made this simple video and audio file downloader extension for
+            Opera. It snatches the files from the current page and allow you
+            to download and customize them.
+          </p>
+        </div>
+        <div class="container-item">
+          <img src="images/bc-holiday_js_cropped_resize_compress.webp" alt="image" class="content-image" loading="lazy"
+            onclick="window.open('https://github.com/The-Best-Codes/bc-holiday.js/tree/main', '_blank')" />
+          <h1 class="container-heading">
+            <a href="https://github.com/The-Best-Codes/bc-holiday.js/tree/main" target="_blank"
+              class="content-link">bc-holiday.js</a>
+          </h1>
+          <p>
+            A compact but powerful JavaScript library I made that calculates
+            the holidays for the current day or in a date range. Who knew how
+            complicated adding the holiday that occurs on the first Sunday
+            following the first full moon that occurs on or after the vernal
+            equinox, which is the moment when the sun crosses the celestial
+            equator, marking the start of spring in the northern hemisphere,
+            (e.g., Easter!), could be?
+          </p>
+        </div>
+        <div class="container-item">
+          <img src="images/my_accomp_printables_site_resize_compress.webp" alt="image" class="content-image"
+            onclick="window.open('https://the-best-codes.github.io/printables', '_blank')" />
+          <h1 class="container-heading">
+            <a href="https://the-best-codes.github.io/printables" class="content-link" target="_blank">My Printables
+              Portfolio</a>
+          </h1>
+          <p>A simple website I made using HTML, CSS, and JavaScript.</p>
+        </div>
+        <div class="container-item">
+          <img src="images/my_accomp_mblock_ext_cropped_resized_compress.webp" alt="image" class="content-image"
+            onclick="window.open('https://planet.mblock.cc/u/1428526', '_blank')" />
+          <h1 class="container-heading">
+            <a href="https://planet.mblock.cc/u/1428526" class="content-link" target="_blank">mBlock Extensions and
+              Devices</a>
+          </h1>
+          <p>
+            I have developed extensions and devices for mBlock, a block based
+            coding language editor. Amoung them are Weather+ & JS Powerful
+            Tools (shown above), Arduino UNO Plus, Osoyoo Arduino Cat, and
+            more.
+          </p>
         </div>
       </div>
     </div>
+  </div>
+  <div class="content-container">
+    <h1 style="margin-top: 50px; text-align: center">
+      What I'm Currently Working On
+    </h1>
+  </div>
+  <div class="border-container">
     <div class="content-container">
-      <h1 style="margin-top: 50px; text-align: center">
-        What I'm Currently Working On
-      </h1>
-    </div>
-    <div class="border-container">
-      <div class="content-container">
-        <div class="container-flex">
-          <div class="container-item">
-            <img
-              src="images/my_work_weatherworks_cropped_resized_compress.webp"
-              alt="image"
-              class="content-image"
-              onclick="window.open('https://github.com/The-Best-Codes/WeatherWorks', '_blank')"
-              loading="lazy"
-            />
-            <h1 class="container-heading">
-              <a
-                href="https://github.com/The-Best-Codes/WeatherWorks"
-                target="_blank"
-                class="content-link"
-                >WeatherWorks</a
-              >
-            </h1>
-            <p>
-              WeatherWorks is a free home and weather monitor with real-time
-              data, alerts, forecasts, radar, and integration with Tempest
-              weather stations. It can also display family photos. It will run
-              on a Raspberry Pi, Windows 7 - 11, Ubuntu, Linux Mint, macOS, Web
-              Browsers, iOS, and Android. It is still in development.
-            </p>
-          </div>
-          <div class="container-item">
-            <img
-              src="images/my_work_ai_cropped_resized_compress.webp"
-              alt="image"
-              class="content-image"
-              loading="lazy"
-              onclick="window.open('https://best-codes.zapier.app', '_blank')"
-            />
-            <h1 class="container-heading">
-              <a
-                href="https://best-codes.zapier.app"
-                target="_blank"
-                class="content-link"
-                >AI Tools</a
-              >
-            </h1>
-            <p>
-              I am developing a simple AI programming chatbot. You can preview
-              it at
-              <a href="https://best-codes.zapier.app"
-                >https://best-codes.zapier.app</a
-              >
-            </p>
-          </div>
-          <div class="container-item">
-            <img
-              src="images/my_work_ext_cropped_resized_compress.webp"
-              alt="image"
-              class="content-image"
-              onclick="window.open('https://extensions.turbowarp.org', '_blank')"
-            />
-            <h1 class="container-heading">
-              <a
-                href="https://extensions.turbowarp.org"
-                class="content-link"
-                target="_blank"
-                >TurboWarp Extensions</a
-              >
-            </h1>
-            <p>
-              I am working on extensions for TurboWarp. (Not shown above). I am
-              currently working on a Create Variable and List Extension that
-              creates variables and lists in the TurboWarp workspace.
-            </p>
-          </div>
-          <div class="container-item">
-            <img
-              src="images/my_work_community_cropped_resized_compress.webp"
-              alt="image"
-              class="content-image"
-              onclick="alert('There is no page for this yet!')"
-            />
-            <h1 class="container-heading">
-              <a
-                href="data:text/html;charset=utf-8,%3Ctitle%3ECommunity%3C/title%3E%3Chead%3E%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1.0%22%20/%3E%3Cmeta%20http-equiv%3D%22X-UA-Compatible%22%20content%3D%22ie%3Dedge%22%20/%3E%3C/head%3E%3Cbody%3E%3Ch1%3ECommunity%3C/h1%3E%3Cp%3EThere%20is%20no%20page%20for%20this%20yet!%3C/p%3E"
-                class="content-link"
-                target="_blank"
-                >Coding Community</a
-              >
-            </h1>
-            <p>
-              I hope to one day create a coding community where people can
-              discuss and share codes. It will be safe for all ages.
-            </p>
-          </div>
+      <div class="container-flex">
+        <div class="container-item">
+          <img src="images/my_work_weatherworks_cropped_resized_compress.webp" alt="image" class="content-image"
+            onclick="window.open('https://github.com/The-Best-Codes/WeatherWorks', '_blank')" loading="lazy" />
+          <h1 class="container-heading">
+            <a href="https://github.com/The-Best-Codes/WeatherWorks" target="_blank"
+              class="content-link">WeatherWorks</a>
+          </h1>
+          <p>
+            WeatherWorks is a free home and weather monitor with real-time
+            data, alerts, forecasts, radar, and integration with Tempest
+            weather stations. It can also display family photos. It will run
+            on a Raspberry Pi, Windows 7 - 11, Ubuntu, Linux Mint, macOS, Web
+            Browsers, iOS, and Android. It is still in development.
+          </p>
+        </div>
+        <div class="container-item">
+          <img src="images/my_work_ai_cropped_resized_compress.webp" alt="image" class="content-image" loading="lazy"
+            onclick="window.open('https://best-codes.zapier.app', '_blank')" />
+          <h1 class="container-heading">
+            <a href="https://best-codes.zapier.app" target="_blank" class="content-link">AI Tools</a>
+          </h1>
+          <p>
+            I am developing a simple AI programming chatbot. You can preview
+            it at
+            <a href="https://best-codes.zapier.app">https://best-codes.zapier.app</a>
+          </p>
+        </div>
+        <div class="container-item">
+          <img src="images/my_work_ext_cropped_resized_compress.webp" alt="image" class="content-image"
+            onclick="window.open('https://extensions.turbowarp.org', '_blank')" />
+          <h1 class="container-heading">
+            <a href="https://extensions.turbowarp.org" class="content-link" target="_blank">TurboWarp Extensions</a>
+          </h1>
+          <p>
+            I am working on extensions for TurboWarp. (Not shown above). I am
+            currently working on a Create Variable and List Extension that
+            creates variables and lists in the TurboWarp workspace.
+          </p>
+        </div>
+        <div class="container-item">
+          <img src="images/my_work_community_cropped_resized_compress.webp" alt="image" class="content-image"
+            onclick="alert('There is no page for this yet!')" />
+          <h1 class="container-heading">
+            <a href="data:text/html;charset=utf-8,%3Ctitle%3ECommunity%3C/title%3E%3Chead%3E%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1.0%22%20/%3E%3Cmeta%20http-equiv%3D%22X-UA-Compatible%22%20content%3D%22ie%3Dedge%22%20/%3E%3C/head%3E%3Cbody%3E%3Ch1%3ECommunity%3C/h1%3E%3Cp%3EThere%20is%20no%20page%20for%20this%20yet!%3C/p%3E"
+              class="content-link" target="_blank">Coding Community</a>
+          </h1>
+          <p>
+            I hope to one day create a coding community where people can
+            discuss and share codes. It will be safe for all ages.
+          </p>
         </div>
       </div>
     </div>
-    <div class="overlay">
-      <img
-        src="images/about_me_web_dev_compress.webp"
-        alt="image"
-        class="overlay-image"
-      />
-      <h1 id="about" class="overlay-heading">About Me</h1>
-    </div>
+  </div>
+  <div class="overlay">
+    <img src="images/about_me_web_dev_compress.webp" alt="image" class="overlay-image" />
+    <h1 id="about" class="overlay-heading">About Me</h1>
+  </div>
+  <div class="content-container">
+    <h1 id="soon" style="margin-top: 50px; text-align: center">
+      A Bit About Me
+    </h1>
+  </div>
+  <div class="border-container">
     <div class="content-container">
-      <h1 id="soon" style="margin-top: 50px; text-align: center">
-        A Bit About Me
-      </h1>
-    </div>
-    <div class="border-container">
-      <div class="content-container">
-        <div class="container-flex">
-          <div class="container-item">
-            <img
-              src="images/about_me_coding_resize_compress.webp"
-              alt="image"
-              class="content-image"
-              onclick="window.open('https://github.com/The-Best-Codes/', '_blank')"
-              loading="lazy"
-            />
-            <h1 class="container-heading">
-              <a
-                href="https://github.com/The-Best-Codes/"
-                target="_blank"
-                class="content-link"
-                >Programming</a
-              >
-            </h1>
-            <p>
-              I am a full-stack web developer. I love coding in web languages
-              and Node. I also do some micropython, bash, c++, etc. I am
-              @Best_codes pretty much everywhere.
-            </p>
-          </div>
-          <div class="container-item">
-            <img
-              src="images/about_me_3d_blender_resize_compress.webp"
-              alt="image"
-              class="content-image"
-              loading="lazy"
-              onclick="window.open('https://www.printables.com/@Best_codes', '_blank')"
-            />
-            <h1 class="container-heading">
-              <a
-                href="https://www.printables.com/@Best_codes"
-                target="_blank"
-                class="content-link"
-                >3D Designing</a
-              >
-            </h1>
-            <p style="max-width: 100%">
-              I love 3D desgining. I do lots of 3D printing. I own a Creality
-              CR-10 V2.
-            </p>
-          </div>
-          <div class="container-item">
-            <img
-              src="images/about_me_castle_compress.webp"
-              alt="image"
-              class="content-image"
-              onclick="window.open('https://www.google.com/maps/place/Dent-De+Lion+Ct,+Margate,+UK/', '_blank')"
-            />
-            <h1 class="container-heading">
-              <a
-                href="https://www.google.com/maps/place/Dent-De+Lion+Ct,+Margate,+UK/"
-                class="content-link"
-                target="_blank"
-                >Dentdelion Castle</a
-              >
-            </h1>
-            <p>I research dentdelion castle. It's a cool place.</p>
-          </div>
-          <div class="container-item">
-            <img
-              src="images/about_me_social_compress.webp"
-              alt="image"
-              class="content-image"
-              loading="lazy"
-              onclick="window.open('https://the-best-codes.github.io/social.html', '_blank')"
-            />
-            <h1 class="container-heading">
-              <a
-                href="https://the-best-codes.github.io/social.html"
-                target="_blank"
-                class="content-link"
-                >Social Media</a
-              >
-            </h1>
-            <p>Links to my various social media accounts.</p>
-          </div>
+      <div class="container-flex">
+        <div class="container-item">
+          <img src="images/about_me_coding_resize_compress.webp" alt="image" class="content-image"
+            onclick="window.open('https://github.com/The-Best-Codes/', '_blank')" loading="lazy" />
+          <h1 class="container-heading">
+            <a href="https://github.com/The-Best-Codes/" target="_blank" class="content-link">Programming</a>
+          </h1>
+          <p>
+            I am a full-stack web developer. I love coding in web languages
+            and Node. I also do some micropython, bash, c++, etc. I am
+            @Best_codes pretty much everywhere.
+          </p>
+        </div>
+        <div class="container-item">
+          <img src="images/about_me_3d_blender_resize_compress.webp" alt="image" class="content-image" loading="lazy"
+            onclick="window.open('https://www.printables.com/@Best_codes', '_blank')" />
+          <h1 class="container-heading">
+            <a href="https://www.printables.com/@Best_codes" target="_blank" class="content-link">3D Designing</a>
+          </h1>
+          <p style="max-width: 100%">
+            I love 3D desgining. I do lots of 3D printing. I own a Creality
+            CR-10 V2.
+          </p>
+        </div>
+        <div class="container-item">
+          <img src="images/about_me_castle_compress.webp" alt="image" class="content-image"
+            onclick="window.open('https://www.google.com/maps/place/Dent-De+Lion+Ct,+Margate,+UK/', '_blank')" />
+          <h1 class="container-heading">
+            <a href="https://www.google.com/maps/place/Dent-De+Lion+Ct,+Margate,+UK/" class="content-link"
+              target="_blank">Dentdelion Castle</a>
+          </h1>
+          <p>I research dentdelion castle. It's a cool place.</p>
+        </div>
+        <div class="container-item">
+          <img src="images/about_me_social_compress.webp" alt="image" class="content-image" loading="lazy"
+            onclick="window.open('https://the-best-codes.github.io/social.html', '_blank')" />
+          <h1 class="container-heading">
+            <a href="https://the-best-codes.github.io/social.html" target="_blank" class="content-link">Social Media</a>
+          </h1>
+          <p>Links to my various social media accounts.</p>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="overlay">
-      <img
-        src="images/my_services_compress.webp"
-        alt="image"
-        class="overlay-image"
-      />
-      <h1 id="services" class="overlay-heading">My Services</h1>
-    </div>
-    <div class="text-center modern-rounded-section">
-      <h2 class="section-title">What I Do</h2>
-      <p class="section-description">I specialize in:</p>
-      <ul class="services-list">
-        <li class="service-item">Web Development</li>
-        <li class="service-item">JS Libraries</li>
-        <li class="service-item">3D Designing</li>
-        <li class="service-item">3D Printing</li>
-        <li class="service-item">Custom 3D Models</li>
-        <li class="service-item">Miscellaneous Programming</li>
-        <li class="service-item">API Development & Integration</li>
-        <li class="service-item">Dentdelion Castle</li>
-      </ul>
-      <p class="contact-prompt">
-        Interested in my services?
-        <a href="#contact" class="contact-link">Contact me</a> to learn more.
+  <div class="overlay">
+    <img src="images/my_services_compress.webp" alt="image" class="overlay-image" />
+    <h1 id="services" class="overlay-heading">My Services</h1>
+  </div>
+  <div class="text-center modern-rounded-section">
+    <h2 class="section-title">What I Do</h2>
+    <p class="section-description">I specialize in:</p>
+    <ul class="services-list">
+      <li class="service-item">Web Development</li>
+      <li class="service-item">JS Libraries</li>
+      <li class="service-item">3D Designing</li>
+      <li class="service-item">3D Printing</li>
+      <li class="service-item">Custom 3D Models</li>
+      <li class="service-item">Miscellaneous Programming</li>
+      <li class="service-item">API Development & Integration</li>
+      <li class="service-item">Dentdelion Castle</li>
+    </ul>
+    <p class="contact-prompt">
+      Interested in my services?
+      <a href="#contact" class="contact-link">Contact me</a> to learn more.
+    </p>
+  </div>
+
+  <div class="overlay">
+    <img src="images/contact_me_resize_compress.webp" alt="image" class="overlay-image" />
+    <h1 id="contact" class="overlay-heading">Contact Me</h1>
+  </div>
+  <div class="content-container">
+    <h1 style="margin-top: 50px; text-align: center">Get in touch</h1>
+    <div class="text-center">
+      <p>
+        Feel free to contact me about web development, 3D design, or something
+        completely random. 😊
+      </p>
+      <p>I'll get back to you as soon as possible.</p>
+      <p>
+        The form below will only work if you have an email handling app (e.g.,
+        Thunderbird) installed.
+      </p>
+      <p>
+        Otherwise, you can email me via my coding email:
+        <a href="mailto:best-codes@proton.me">best-codes@proton.me</a>
       </p>
     </div>
+    <form id="contact-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <div class="footer">
+    <h2>&copy; 2023 Best_codes. All rights reserved.</h2>
+  </div>
+  <script>
+    document
+      .getElementById("contact-form")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    <div class="overlay">
-      <img
-        src="images/contact_me_resize_compress.webp"
-        alt="image"
-        class="overlay-image"
-      />
-      <h1 id="contact" class="overlay-heading">Contact Me</h1>
-    </div>
-    <div class="content-container">
-      <h1 style="margin-top: 50px; text-align: center">Get in touch</h1>
-      <div class="text-center">
-        <p>
-          Feel free to contact me about web development, 3D design, or something
-          completely random. 😊
-        </p>
-        <p>I'll get back to you as soon as possible.</p>
-        <p>
-          The form below will only work if you have an email handling app (e.g.,
-          Thunderbird) installed.
-        </p>
-        <p>
-          Otherwise, you can email me via my coding email:
-          <a href="mailto:best-codes@proton.me">best-codes@proton.me</a>
-        </p>
-      </div>
-      <form id="contact-form">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required />
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
-        <label for="message">Message</label>
-        <textarea id="message" name="message" required></textarea>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-    <div class="footer">
-      <h2>&copy; 2023 Best_codes. All rights reserved.</h2>
-    </div>
-    <script>
-      document
-        .getElementById("contact-form")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
+        var name = encodeURIComponent(document.getElementById("name").value);
+        var email = encodeURIComponent(
+          document.getElementById("email").value
+        );
+        var message = encodeURIComponent(
+          document.getElementById("message").value
+        );
 
-          var name = encodeURIComponent(document.getElementById("name").value);
-          var email = encodeURIComponent(
-            document.getElementById("email").value
-          );
-          var message = encodeURIComponent(
-            document.getElementById("message").value
-          );
+        var mailtoLink =
+          "mailto:best-codes@proton.me?subject=Contacting%20Best%20Codes&body=" +
+          message +
+          "%0D%0A%0D%0AName:%20" +
+          name +
+          "%0D%0AEmail:%20" +
+          email;
 
-          var mailtoLink =
-            "mailto:best-codes@proton.me?subject=Contacting%20Best%20Codes&body=" +
-            message +
-            "%0D%0A%0D%0AName:%20" +
-            name +
-            "%0D%0AEmail:%20" +
-            email;
+        // Do not encode the whole URI, only parameters
+        window.location.href = mailtoLink;
 
-          // Do not encode the whole URI, only parameters
-          window.location.href = mailtoLink;
-
-          // Reset the form
-          document.getElementById("contact-form").reset();
-        });
-
-      document.addEventListener("DOMContentLoaded", function () {
-        var menuIcon = document.querySelector(".menu-icon");
-        var navbarList = document.querySelector(".navbar-list");
-
-        // Toggle mobile menu visibility
-        menuIcon.addEventListener("click", function () {
-          navbarList.style.display =
-            navbarList.style.display === "block" ? "none" : "block";
-        });
+        // Reset the form
+        document.getElementById("contact-form").reset();
       });
 
-      window.addEventListener("resize", function () {
-        var navbarList = document.querySelector(".navbar-list");
-        var menuIcon = document.querySelector(".menu-icon");
+    document.addEventListener("DOMContentLoaded", function () {
+      var menuIcon = document.querySelector(".menu-icon");
+      var navbarList = document.querySelector(".navbar-list");
 
-        // Ensure correct display of the navbar and menu icon on window resize
-        if (window.innerWidth > 768) {
-          navbarList.style.display = "flex";
-          menuIcon.style.display = "none";
-        } else {
-          if (navbarList.style.display === "flex") {
-            navbarList.style.display = "none";
-          }
-          menuIcon.style.display = "block";
+      // Toggle mobile menu visibility
+      menuIcon.addEventListener("click", function () {
+        navbarList.style.display =
+          navbarList.style.display === "block" ? "none" : "block";
+      });
+    });
+
+    window.addEventListener("resize", function () {
+      var navbarList = document.querySelector(".navbar-list");
+      var menuIcon = document.querySelector(".menu-icon");
+
+      // Ensure correct display of the navbar and menu icon on window resize
+      if (window.innerWidth > 768) {
+        navbarList.style.display = "flex";
+        menuIcon.style.display = "none";
+      } else {
+        if (navbarList.style.display === "flex") {
+          navbarList.style.display = "none";
         }
-      });
-    </script>
-    <!-- Google tag (gtag.js) 
+        menuIcon.style.display = "block";
+      }
+    });
+  </script>
+  <!-- Google tag (gtag.js) 
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-X54TMF3ST6"
@@ -985,7 +824,7 @@
 
       gtag("config", "G-X54TMF3ST6");
     </script>-->
-    <!-- Google Tag Manager
+  <!-- Google Tag Manager
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -1002,28 +841,22 @@
       })(window, document, "script", "dataLayer", "GTM-WFB88JQV");
     </script>
      End Google Tag Manager -->
-    <!-- Default Statcounter code for BestCodes's Website
+  <!-- Default Statcounter code for BestCodes's Website
 https://the-best-codes.github.io/ -->
-    <script type="text/javascript">
-      var sc_project = 12947838;
-      var sc_invisible = 1;
-      var sc_security = "64126f45";
-    </script>
-    <script
-      type="text/javascript"
-      src="https://www.statcounter.com/counter/counter.js"
-      async
-    ></script>
-    <noscript
-      ><div class="statcounter">
-        <a title="Web Analytics" href="https://statcounter.com/" target="_blank"
-          ><img
-            class="statcounter"
-            src="https://c.statcounter.com/12947838/0/64126f45/1/"
-            alt="Web Analytics"
-            referrerpolicy="no-referrer-when-downgrade"
-        /></a></div
-    ></noscript>
-    <!-- End of Statcounter Code -->
-  </body>
+  <script type="text/javascript">
+    var sc_project = 12947838;
+    var sc_invisible = 1;
+    var sc_security = "64126f45";
+  </script>
+  <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+  <noscript>
+    <div class="statcounter">
+      <a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter"
+          src="https://c.statcounter.com/12947838/0/64126f45/1/" alt="Web Analytics"
+          referrerpolicy="no-referrer-when-downgrade" /></a>
+    </div>
+  </noscript>
+  <!-- End of Statcounter Code -->
+</body>
+
 </html>
