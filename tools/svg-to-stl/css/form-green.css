@@ -929,9 +929,9 @@ Not advised to edit stuff below this line
 
 /* .formoid-solid-light-green color scheme begin */
 /*
-    first: #2ECC71;
+    first: rgb(0, 140, 255);
     second: #18B159;
-    third: #6CDB9B;
+    third: rgb(0, 200, 255);
 */
 
 .formoid-solid-light-green input[type=button]:focus,
@@ -943,7 +943,7 @@ Not advised to edit stuff below this line
 
 .formoid-solid-light-green div.title {
   background-color: rgb(0, 140, 255);
-  /* border-top: 1px solid #6CDB9B;
+  /* border-top: 1px solid rgb(0, 200, 255);
   border-bottom: 5px solid #18B159; */
   padding: 10px;
 }
@@ -1006,8 +1006,8 @@ Not advised to edit stuff below this line
 }
 
 .formoid-solid-light-green input[type=checkbox]:checked+span:before {
-  color: #2ECC71;
-  border-color: #2ECC71;
+  color: rgb(0, 140, 255);
+  border-color: rgb(0, 140, 255);
 }
 
 /* radio */
@@ -1016,11 +1016,11 @@ Not advised to edit stuff below this line
 }
 
 .formoid-solid-light-green input[type=radio]:hover+span:before {
-  color: #6CDB9B;
+  color: rgb(0, 200, 255);
 }
 
 .formoid-solid-light-green input[type=radio]:checked+span:before {
-  color: #2ECC71;
+  color: rgb(0, 140, 255);
 }
 
 /* rating */
@@ -1031,11 +1031,11 @@ Not advised to edit stuff below this line
 
 .formoid-solid-light-green .rating:hover .rating-star:hover:after,
 .formoid-solid-light-green .rating:hover .rating-star:hover~.rating-star:after {
-  color: #6CDB9B;
+  color: rgb(0, 200, 255);
 }
 
 .formoid-solid-light-green .rating-input:checked~.rating-star:after {
-  color: #2ECC71;
+  color: rgb(0, 140, 255);
 }
 
 
@@ -1049,7 +1049,7 @@ Not advised to edit stuff below this line
 .formoid-solid-light-green input[type=file]:hover,
 .formoid-solid-light-green textarea:hover,
 .formoid-solid-light-green select:hover {
-  border-color: #6CDB9B;
+  border-color: rgb(0, 200, 255);
 }
 
 .formoid-solid-light-green input[type=text]:focus,
@@ -1062,7 +1062,7 @@ Not advised to edit stuff below this line
 .formoid-solid-light-green input[type=file]:focus,
 .formoid-solid-light-green textarea:focus,
 .formoid-solid-light-green select:focus {
-  border-color: #2ECC71;
+  border-color: rgb(0, 140, 255);
 }
 
 
@@ -1075,7 +1075,7 @@ Not advised to edit stuff below this line
 .formoid-solid-light-green input[type=file]:focus~.icon-place:before,
 .formoid-solid-light-green .button:focus~.icon-place:before,
 .formoid-solid-light-green .file_text:focus~.icon-place:before {
-  color: #2ECC71;
+  color: rgb(0, 140, 255);
 }
 
 
@@ -1087,13 +1087,13 @@ Not advised to edit stuff below this line
 .formoid-solid-light-green .dropdown-menu li.selected>a.highlighted,
 .formoid-solid-light-green .dropdown-inverse li.active>a,
 .formoid-solid-light-green .dropdown-inverse li.selected>a {
-  background-color: #2ECC71;
+  background-color: rgb(0, 140, 255);
 }
 
 .formoid-solid-light-green .btn.btn-primary:hover,
 .formoid-solid-light-green .btn.btn-primary:focus,
 .formoid-solid-light-green .btn-group:focus .btn.btn-primary.dropdown-toggle {
-  border-color: #6CDB9B;
+  border-color: rgb(0, 200, 255);
 }
 
 .formoid-solid-light-green .btn.btn-primary:active,
@@ -1107,15 +1107,15 @@ Not advised to edit stuff below this line
 .formoid-solid-light-green .dropdown-menu li.selected>a:focus,
 .formoid-solid-light-green .dropdown-menu li.active>a.highlighted:focus,
 .formoid-solid-light-green .dropdown-menu li.selected>a.highlighted:focus {
-  border-color: #2ECC71;
+  border-color: rgb(0, 140, 255);
 }
 
 .formoid-solid-light-green .dropdown-arrow {
-  border-bottom: 8px solid #2ECC71;
+  border-bottom: 8px solid rgb(0, 140, 255);
 }
 
 .formoid-solid-light-green .dropdown-menu {
-  border: 2px solid #2ECC71;
+  border: 2px solid rgb(0, 140, 255);
 }
 
 
@@ -1123,11 +1123,11 @@ Not advised to edit stuff below this line
 
 /* datepicker */
 .datepicker {
-  border: 2px solid #2ECC71;
+  border: 2px solid rgb(0, 140, 255);
 }
 
 .datepicker:before {
-  border-bottom: 7px solid #2ECC71;
+  border-bottom: 7px solid rgb(0, 140, 255);
 }
 
 .datepicker td.active,
@@ -1156,7 +1156,7 @@ Not advised to edit stuff below this line
 .datepicker td span.active[disabled] {
   color: #ffffff;
   background-image: none;
-  background-color: #2ECC71;
+  background-color: rgb(0, 140, 255);
 }
 
 /* .formoid-solid-light-green color scheme begin end */
