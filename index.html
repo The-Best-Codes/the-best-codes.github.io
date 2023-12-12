@@ -885,7 +885,7 @@ https://the-best-codes.github.io/ -->
         console.log(`User was referred from ${ref} from link ${click} on ${site} for reason ${reason}`);
 
         // Only show the notification if the site is known and not 'Unknown'
-        if (site !== 'Unknown') {
+        if (ref !== 'Unknown') {
           // Create notification element
           const notification = document.createElement('div');
           notification.id = 'notification';
