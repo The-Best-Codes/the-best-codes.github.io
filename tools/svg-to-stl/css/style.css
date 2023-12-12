@@ -2,6 +2,22 @@ body {
     margin: 0px;
 }
 
+::selection {
+    background-color: var(--secondary-color);
+    color: var(--main-bg-color);
+}
+
+:root {
+    --main-color: rgb(0, 140, 255);
+    --secondary-color: rgb(0, 100, 182);
+    --darker-color: rgb(0, 75, 136);
+    --secondary-darker-color: rgb(0, 50, 91);
+    --main-text-color: rgb(255, 255, 255);
+    --secondary-text-color: rgb(0, 0, 0);
+    --main-bg-color: rgb(255, 255, 255);
+    --secondary-bg-color: rgb(0, 0, 0);
+}
+
 /* WebGL and/or FileReader not supported */
 .container {
     width: 100%;
@@ -60,19 +76,28 @@ div.notsupported .small {
 }
 
 .button {
-    background: #2ECC71;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border: 1px solid black;
-    padding:  6px 4px;
-    font-size: 20px;
+    background: var(--main-color);
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border: none;
+    padding: 5px 10px;
     font-family: Arial, Helvetica, sans-serif;
-    color: #222222;
+    color: black;
     text-align: center;
-    width: 170px;
     margin: 10 auto;
 }
+
+.button:hover {
+    background: var(--secondary-color);
+    transition: 0.5s ease;
+    transform: all;
+}
+
+.button:not(:hover) {
+    background: var(--main-color);
+}
+
 .button img {
     position: relative;
     width: 20px;
@@ -85,6 +110,7 @@ div.notsupported .small {
     position: relative;
     overflow: hidden;
 }
+
 .fileUpload input.upload {
     position: absolute;
     top: 0;
@@ -160,4 +186,3 @@ div.notsupported .small {
     width: 96%;
     height: 96%;
 }
-
