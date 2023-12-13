@@ -481,7 +481,30 @@
       padding: 10px 20px;
       border-radius: 5px;
       cursor: pointer;
+      transition: 0.3s ease;
     }
+
+    .cookie-btn:hover {
+      background-color: #3e8e41;
+    }
+
+    .cookie-btn:not(:hover) {
+      background-color: #4CAF50;
+    }
+
+    .cookie-btn:focus {
+      outline: none;
+    }
+
+    .cookie-btn:active {
+      transform: scale(0.95);
+    }
+
+    .cookie-notice a:hover {
+      text-decoration: none;
+    }
+
+
 
     @media (max-width: 768px) {
       .cookie-notice {
@@ -526,7 +549,8 @@
   </nav>
   <!-- Cookie Notice -->
   <div id="cookieNotice" class="cookie-notice">
-    <p>This website uses cookies to ensure you get the best experience on our website. <a href="/cookie-policy">Learn
+    <p>This website uses cookies to ensure you get the best experience on our website. <a
+        href="https://www.aboutcookies.org/" target="_blank" style="margin-left: 10px; margin-right: 10px;">Learn
         more</a></p>
     <button id="acceptCookies" class="cookie-btn">Got it!</button>
   </div>
