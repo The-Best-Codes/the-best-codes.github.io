@@ -443,10 +443,60 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: opacity 0.5s ease;
       max-width: 200px;
-      width: 75vw;
+      width: 60vw;
       text-align: center;
       overflow-wrap: break-word;
       text-wrap: break-word;
+    }
+
+    /* Cookie Notice Styles */
+    .cookie-notice {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #252e39;
+      color: #fff;
+      padding: 10px;
+      z-index: 10000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .cookie-notice p {
+      margin-right: 10px;
+    }
+
+    .cookie-notice a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .cookie-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .cookie-notice {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .cookie-notice p {
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .cookie-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -474,7 +524,12 @@
       </li>
     </ul>
   </nav>
-
+  <!-- Cookie Notice -->
+  <div id="cookieNotice" class="cookie-notice">
+    <p>This website uses cookies to ensure you get the best experience on our website. <a href="/cookie-policy">Learn
+        more</a></p>
+    <button id="acceptCookies" class="cookie-btn">Got it!</button>
+  </div>
   <div class="overlay">
     <img src="images/programming_resize_compress.webp" alt="image" class="overlay-image" />
     <h1 id="home" class="overlay-heading">Best Codes</h1>
@@ -906,6 +961,24 @@ https://the-best-codes.github.io/ -->
         }, 3000);
       }
     });
+
+    // Add cookie consent notice
+    window.onload = function () {
+      var cookieNotice = document.getElementById('cookieNotice');
+      var acceptCookies = document.getElementById('acceptCookies');
+
+      acceptCookies.onclick = function () {
+        cookieNotice.style.display = 'none';
+        // Set a cookie to remember the user's consent
+        document.cookie = "cookies_accepted=true;max-age=86400;path=/";
+      }
+
+      // Check if the cookie consent has been previously accepted
+      if (document.cookie.indexOf('cookies_accepted') != -1) {
+        cookieNotice.style.display = 'none';
+      }
+    }
+
   </script>
 </body>
 
