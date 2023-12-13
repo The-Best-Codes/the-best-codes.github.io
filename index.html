@@ -549,7 +549,7 @@
     </ul>
   </nav>
   <!-- Cookie Notice -->
-  <div id="cookieNotice" class="cookie-notice">
+  <div id="cookieNotice" class="cookie-notice" style="display: none;">
     <p>This website uses cookies to ensure you have an awesome experience. <a href="https://www.aboutcookies.org/"
         target="_blank" style="margin-left: 10px; margin-right: 10px;">Learn
         more</a></p>
@@ -1001,6 +1001,8 @@ https://the-best-codes.github.io/ -->
       // Check if the cookie consent has been previously accepted
       if (document.cookie.indexOf('cookies_accepted') != -1) {
         cookieNotice.style.display = 'none';
+      } else {
+        cookieNotice.style.display = 'flex';
       }
     }
 
