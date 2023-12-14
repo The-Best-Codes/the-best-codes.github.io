@@ -1,282 +1,495 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Must Have Bookmarklets | Best Codes's Official Website</title>
-    <link rel="icon" type="image/png" href="favicon_32_32_compress.ico">
-    <meta name="description"
-        content="Every web developer needs these bookmarklets! Simply drag and drop each bookmarklet that you need into your browser's bookmarks bar.">
+    <link rel="icon" type="image/png" href="favicon_32_32_compress.ico" />
+    <meta
+      name="description"
+      content="Every web developer needs these bookmarklets! Simply drag and drop each bookmarklet that you need into your browser's bookmarks bar."
+    />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-        header {
-            background-color: #27ae60;
-            color: white;
-            width: 100%;
-            padding: 20px 0;
-            text-align: center;
-            font-size: 24px;
-            margin-bottom: 30px;
-        }
+      header {
+        background-color: #27ae60;
+        color: white;
+        width: 100%;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 30px;
+      }
 
-        #searchInput {
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            width: 50%;
-            margin-bottom: 20px;
-        }
+      #searchInput {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 50%;
+        margin-bottom: 20px;
+      }
 
-        #bookmarkletsContainer {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            grid-gap: 20px;
-            width: 80%;
-            max-width: 1000px;
-        }
+      #bookmarkletsContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 20px;
+        width: 80%;
+        max-width: 1000px;
+      }
 
-        .bookmarklet-box {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            box-sizing: border-box;
-            transition: box-shadow 0.3s, transform 0.3s ease;
-        }
+      .bookmarklet-box {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        transition: box-shadow 0.3s, transform 0.3s ease;
+      }
 
-        .bookmarklet-box:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transform: translateY(-5px);
-        }
+      .bookmarklet-box:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transform: translateY(-5px);
+      }
 
-        .bookmarklet {
-            display: block;
-            background-color: #2ecc71;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: move;
-        }
+      .bookmarklet {
+        display: block;
+        background-color: #2ecc71;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: move;
+      }
 
-        .description {
-            color: #777;
-            font-size: 14px;
-            margin-top: 10px;
-            text-align: center;
-            overflow-wrap: break-word;
-        }
+      .description {
+        color: #777;
+        font-size: 14px;
+        margin-top: 10px;
+        text-align: center;
+        overflow-wrap: break-word;
+      }
 
-        .no-results {
-            text-align: center;
-            color: #999;
-            font-style: italic;
-            margin-top: 20px;
-        }
+      .no-results {
+        text-align: center;
+        color: #999;
+        font-style: italic;
+        margin-top: 20px;
+      }
 
-        .copy-button {
-            display: block;
-            background-color: #2ecc71;
-            color: white;
-            text-align: center;
-            font-size: 16px;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: none;
-            width: 100%;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+      .copy-button {
+        display: block;
+        background-color: #2ecc71;
+        color: white;
+        text-align: center;
+        font-size: 16px;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: none;
+        width: 100%;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
 
-        .copy-button:hover {
-            background-color: #27ae60;
-        }
+      .copy-button:hover {
+        background-color: #27ae60;
+      }
 
-        #footer {
-            background-color: #27ae60;
-            color: white;
-            width: 100%;
-            padding: 10px 0;
-            text-align: center;
-            font-size: 24px;
-            margin-top: 30px;
-        }
+      #footer {
+        background-color: #27ae60;
+        color: white;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        font-size: 24px;
+        margin-top: 30px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <header>Bookmarklets Search</header>
 
-    <h1 style="text-align: center; font-size: min(15vw, 60px);">Awesome Bookmarklets</h1>
-    <p style="text-align: center;">Every web developer needs these bookmarklets! Simply drag and drop each bookmarklet
-        that you need into your browser's bookmarks bar.</p>
-    <p style="text-align: center;">Not sure what bookmarklets are? <a
-            href="https://dev.to/best_codes/11-amazing-bookmarklets-for-web-devs-what-are-they-anyways--3pk6"
-            target="_blank">Click here</a></p>
+    <h1 style="text-align: center; font-size: min(15vw, 60px)">
+      Awesome Bookmarklets
+    </h1>
+    <p style="text-align: center">
+      Every web developer needs these bookmarklets! Simply drag and drop each
+      bookmarklet that you need into your browser's bookmarks bar.
+    </p>
+    <p style="text-align: center">
+      Not sure what bookmarklets are?
+      <a
+        href="https://dev.to/best_codes/11-amazing-bookmarklets-for-web-devs-what-are-they-anyways--3pk6"
+        target="_blank"
+        >Click here</a
+      >
+    </p>
 
-    <input type="text" id="searchInput" placeholder="Search bookmarklets..." onkeyup="searchBookmarklets()">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search bookmarklets..."
+      onkeyup="searchBookmarklets()"
+    />
 
     <div id="bookmarkletsContainer"></div>
 
-    <div class="no-results" id="noResultsMessage" style="display: none; text-align: center;">No results found</div>
-
+    <div
+      class="no-results"
+      id="noResultsMessage"
+      style="display: none; text-align: center"
+    >
+      No results found
+    </div>
 
     <div id="footer">
-        <h2>&copy; 2023 By Best Codes</h2>
+      <h2>&copy; 2023 By Best Codes</h2>
     </div>
     <script>
-        var bookmarkletsData = [
-            {
-                "name": "JSON Formatter",
-                "code": "javascript:(function() { function syntaxHighlight(json) { json = JSON.stringify(json, undefined, 4); json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); return json.replace(/(\"(\\\\u[a-zA-Z0-9]{4}|\\\\[^u]|[^\\\\\"])*\"(\\s*:)?|\\b(true|false|null)\\b|-?\\d+(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)/g, function (match) { var cls = 'color: black;'; if (/^\"/.test(match)) { if (/:$/.test(match)) { cls = 'color: green;'; } else { cls = 'color: darkorange;'; } } else if (/true|false/.test(match)) { cls = 'color: red;'; } else if (/null|-?\\d+(?:\\.\\d*)?(?:[eE][+-]?\\d+)?/.test(match)) { cls = 'color: purple;'; } return '<span style=\"' + cls + '\">' + match + '</span>'; }); } var contentType = document.contentType; if (contentType === \"application/json\") { var json = JSON.parse(document.body.innerText); var highlighted = syntaxHighlight(json); document.body.innerHTML = '<pre>' + highlighted + '</pre>'; document.body.style.fontFamily = \"Arial, sans-serif\"; document.body.style.fontSize = \"15px\"; } else { alert(\"This page does not contain JSON.\"); }}());",
-                "description": "With one click, this bookmarklet will format the JSON code in an API response. It works on any webpage that is a JSON API response. (e.g. https://jsonplaceholder.typicode.com/posts)",
-                "searchTags": ["javascript object notation", "json", "format", "pretty", "api", "response", "json formatter", "data", "parse", "validate", "nested", "key-value", "manipulation", "debugging", "parsing", "visualization", "syntax", "tool"]
-            },
-            {
-                "name": "QR Code Generator",
-                "code": "javascript:(function() {  var url = encodeURIComponent(window.location.href);  var qrCodeUrl = \"https://api.qrserver.com/v1/create-qr-code/?data=\" + url;  window.open(qrCodeUrl, \"_blank\");})();",
-                "description": "Easily generate a QR code by simply entering a URL or text.",
-                "searchTags": ["qr", "qr code", "qr generator", "qr code generator", "url", "text", "link", "scan", "phone", "tablet", "qr maker", "qr code maker"]
-            },
-            {
-                "name": "Translate Page",
-                "code": "javascript:(function() { var lang = prompt(\"Enter language code to translate to:\", \"en\"); var translationUrl = \"https://translate.google.com/translate?sl=auto&tl=\" + lang + \"&u=\" + encodeURIComponent(window.location.href); window.open(translationUrl, \"_blank\");})();",
-                "description": "This bookmarklet uses Google Translate to translate any page that you are on. When clicked, it prompts for the language (two-letter code, e.g., “French” → “fr”), and opens the translated page.",
-                "searchTags": ["translate", "translation", "language", "google translate", "webpage translation", "multilingual", "browser language", "translate to", "language code", "translate bookmarklet", "translate page"]
-            },
-            {
-                "name": "Dark Mode",
-                "code": "javascript:(function() { var style = document.createElement('style'); style.innerHTML = ` * { color: white !important; background-color: #111000 !important; } `; document.head.appendChild(style);})();",
-                "description": "This bookmarklet will turn a page into dark mode (or try to). It may break some pages.",
-                "searchTags": ["dark mode", "night mode", "browser theme", "webpage appearance", "dark background", "contrast", "eye-friendly", "CSS styling", "website color scheme", "dark mode bookmarklet"]
-            },
-            {
-                "name": "Password Generator",
-                "code": "javascript:(function() { function generatePassword(length) { var charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-+={}|:\"?#$*'; var password = ''; for (var i = 0; i < length; i++) { var randomIndex = Math.floor(Math.random() * charset.length); password += charset.charAt(randomIndex); } return password; } var passwordLength = prompt(\"Enter password length:\", \"8\"); var generatedPassword = generatePassword(passwordLength); prompt(\"Generated Password:\", generatedPassword);})();",
-                "description": "This handy bookmark generates a random password. You are prompted for a length, and a password is generated.",
-                "searchTags": ["password generator", "random password", "secure password", "password strength", "password length", "password manager", "password tool", "generate password", "password generation", "password utility", "password bookmarklet"]
-            },
-            {
-                "name": "Email Copier",
-                "code": "javascript:(function() { const email = \"you@example.com\"; const dummyElement = document.createElement(\"textarea\"); document.body.appendChild(dummyElement); dummyElement.value = email; dummyElement.select(); document.execCommand(\"copy\"); document.body.removeChild(dummyElement);})();",
-                "description": "If you are like me and are paranoid about mistyping your email, this bookmarklet is right for you. Substitute you@example.com with your real email.",
-                "searchTags": ["email copier", "copy email", "email address", "email utility", "email bookmarklet", "email management", "email tool", "email automation", "email convenience", "email copy", "email safety"]
-            },
-            {
-                "name": "Page Word Count",
-                "code": "javascript:(function() { var text = document.body.innerText || document.body.textContent; var words = text.trim().split(/\\s+/).length; alert(\"Word Count: \" + words);})();",
-                "description": "This bookmarklet scans the page and tells you how many words are on it.",
-                "searchTags": ["word count", "page statistics", "text analysis", "content length", "word counter", "word frequency", "webpage word count", "text metrics", "word count bookmarklet", "word count tool", "text analysis utility"]
-            },
-            {
-                "name": "Color Picker",
-                "code": "javascript:(function(){  var container = document.createElement('div');  container.style.position = 'fixed';  container.style.top = '10px';  container.style.right = '10px';  container.style.zIndex = '9999';  container.style.backgroundColor = 'white';  container.style.borderRadius = '10px';  container.style.padding = '10px';  container.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.3)';  container.style.display = 'flex';  container.style.alignItems = 'center';  var colorInput = document.createElement('input');  colorInput.type = 'color';  colorInput.style.width = '30px';  colorInput.style.height = '30px';  colorInput.style.marginRight = '10px';  var copyButton = document.createElement('button');  copyButton.textContent = 'Copy';  copyButton.style.padding = '5px 10px';  copyButton.style.marginRight = '10px';  copyButton.style.backgroundColor = '#4CAF50';  copyButton.style.color = 'white';  copyButton.style.border = 'none';  copyButton.style.borderRadius = '5px';  copyButton.style.cursor = 'pointer';  var closeButton = document.createElement('button');  closeButton.textContent = 'Close';  closeButton.style.padding = '5px 10px';  closeButton.style.backgroundColor = '#f44336';  closeButton.style.color = 'white';  closeButton.style.border = 'none';  closeButton.style.borderRadius = '5px';  closeButton.style.cursor = 'pointer';  copyButton.addEventListener('click', function() {    var color = colorInput.value;    var tempInput = document.createElement('input');    tempInput.value = color;    document.body.appendChild(tempInput);    tempInput.select();    document.execCommand('copy');    document.body.removeChild(tempInput);    alert('Color copied to clipboard: ' + color);  });  closeButton.addEventListener('click', function() {    container.remove();  });  container.appendChild(colorInput);  container.appendChild(copyButton);  container.appendChild(closeButton);  document.body.appendChild(container);})();",
-                "description": "This bookmarklet allows you to pick a color and copy it to your clipboard.",
-                "searchTags": ["color picker", "color selection", "color copy", "color utility", "color bookmarklet", "rgb", "hex", "color conversion"]
-            },
-            {
-                "name": "Restart Browser",
-                "code": "chrome://restart/",
-                "description": "This bookmarklet restarts Chrome based browsers.",
-                "searchTags": ["restart browser", "chrome browser", "restart chrome browser", "chrome restart", "opera restart"]
-            },
-            {
-                "name": "Clear Cache",
-                "code": "javascript:(function(){  localStorage.clear();  sessionStorage.clear();  alert('Cache cleared!');})();",
-                "description": "This bookmarklet clears the current tab's cache.",
-                "searchTags": ["clear cache", "cache clear", "cache utility", "cache bookmarklet", "cache tool", "refresh cache", "refresh tab"]
-            },
-            {
-                "name": "Element Highlighter",
-                "code": "javascript:(function(){\n  function getRandomColor() {\n    var letters = \"0123456789ABCDEF\";\n    var color = \"#\";\n    for (var i = 0; i < 6; i++) {\n      color += letters[Math.floor(Math.random() * 16)];\n    }\n    return color;\n  }\n\n  function getContrastingColor(color) {\n    var hex = color.slice(1);\n    var r = parseInt(hex.substr(0, 2), 16);\n    var g = parseInt(hex.substr(2, 2), 16);\n    var b = parseInt(hex.substr(4, 2), 16);\n    var yiq = (r * 299 + g * 587 + b * 114) / 1000;\n    return yiq >= 128 ? \"#000000\" : \"#FFFFFF\";\n  }\n\n  function applyRandomStyle(element) {\n    var randomColor = getRandomColor();\n    element.style.backgroundColor = randomColor;\n    element.style.color = getContrastingColor(randomColor);\n  }\n\n  var elements = document.getElementsByTagName(\"*\");\n  for (var i = 0; i < elements.length; i++) {\n    applyRandomStyle(elements[i]);\n  }\n})();",
-                "description": "This bookmarklet highlights all elements on the current page by randomly changing their background color.",
-                "searchTags": ["element highlighter", "element highlight", "element color highlighter", "element color highlight", "element color utility", "element color bookmarklet", "color change", "color utility", "color bookmarklet"]
-            },
-            {
-                "name": "Font Changer",
-                "code": "javascript:(function() { var font = prompt(\"Enter a font name:\"); if (font) { var styleElement = document.createElement(\"style\"); styleElement.innerHTML = \"* { font-family: '\" + font + \"' !important; }\"; document.head.appendChild(styleElement); } else { alert(\"Invalid input!\"); } })();",
-                "description": "This bookmarklet changes the font of all elements on the current page.",
-                "searchTags": ["font changer", "font change", "font utility", "font bookmarklet", "font style", "font utility", "font styler", "custom fonts", "cursive fonts"]
-            },
-            {
-                "name": "Timer (Seconds)",
-                "code": "javascript:(function() { var timer = prompt(\"Enter the duration in seconds:\"); if (timer && !isNaN(timer)) { setTimeout(function() { alert(\"Timer finished!\"); }, timer * 1000); } else { alert(\"Invalid input!\"); } })();",
-                "description": "This bookmarklet displays an alert after a specified duration of time.",
-                "searchTags": ["timer", "timer (seconds)", "timer (seconds) bookmarklet", "timer (seconds) utility", "timers", "timers in seconds", "timer in seconds"]
-            }
-        ];
+      var bookmarkletsData = [
+        {
+          name: "Example (Drag this)",
+          description:
+            "Example Bookmarklet: Simply drag and drop the green button that says 'Example (Drag this)' into your browser's bookmarks bar.",
+          code: "javascript:alert('Example Bookmarklet: Simply drag and drop the green button that says 'Example (Drag this)' into your browser's bookmarks bar. (If you are on https://the-best-codes.github.io/tools/bookmarks/)');",
+          searchTags: [
+            "example",
+            "bookmarklet",
+            "drag",
+            "drop",
+            "test",
+            "alert",
+          ],
+        },
+        {
+          name: "JSON Formatter",
+          code: "javascript:(function() { function syntaxHighlight(json) { json = JSON.stringify(json, undefined, 4); json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); return json.replace(/(\"(\\\\u[a-zA-Z0-9]{4}|\\\\[^u]|[^\\\\\"])*\"(\\s*:)?|\\b(true|false|null)\\b|-?\\d+(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)/g, function (match) { var cls = 'color: black;'; if (/^\"/.test(match)) { if (/:$/.test(match)) { cls = 'color: green;'; } else { cls = 'color: darkorange;'; } } else if (/true|false/.test(match)) { cls = 'color: red;'; } else if (/null|-?\\d+(?:\\.\\d*)?(?:[eE][+-]?\\d+)?/.test(match)) { cls = 'color: purple;'; } return '<span style=\"' + cls + '\">' + match + '</span>'; }); } var contentType = document.contentType; if (contentType === \"application/json\") { var json = JSON.parse(document.body.innerText); var highlighted = syntaxHighlight(json); document.body.innerHTML = '<pre>' + highlighted + '</pre>'; document.body.style.fontFamily = \"Arial, sans-serif\"; document.body.style.fontSize = \"15px\"; } else { alert(\"This page does not contain JSON.\"); }}());",
+          description:
+            "With one click, this bookmarklet will format the JSON code in an API response. It works on any webpage that is a JSON API response. (e.g. https://jsonplaceholder.typicode.com/posts)",
+          searchTags: [
+            "javascript object notation",
+            "json",
+            "format",
+            "pretty",
+            "api",
+            "response",
+            "json formatter",
+            "data",
+            "parse",
+            "validate",
+            "nested",
+            "key-value",
+            "manipulation",
+            "debugging",
+            "parsing",
+            "visualization",
+            "syntax",
+            "tool",
+          ],
+        },
+        {
+          name: "QR Code Generator",
+          code: 'javascript:(function() {  var url = encodeURIComponent(window.location.href);  var qrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?data=" + url;  window.open(qrCodeUrl, "_blank");})();',
+          description:
+            "Easily generate a QR code by simply entering a URL or text.",
+          searchTags: [
+            "qr",
+            "qr code",
+            "qr generator",
+            "qr code generator",
+            "url",
+            "text",
+            "link",
+            "scan",
+            "phone",
+            "tablet",
+            "qr maker",
+            "qr code maker",
+          ],
+        },
+        {
+          name: "Translate Page",
+          code: 'javascript:(function() { var lang = prompt("Enter language code to translate to:", "en"); var translationUrl = "https://translate.google.com/translate?sl=auto&tl=" + lang + "&u=" + encodeURIComponent(window.location.href); window.open(translationUrl, "_blank");})();',
+          description:
+            "This bookmarklet uses Google Translate to translate any page that you are on. When clicked, it prompts for the language (two-letter code, e.g., “French” → “fr”), and opens the translated page.",
+          searchTags: [
+            "translate",
+            "translation",
+            "language",
+            "google translate",
+            "webpage translation",
+            "multilingual",
+            "browser language",
+            "translate to",
+            "language code",
+            "translate bookmarklet",
+            "translate page",
+          ],
+        },
+        {
+          name: "Dark Mode",
+          code: "javascript:(function() { var style = document.createElement('style'); style.innerHTML = ` * { color: white !important; background-color: #111000 !important; } `; document.head.appendChild(style);})();",
+          description:
+            "This bookmarklet will turn a page into dark mode (or try to). It may break some pages.",
+          searchTags: [
+            "dark mode",
+            "night mode",
+            "browser theme",
+            "webpage appearance",
+            "dark background",
+            "contrast",
+            "eye-friendly",
+            "CSS styling",
+            "website color scheme",
+            "dark mode bookmarklet",
+          ],
+        },
+        {
+          name: "Password Generator",
+          code: 'javascript:(function() { function generatePassword(length) { var charset = \'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-+={}|:"?#$*\'; var password = \'\'; for (var i = 0; i < length; i++) { var randomIndex = Math.floor(Math.random() * charset.length); password += charset.charAt(randomIndex); } return password; } var passwordLength = prompt("Enter password length:", "8"); var generatedPassword = generatePassword(passwordLength); prompt("Generated Password:", generatedPassword);})();',
+          description:
+            "This handy bookmark generates a random password. You are prompted for a length, and a password is generated.",
+          searchTags: [
+            "password generator",
+            "random password",
+            "secure password",
+            "password strength",
+            "password length",
+            "password manager",
+            "password tool",
+            "generate password",
+            "password generation",
+            "password utility",
+            "password bookmarklet",
+          ],
+        },
+        {
+          name: "Email Copier",
+          code: 'javascript:(function() { const email = "you@example.com"; const dummyElement = document.createElement("textarea"); document.body.appendChild(dummyElement); dummyElement.value = email; dummyElement.select(); document.execCommand("copy"); document.body.removeChild(dummyElement);})();',
+          description:
+            "If you are like me and are paranoid about mistyping your email, this bookmarklet is right for you. Substitute you@example.com with your real email.",
+          searchTags: [
+            "email copier",
+            "copy email",
+            "email address",
+            "email utility",
+            "email bookmarklet",
+            "email management",
+            "email tool",
+            "email automation",
+            "email convenience",
+            "email copy",
+            "email safety",
+          ],
+        },
+        {
+          name: "Page Word Count",
+          code: 'javascript:(function() { var text = document.body.innerText || document.body.textContent; var words = text.trim().split(/\\s+/).length; alert("Word Count: " + words);})();',
+          description:
+            "This bookmarklet scans the page and tells you how many words are on it.",
+          searchTags: [
+            "word count",
+            "page statistics",
+            "text analysis",
+            "content length",
+            "word counter",
+            "word frequency",
+            "webpage word count",
+            "text metrics",
+            "word count bookmarklet",
+            "word count tool",
+            "text analysis utility",
+          ],
+        },
+        {
+          name: "Color Picker",
+          code: "javascript:(function(){  var container = document.createElement('div');  container.style.position = 'fixed';  container.style.top = '10px';  container.style.right = '10px';  container.style.zIndex = '9999';  container.style.backgroundColor = 'white';  container.style.borderRadius = '10px';  container.style.padding = '10px';  container.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.3)';  container.style.display = 'flex';  container.style.alignItems = 'center';  var colorInput = document.createElement('input');  colorInput.type = 'color';  colorInput.style.width = '30px';  colorInput.style.height = '30px';  colorInput.style.marginRight = '10px';  var copyButton = document.createElement('button');  copyButton.textContent = 'Copy';  copyButton.style.padding = '5px 10px';  copyButton.style.marginRight = '10px';  copyButton.style.backgroundColor = '#4CAF50';  copyButton.style.color = 'white';  copyButton.style.border = 'none';  copyButton.style.borderRadius = '5px';  copyButton.style.cursor = 'pointer';  var closeButton = document.createElement('button');  closeButton.textContent = 'Close';  closeButton.style.padding = '5px 10px';  closeButton.style.backgroundColor = '#f44336';  closeButton.style.color = 'white';  closeButton.style.border = 'none';  closeButton.style.borderRadius = '5px';  closeButton.style.cursor = 'pointer';  copyButton.addEventListener('click', function() {    var color = colorInput.value;    var tempInput = document.createElement('input');    tempInput.value = color;    document.body.appendChild(tempInput);    tempInput.select();    document.execCommand('copy');    document.body.removeChild(tempInput);    alert('Color copied to clipboard: ' + color);  });  closeButton.addEventListener('click', function() {    container.remove();  });  container.appendChild(colorInput);  container.appendChild(copyButton);  container.appendChild(closeButton);  document.body.appendChild(container);})();",
+          description:
+            "This bookmarklet allows you to pick a color and copy it to your clipboard.",
+          searchTags: [
+            "color picker",
+            "color selection",
+            "color copy",
+            "color utility",
+            "color bookmarklet",
+            "rgb",
+            "hex",
+            "color conversion",
+          ],
+        },
+        {
+          name: "Restart Browser",
+          code: "chrome://restart/",
+          description: "This bookmarklet restarts Chrome based browsers.",
+          searchTags: [
+            "restart browser",
+            "chrome browser",
+            "restart chrome browser",
+            "chrome restart",
+            "opera restart",
+          ],
+        },
+        {
+          name: "Clear Cache",
+          code: "javascript:(function(){  localStorage.clear();  sessionStorage.clear();  alert('Cache cleared!');})();",
+          description: "This bookmarklet clears the current tab's cache.",
+          searchTags: [
+            "clear cache",
+            "cache clear",
+            "cache utility",
+            "cache bookmarklet",
+            "cache tool",
+            "refresh cache",
+            "refresh tab",
+          ],
+        },
+        {
+          name: "Element Highlighter",
+          code: 'javascript:(function(){\n  function getRandomColor() {\n    var letters = "0123456789ABCDEF";\n    var color = "#";\n    for (var i = 0; i < 6; i++) {\n      color += letters[Math.floor(Math.random() * 16)];\n    }\n    return color;\n  }\n\n  function getContrastingColor(color) {\n    var hex = color.slice(1);\n    var r = parseInt(hex.substr(0, 2), 16);\n    var g = parseInt(hex.substr(2, 2), 16);\n    var b = parseInt(hex.substr(4, 2), 16);\n    var yiq = (r * 299 + g * 587 + b * 114) / 1000;\n    return yiq >= 128 ? "#000000" : "#FFFFFF";\n  }\n\n  function applyRandomStyle(element) {\n    var randomColor = getRandomColor();\n    element.style.backgroundColor = randomColor;\n    element.style.color = getContrastingColor(randomColor);\n  }\n\n  var elements = document.getElementsByTagName("*");\n  for (var i = 0; i < elements.length; i++) {\n    applyRandomStyle(elements[i]);\n  }\n})();',
+          description:
+            "This bookmarklet highlights all elements on the current page by randomly changing their background color.",
+          searchTags: [
+            "element highlighter",
+            "element highlight",
+            "element color highlighter",
+            "element color highlight",
+            "element color utility",
+            "element color bookmarklet",
+            "color change",
+            "color utility",
+            "color bookmarklet",
+          ],
+        },
+        {
+          name: "Font Changer",
+          code: 'javascript:(function() { var font = prompt("Enter a font name:"); if (font) { var styleElement = document.createElement("style"); styleElement.innerHTML = "* { font-family: \'" + font + "\' !important; }"; document.head.appendChild(styleElement); } else { alert("Invalid input!"); } })();',
+          description:
+            "This bookmarklet changes the font of all elements on the current page.",
+          searchTags: [
+            "font changer",
+            "font change",
+            "font utility",
+            "font bookmarklet",
+            "font style",
+            "font utility",
+            "font styler",
+            "custom fonts",
+            "cursive fonts",
+          ],
+        },
+        {
+          name: "Timer (Seconds)",
+          code: 'javascript:(function() { var timer = prompt("Enter the duration in seconds:"); if (timer && !isNaN(timer)) { setTimeout(function() { alert("Timer finished!"); }, timer * 1000); } else { alert("Invalid input!"); } })();',
+          description:
+            "This bookmarklet displays an alert after a specified duration of time.",
+          searchTags: [
+            "timer",
+            "timer (seconds)",
+            "timer (seconds) bookmarklet",
+            "timer (seconds) utility",
+            "timers",
+            "timers in seconds",
+            "timer in seconds",
+          ],
+        },
+      ];
 
-        function searchBookmarklets() {
-            var input = document.getElementById('searchInput');
-            var filter = input.value.toLowerCase();
-            var container = document.getElementById('bookmarkletsContainer');
-            var noResults = document.getElementById('noResultsMessage');
+      function searchBookmarklets() {
+        var input = document.getElementById("searchInput");
+        var filter = input.value.toLowerCase();
+        var container = document.getElementById("bookmarkletsContainer");
+        var noResults = document.getElementById("noResultsMessage");
 
-            container.innerHTML = '';
-            var resultsFound = false;
+        container.innerHTML = "";
+        var resultsFound = false;
 
-            for (var i = 0; i < bookmarkletsData.length; i++) {
-                var bookmarklet = bookmarkletsData[i];
-                if (bookmarklet.name.toLowerCase().includes(filter) ||
-                    bookmarklet.description.toLowerCase().includes(filter) ||
-                    bookmarklet.searchTags.join(" ").toLowerCase().includes(filter)) {
-                    resultsFound = true;
-                    var box = document.createElement('div');
-                    box.className = 'bookmarklet-box';
+        for (var i = 0; i < bookmarkletsData.length; i++) {
+          var bookmarklet = bookmarkletsData[i];
+          if (
+            bookmarklet.name.toLowerCase().includes(filter) ||
+            bookmarklet.description.toLowerCase().includes(filter) ||
+            bookmarklet.searchTags.join(" ").toLowerCase().includes(filter)
+          ) {
+            resultsFound = true;
+            var box = document.createElement("div");
+            box.className = "bookmarklet-box";
 
-                    var link = document.createElement('a');
-                    link.href = bookmarklet.code;
-                    link.className = 'bookmarklet';
-                    link.textContent = bookmarklet.name;
-                    link.draggable = true;
-                    box.appendChild(link);
+            var link = document.createElement("a");
+            link.href = bookmarklet.code;
+            link.className = "bookmarklet";
+            link.textContent = bookmarklet.name;
+            link.draggable = true;
+            box.appendChild(link);
 
-                    var copyButton = document.createElement('button');
-                    copyButton.className = 'copy-button';
-                    copyButton.textContent = 'Copy Code';
-                    copyButton.addEventListener('click', function (event) {
-                        var code = event.target.parentNode.querySelector('.bookmarklet').getAttribute('href');
-                        copyToClipboard(code);
-                    });
-                    box.appendChild(copyButton);
+            var copyButton = document.createElement("button");
+            copyButton.className = "copy-button";
+            copyButton.textContent = "Copy Code";
+            copyButton.addEventListener("click", function (event) {
+              var code = event.target.parentNode
+                .querySelector(".bookmarklet")
+                .getAttribute("href");
+              copyToClipboard(code);
+            });
+            box.appendChild(copyButton);
 
-                    var desc = document.createElement('div');
-                    desc.className = 'description';
-                    desc.textContent = bookmarklet.description;
-                    box.appendChild(desc);
+            var desc = document.createElement("div");
+            desc.className = "description";
+            desc.textContent = bookmarklet.description;
+            box.appendChild(desc);
 
-                    container.appendChild(box);
-                }
-            }
-
-            noResults.style.display = resultsFound ? 'none' : 'block';
+            container.appendChild(box);
+          }
         }
-        function copyToClipboard(text) {
-            var textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.style.position = "fixed";
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-        }
 
-        searchBookmarklets();
+        noResults.style.display = resultsFound ? "none" : "block";
+      }
+      function copyToClipboard(text) {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.style.position = "fixed";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+      }
+
+      searchBookmarklets();
     </script>
-</body>
-
+    <!-- Default Statcounter code for BestCodes's Website
+https://the-best-codes.github.io/ -->
+    <script type="text/javascript">
+      var sc_project = 12947838;
+      var sc_invisible = 1;
+      var sc_security = "64126f45";
+    </script>
+    <script
+      type="text/javascript"
+      src="https://www.statcounter.com/counter/counter.js"
+      async
+    ></script>
+    <noscript>
+      <div class="statcounter">
+        <a title="Web Analytics" href="https://statcounter.com/" target="_blank"
+          ><img
+            class="statcounter"
+            src="https://c.statcounter.com/12947838/0/64126f45/1/"
+            alt="Web Analytics"
+            referrerpolicy="no-referrer-when-downgrade"
+        /></a>
+      </div>
+    </noscript>
+    <!-- End of Statcounter Code -->
+  </body>
 </html>
