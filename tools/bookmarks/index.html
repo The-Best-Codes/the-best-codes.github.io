@@ -443,7 +443,7 @@
         },
         {
           name: "Site Technology Profiler",
-          code: "javascript:(function() {var currentSite = window.location.href;var redirectUrl = 'https:/' + '/w3techs.com/sites/info/' + currentSite;window.location.href = redirectUrl;})();",
+          code: "javascript:(function() {var currentSite = window.location.hostname;var redirectUrl = 'https:/' + '/w3techs.com/sites/info/' + currentSite;window.location.href = redirectUrl;})();",
           description:
             "Opens the current site in W3Techs Site Technology Profiler. Submitted by @opensourcee on dev.to.",
           searchTags: [
