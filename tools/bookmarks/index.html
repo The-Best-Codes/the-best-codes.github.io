@@ -130,7 +130,7 @@
                 "name": "JSON Formatter",
                 "code": "javascript:(function() { function syntaxHighlight(json) { json = JSON.stringify(json, undefined, 4); json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); return json.replace(/(\"(\\\\u[a-zA-Z0-9]{4}|\\\\[^u]|[^\\\\\"])*\"(\\s*:)?|\\b(true|false|null)\\b|-?\\d+(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)/g, function (match) { var cls = 'color: black;'; if (/^\"/.test(match)) { if (/:$/.test(match)) { cls = 'color: green;'; } else { cls = 'color: darkorange;'; } } else if (/true|false/.test(match)) { cls = 'color: red;'; } else if (/null|-?\\d+(?:\\.\\d*)?(?:[eE][+-]?\\d+)?/.test(match)) { cls = 'color: purple;'; } return '<span style=\"' + cls + '\">' + match + '</span>'; }); } var contentType = document.contentType; if (contentType === \"application/json\") { var json = JSON.parse(document.body.innerText); var highlighted = syntaxHighlight(json); document.body.innerHTML = '<pre>' + highlighted + '</pre>'; document.body.style.fontFamily = \"Arial, sans-serif\"; document.body.style.fontSize = \"15px\"; } else { alert(\"This page does not contain JSON.\"); }}());",
                 "description": "With one click, this bookmarklet will format the JSON code in an API response. It works on any webpage that is a JSON API response. (e.g. https://jsonplaceholder.typicode.com/posts)",
-                "searchTags": ["json", "format", "pretty", "api", "response", "json formatter", "data", "parse", "validate", "nested", "key-value", "manipulation", "debugging", "parsing", "visualization", "syntax", "tool"]
+                "searchTags": ["javascript object notation", "json", "format", "pretty", "api", "response", "json formatter", "data", "parse", "validate", "nested", "key-value", "manipulation", "debugging", "parsing", "visualization", "syntax", "tool"]
             },
             {
                 "name": "QR Code Generator",
@@ -153,7 +153,7 @@
             {
                 "name": "Password Generator",
                 "code": "javascript:(function() { function generatePassword(length) { var charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-+={}|:\"?#$*'; var password = ''; for (var i = 0; i < length; i++) { var randomIndex = Math.floor(Math.random() * charset.length); password += charset.charAt(randomIndex); } return password; } var passwordLength = prompt(\"Enter password length:\", \"8\"); var generatedPassword = generatePassword(passwordLength); prompt(\"Generated Password:\", generatedPassword);})();",
-                "description": "This handy bookmark generates a random password. You are prompted for a length, and a password is generated. This bookmark especially makes use of the very convenient placeholder for browser APIs like prompts.",
+                "description": "This handy bookmark generates a random password. You are prompted for a length, and a password is generated.",
                 "searchTags": ["password generator", "random password", "secure password", "password strength", "password length", "password manager", "password tool", "generate password", "password generation", "password utility", "password bookmarklet"]
             },
             {
@@ -167,6 +167,42 @@
                 "code": "javascript:(function() { var text = document.body.innerText || document.body.textContent; var words = text.trim().split(/\\s+/).length; alert(\"Word Count: \" + words);})();",
                 "description": "This bookmarklet scans the page and tells you how many words are on it.",
                 "searchTags": ["word count", "page statistics", "text analysis", "content length", "word counter", "word frequency", "webpage word count", "text metrics", "word count bookmarklet", "word count tool", "text analysis utility"]
+            },
+            {
+                "name": "Color Picker",
+                "code": "javascript:(function(){  var container = document.createElement('div');  container.style.position = 'fixed';  container.style.top = '10px';  container.style.right = '10px';  container.style.zIndex = '9999';  container.style.backgroundColor = 'white';  container.style.borderRadius = '10px';  container.style.padding = '10px';  container.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.3)';  container.style.display = 'flex';  container.style.alignItems = 'center';  var colorInput = document.createElement('input');  colorInput.type = 'color';  colorInput.style.width = '30px';  colorInput.style.height = '30px';  colorInput.style.marginRight = '10px';  var copyButton = document.createElement('button');  copyButton.textContent = 'Copy';  copyButton.style.padding = '5px 10px';  copyButton.style.marginRight = '10px';  copyButton.style.backgroundColor = '#4CAF50';  copyButton.style.color = 'white';  copyButton.style.border = 'none';  copyButton.style.borderRadius = '5px';  copyButton.style.cursor = 'pointer';  var closeButton = document.createElement('button');  closeButton.textContent = 'Close';  closeButton.style.padding = '5px 10px';  closeButton.style.backgroundColor = '#f44336';  closeButton.style.color = 'white';  closeButton.style.border = 'none';  closeButton.style.borderRadius = '5px';  closeButton.style.cursor = 'pointer';  copyButton.addEventListener('click', function() {    var color = colorInput.value;    var tempInput = document.createElement('input');    tempInput.value = color;    document.body.appendChild(tempInput);    tempInput.select();    document.execCommand('copy');    document.body.removeChild(tempInput);    alert('Color copied to clipboard: ' + color);  });  closeButton.addEventListener('click', function() {    container.remove();  });  container.appendChild(colorInput);  container.appendChild(copyButton);  container.appendChild(closeButton);  document.body.appendChild(container);})();",
+                "description": "This bookmarklet allows you to pick a color and copy it to your clipboard.",
+                "searchTags": ["color picker", "color selection", "color copy", "color utility", "color bookmarklet", "rgb", "hex", "color conversion"]
+            },
+            {
+                "name": "Restart Browser",
+                "code": "chrome://restart/",
+                "description": "This bookmarklet restarts Chrome based browsers.",
+                "searchTags": ["restart browser", "chrome browser", "restart chrome browser", "chrome restart", "opera restart"]
+            },
+            {
+                "name": "Clear Cache",
+                "code": "javascript:(function(){  localStorage.clear();  sessionStorage.clear();  alert('Cache cleared!');})();",
+                "description": "This bookmarklet clears the current tab's cache.",
+                "searchTags": ["clear cache", "cache clear", "cache utility", "cache bookmarklet", "cache tool", "refresh cache", "refresh tab"]
+            },
+            {
+                "name": "Element Highlighter",
+                "code": "javascript:(function(){\n  function getRandomColor() {\n    var letters = \"0123456789ABCDEF\";\n    var color = \"#\";\n    for (var i = 0; i < 6; i++) {\n      color += letters[Math.floor(Math.random() * 16)];\n    }\n    return color;\n  }\n\n  function getContrastingColor(color) {\n    var hex = color.slice(1);\n    var r = parseInt(hex.substr(0, 2), 16);\n    var g = parseInt(hex.substr(2, 2), 16);\n    var b = parseInt(hex.substr(4, 2), 16);\n    var yiq = (r * 299 + g * 587 + b * 114) / 1000;\n    return yiq >= 128 ? \"#000000\" : \"#FFFFFF\";\n  }\n\n  function applyRandomStyle(element) {\n    var randomColor = getRandomColor();\n    element.style.backgroundColor = randomColor;\n    element.style.color = getContrastingColor(randomColor);\n  }\n\n  var elements = document.getElementsByTagName(\"*\");\n  for (var i = 0; i < elements.length; i++) {\n    applyRandomStyle(elements[i]);\n  }\n})();",
+                "description": "This bookmarklet highlights all elements on the current page by randomly changing their background color.",
+                "searchTags": ["element highlighter", "element highlight", "element color highlighter", "element color highlight", "element color utility", "element color bookmarklet", "color change", "color utility", "color bookmarklet"]
+            },
+            {
+                "name": "Font Changer",
+                "code": "javascript:(function() { var font = prompt(\"Enter a font name:\"); if (font) { var styleElement = document.createElement(\"style\"); styleElement.innerHTML = \"* { font-family: '\" + font + \"' !important; }\"; document.head.appendChild(styleElement); } else { alert(\"Invalid input!\"); } })();",
+                "description": "This bookmarklet changes the font of all elements on the current page.",
+                "searchTags": ["font changer", "font change", "font utility", "font bookmarklet", "font style", "font utility", "font styler", "custom fonts", "cursive fonts"]
+            },
+            {
+                "name": "Timer (Seconds)",
+                "code": "javascript:(function() { var timer = prompt(\"Enter the duration in seconds:\"); if (timer && !isNaN(timer)) { setTimeout(function() { alert(\"Timer finished!\"); }, timer * 1000); } else { alert(\"Invalid input!\"); } })();",
+                "description": "This bookmarklet displays an alert after a specified duration of time.",
+                "searchTags": ["timer", "timer (seconds)", "timer (seconds) bookmarklet", "timer (seconds) utility", "timers", "timers in seconds", "timer in seconds"]
             }
         ];
 
