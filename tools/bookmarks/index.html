@@ -127,7 +127,7 @@
             },
             {
                 "name": "QR Code Generator",
-                "code": "javascript:(function(){ /* Code for Bookmarklet Two */ })();",
+                "code": "javascript:(function() {  var url = encodeURIComponent(window.location.href);  var qrCodeUrl = \"https://api.qrserver.com/v1/create-qr-code/?data=\" + url;  window.open(qrCodeUrl, \"_blank\");})();",
                 "description": "Easily generate a QR code by simply entering a URL or text.",
                 "searchTags": ["qr", "qr code", "qr generator", "qr code generator", "url", "text", "link", "scan", "phone", "tablet", "qr maker", "qr code maker"]
             }
