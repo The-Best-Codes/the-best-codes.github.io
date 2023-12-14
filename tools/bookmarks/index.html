@@ -111,6 +111,13 @@
 
     <header>Bookmarklets Search</header>
 
+    <h1 style="text-align: center; font-size: 60px;">Awesome Bookmarklets</h1>
+    <p style="text-align: center;">Every web developer needs these bookmarklets! Simply drag and drop each bookmarklet
+        that you need into your browser's bookmarks bar.</p>
+    <p style="text-align: center;">Not sure what bookmarklets are? <a
+            href="https://dev.to/best_codes/11-amazing-bookmarklets-for-web-devs-what-are-they-anyways--3pk6"
+            target="_blank">Click here</a></p>
+
     <input type="text" id="searchInput" placeholder="Search bookmarklets..." onkeyup="searchBookmarklets()">
 
     <div id="bookmarkletsContainer"></div>
@@ -130,8 +137,37 @@
                 "code": "javascript:(function() {  var url = encodeURIComponent(window.location.href);  var qrCodeUrl = \"https://api.qrserver.com/v1/create-qr-code/?data=\" + url;  window.open(qrCodeUrl, \"_blank\");})();",
                 "description": "Easily generate a QR code by simply entering a URL or text.",
                 "searchTags": ["qr", "qr code", "qr generator", "qr code generator", "url", "text", "link", "scan", "phone", "tablet", "qr maker", "qr code maker"]
+            },
+            {
+                "name": "Translate Page",
+                "code": "javascript:(function() { var lang = prompt(\"Enter language code to translate to:\", \"en\"); var translationUrl = \"https://translate.google.com/translate?sl=auto&tl=\" + lang + \"&u=\" + encodeURIComponent(window.location.href); window.open(translationUrl, \"_blank\");})();",
+                "description": "This bookmarklet uses Google Translate to translate any page that you are on. When clicked, it prompts for the language (two-letter code, e.g., “French” → “fr”), and opens the translated page.",
+                "searchTags": ["translate", "translation", "language", "google translate", "webpage translation", "multilingual", "browser language", "translate to", "language code", "translate bookmarklet", "translate page"]
+            },
+            {
+                "name": "Dark Mode",
+                "code": "javascript:(function() { var style = document.createElement('style'); style.innerHTML = ` * { color: white !important; background-color: #111000 !important; } `; document.head.appendChild(style);})();",
+                "description": "This bookmarklet will turn a page into dark mode (or try to). It may break some pages.",
+                "searchTags": ["dark mode", "night mode", "browser theme", "webpage appearance", "dark background", "contrast", "eye-friendly", "CSS styling", "website color scheme", "dark mode bookmarklet"]
+            },
+            {
+                "name": "Password Generator",
+                "code": "javascript:(function() { function generatePassword(length) { var charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-+={}|:\"?#$*'; var password = ''; for (var i = 0; i < length; i++) { var randomIndex = Math.floor(Math.random() * charset.length); password += charset.charAt(randomIndex); } return password; } var passwordLength = prompt(\"Enter password length:\", \"8\"); var generatedPassword = generatePassword(passwordLength); prompt(\"Generated Password:\", generatedPassword);})();",
+                "description": "This handy bookmark generates a random password. You are prompted for a length, and a password is generated. This bookmark especially makes use of the very convenient placeholder for browser APIs like prompts.",
+                "searchTags": ["password generator", "random password", "secure password", "password strength", "password length", "password manager", "password tool", "generate password", "password generation", "password utility", "password bookmarklet"]
+            },
+            {
+                "name": "Email Copier",
+                "code": "javascript:(function() { const email = \"you@example.com\"; const dummyElement = document.createElement(\"textarea\"); document.body.appendChild(dummyElement); dummyElement.value = email; dummyElement.select(); document.execCommand(\"copy\"); document.body.removeChild(dummyElement);})();",
+                "description": "If you are like me and are paranoid about mistyping your email, this bookmarklet is right for you. Substitute you@example.com with your real email.",
+                "searchTags": ["email copier", "copy email", "email address", "email utility", "email bookmarklet", "email management", "email tool", "email automation", "email convenience", "email copy", "email safety"]
+            },
+            {
+                "name": "Page Word Count",
+                "code": "javascript:(function() { var text = document.body.innerText || document.body.textContent; var words = text.trim().split(/\\s+/).length; alert(\"Word Count: \" + words);})();",
+                "description": "This bookmarklet scans the page and tells you how many words are on it.",
+                "searchTags": ["word count", "page statistics", "text analysis", "content length", "word counter", "word frequency", "webpage word count", "text metrics", "word count bookmarklet", "word count tool", "text analysis utility"]
             }
-            // ... Add more bookmarklets
         ];
 
         function searchBookmarklets() {
