@@ -658,8 +658,8 @@
             </h1>
             <p>
               I do General Programming, Web Development, Software, APIs, and
-              Arduinos. It's kind of my hobby! I love it, and it's what I am best
-              at.
+              Arduinos. It's kind of my hobby! I love it, and it's what I am
+              best at.
             </p>
           </div>
           <div class="container-item">
@@ -1212,7 +1212,12 @@ https://the-best-codes.github.io/ -->
         acceptCookies.onclick = function () {
           cookieNotice.style.display = "none";
           // Set a cookie to remember the user's consent
-          document.cookie = "cookies_accepted=true;max-age=86400;path=/";
+          document.cookie =
+            "cookies_accepted=true;expires=" +
+            new Date(
+              new Date().setFullYear(new Date().getFullYear() + 1)
+            ).toUTCString() +
+            ";path=/";
         };
 
         // Check if the cookie consent has been previously accepted
