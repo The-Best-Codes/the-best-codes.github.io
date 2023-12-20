@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>URL Redirect | Best Codes's Official Website</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var urlParams = new URLSearchParams(window.location.search);
+        var redirectUrl = urlParams.get("url");
+        if (redirectUrl) {
+          window.location.href = redirectUrl; // Redirect immediately
+          document.getElementById("redirect").href = redirectUrl;
+        } else {
+          document.body.innerHTML =
+            'No URL provided. This page is a simple redirect page by Best_codes. <a href="https://the-best-codes.github.io">Main Site</a>';
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <p>You should be redirected shortly.</p>
+    <p>
+      If not, click
+      <a id="redirect" href="https://the-best-codes.github.io/">here</a>.
+    </p>
+    <a href="https://the-best-codes.github.io/">Main Site</a>
+    <!-- Default Statcounter code for BestCodes's Website
+https://the-best-codes.github.io/ -->
+    <script type="text/javascript">
+      var sc_project = 12947838;
+      var sc_invisible = 1;
+      var sc_security = "64126f45";
+    </script>
+    <script
+      type="text/javascript"
+      src="https://www.statcounter.com/counter/counter.js"
+      async
+    ></script>
+    <noscript>
+      <div class="statcounter">
+        <a title="Web Analytics" href="https://statcounter.com/" target="_blank"
+          ><img
+            class="statcounter"
+            src="https://c.statcounter.com/12947838/0/64126f45/1/"
+            alt="Web Analytics"
+            referrerpolicy="no-referrer-when-downgrade"
+        /></a>
+      </div>
+    </noscript>
+    <!-- End of Statcounter Code -->
+  </body>
+</html>
