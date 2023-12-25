@@ -1233,33 +1233,36 @@ https://the-best-codes.github.io/ -->
       //Drag to scroll horizontally on desktop
       let mouseDown = false;
       let startX, scrollLeft;
-      const slider = document.querySelector(".container-flex");
 
-      const startDragging = (e) => {
-        mouseDown = true;
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-      };
+      const sliders = document.querySelectorAll(".container-flex");
 
-      const stopDragging = (e) => {
-        mouseDown = false;
-      };
+      sliders.forEach((slider) => {
+        const startDragging = (e) => {
+          mouseDown = true;
+          startX = e.pageX - slider.offsetLeft;
+          scrollLeft = slider.scrollLeft;
+        };
 
-      const move = (e) => {
-        e.preventDefault();
-        if (!mouseDown) {
-          return;
-        }
-        const x = e.pageX - slider.offsetLeft;
-        const scroll = x - startX;
-        slider.scrollLeft = scrollLeft - scroll;
-      };
+        const stopDragging = (e) => {
+          mouseDown = false;
+        };
 
-      // Add the event listeners
-      slider.addEventListener("mousemove", move, false);
-      slider.addEventListener("mousedown", startDragging, false);
-      slider.addEventListener("mouseup", stopDragging, false);
-      slider.addEventListener("mouseleave", stopDragging, false);
+        const move = (e) => {
+          e.preventDefault();
+          if (!mouseDown) {
+            return;
+          }
+          const x = e.pageX - slider.offsetLeft;
+          const scroll = x - startX;
+          slider.scrollLeft = scrollLeft - scroll;
+        };
+
+        // Add the event listeners to each slider
+        slider.addEventListener("mousemove", move, false);
+        slider.addEventListener("mousedown", startDragging, false);
+        slider.addEventListener("mouseup", stopDragging, false);
+        slider.addEventListener("mouseleave", stopDragging, false);
+      });
     </script>
   </body>
 </html>
