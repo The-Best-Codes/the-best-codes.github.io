@@ -221,6 +221,11 @@
         overflow: auto;
         /* align-items: center; */
         -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS devices */
+        cursor: move;
+      }
+
+      .container-flex:active {
+        cursor: grabbing;
       }
 
       @media (max-width: 768px) {
@@ -526,6 +531,10 @@
         .cookie-btn {
           width: 100%;
         }
+      }
+
+      p {
+        cursor: text;
       }
     </style>
     <script type="text/javascript">
