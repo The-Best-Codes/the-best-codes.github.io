@@ -5,14 +5,30 @@
     <title>URL Redirect | Best Codes's Official Website</title>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        var urlParams = new URLSearchParams(window.location.search);
-        var redirectUrl = urlParams.get("url");
+        var redirectUrl = window.location.href.split("?url=")[1]; // Split the URL and get everything after '?url='
         if (redirectUrl) {
-          window.location.href = redirectUrl; // Redirect immediately
-          document.getElementById("redirect").href = redirectUrl;
+          var statcounterScript = document.querySelector(
+            'script[src="https://www.statcounter.com/counter/counter.js"]'
+          );
+
+          var redirectTimeout = setTimeout(function () {
+            window.location.href = redirectUrl; // Redirect after 3 seconds no matter what
+          }, 3000);
+
+          if (
+            statcounterScript &&
+            statcounterScript.getAttribute("data-loaded") !== "true"
+          ) {
+            statcounterScript.addEventListener("load", function () {
+              clearTimeout(redirectTimeout); // Clear the 3-second timeout
+              setTimeout(function () {
+                window.location.href = redirectUrl; // Redirect 1 second after the script loads
+              }, 1000);
+            });
+          }
         } else {
           document.body.innerHTML =
-            'No URL provided. This page is a simple redirect page by Best_codes. <a href="https://the-best-codes.github.io">Main Site</a>';
+            'No URL provided. This page is a simple redirect page by Best_codes. <a href="https://the-best-codes.github.io">Main Site</a><p>I made this page so that I can analyze the performance of my website and links that I share. This page contains one tracker and uses essential cookies only.</p>';
         }
       });
     </script>
@@ -20,10 +36,15 @@
   <body>
     <p>You should be redirected shortly.</p>
     <p>
-      If not, click
+      If you are not, click
       <a id="redirect" href="https://the-best-codes.github.io/">here</a>.
     </p>
     <a href="https://the-best-codes.github.io/">Main Site</a>
+    <p>
+      I made this page so that I can analyze the performance of my website and
+      links that I share. This page contains one tracker and uses essential
+      cookies only.
+    </p>
     <!-- Default Statcounter code for BestCodes's Website
 https://the-best-codes.github.io/ -->
     <script type="text/javascript">
