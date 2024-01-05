@@ -105,20 +105,24 @@
         alert(
           "Available parameters and options:\n\n" +
             "text: " +
-            "The text to type" +
+            "The text to type. Defaults to: " +
             defaultText +
             "\nfont: " +
-            "The font to use" +
+            "The font to use. Defaults to: " +
             defaultFont +
             "\ntypeSpeed: " +
-            "The typing speed in milliseconds (lower is faster)" +
+            "The typing speed in milliseconds (lower is faster). Defaults to: " +
             defaultTypeSpeed +
             "\nalign: " +
-            "The text alignment (left, center, or right)" +
+            "The text alignment (left, center, or right). Defaults to: " +
             defaultAlign +
             "\nsize: " +
-            "The font size in pixels (e.g. 24px)" +
-            defaultSize
+            "The font size in pixels (e.g. 24px). Defaults to: " +
+            defaultSize +
+            "\n\nTo add parameters to the URL, use the following syntax: ?text=your-text&font=your-font&typeSpeed=your-speed&align=your-align&size=your-size" +
+            "\n\nFor example: ?text=Hello World&font=Arial" +
+            "I hope this was useful!" +
+            "\n\nBest, Best Codes"
         );
       }
 
