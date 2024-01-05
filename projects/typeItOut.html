@@ -117,7 +117,7 @@
           }
 
           currentText += nextChunk;
-          if (renderHTML) {
+          if (renderHTML == "true") {
             typingText.innerHTML = currentText;
           } else {
             typingText.textContent = currentText;
@@ -125,7 +125,7 @@
           /*typingText.innerHTML = currentText;*/
           setTimeout(typeWriter, typeSpeed);
         } else {
-          if (renderHTML) {
+          if (renderHTML == "true") {
             typingText.innerHTML = finishedText;
           } else {
             typingText.textContent = finishedText;
