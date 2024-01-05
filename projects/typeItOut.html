@@ -85,8 +85,10 @@
         getURLParameter("typeSpeed", defaultTypeSpeed),
         10
       );
-      const typeWords = getURLParameter("typeWords", defaultTypeWords);
-      const renderHTML = getURLParameter("renderHTML", defaultRenderHTML);
+      const typeWords =
+        getURLParameter("typeWords", defaultTypeWords) === "true";
+      const renderHTML =
+        getURLParameter("renderHTML", defaultRenderHTML) === "true";
       const align = getURLParameter("align", defaultAlign);
 
       const typingText = document.querySelector(".typing-text");
@@ -109,7 +111,7 @@
               nextSpaceIndex === -1 ? text.length : nextSpaceIndex + 1
             );
             i = nextSpaceIndex === -1 ? text.length : nextSpaceIndex + 1;
-          } else if (text.charAt(i) === "<" && renderHTML) {
+          } else if (text.charAt(i) === "<" && renderHTML === "true") {
             // Handle HTML tags
             const closingTagIndex = text.indexOf(">", i);
             nextChunk = text.substring(i, closingTagIndex + 1);
