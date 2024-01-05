@@ -67,10 +67,11 @@
 
       // Set default values
       const defaultText =
-        "Type your text by adding <i>?text=your-text</i> to the URL.";
+        "Type your text by adding <i>?text=your-text</i> to the URL. <button onclick='showParameters()'>See available parameters and options</button>";
       const defaultFont = "Segoe UI, sans-serif";
-      const defaultTypeSpeed = 25;
+      const defaultTypeSpeed = 10;
       const defaultAlign = "left";
+      const defaultSize = "24px";
 
       // Get URL parameters or default values
       const text = decodeURIComponent(getURLParameter("text", defaultText));
@@ -80,10 +81,12 @@
         10
       );
       const align = getURLParameter("align", defaultAlign);
+      const textSize = getURLParameter("size", defaultSize);
 
       const typingText = document.querySelector(".typing-text");
       typingText.style.textAlign = align;
       typingText.style.fontFamily = font;
+      typingText.style.fontSize = textSize;
 
       let i = 0;
       let currentText = "";
@@ -98,7 +101,30 @@
         }
       }
 
-      typeWriter();
+      function showParameters() {
+        alert(
+          "Available parameters and options:\n\n" +
+            "text: " +
+            "The text to type" +
+            defaultText +
+            "\nfont: " +
+            "The font to use" +
+            defaultFont +
+            "\ntypeSpeed: " +
+            "The typing speed in milliseconds (lower is faster)" +
+            defaultTypeSpeed +
+            "\nalign: " +
+            "The text alignment (left, center, or right)" +
+            defaultAlign +
+            "\nsize: " +
+            "The font size in pixels (e.g. 24px)" +
+            defaultSize
+        );
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        typeWriter();
+      });
     </script>
   </body>
 </html>
