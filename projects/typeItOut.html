@@ -117,7 +117,12 @@
           }
 
           currentText += nextChunk;
-          typingText.innerHTML = currentText;
+          if (renderHTML) {
+            typingText.innerHTML = currentText;
+          } else {
+            typingText.textContent = currentText;
+          }
+          /*typingText.innerHTML = currentText;*/
           setTimeout(typeWriter, typeSpeed);
         } else {
           if (renderHTML) {
