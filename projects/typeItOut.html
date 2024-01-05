@@ -60,35 +60,25 @@
     </div>
 
     <script>
-      // This function gets the URL parameters and provides default values if they are not set
       function getURLParameter(name, defaultValue) {
         const urlParams = new URLSearchParams(window.location.search);
-        const value = urlParams.get(name) || defaultValue;
-        console.log(`${name}: ${value}`);
-        return value;
+        return urlParams.get(name) || defaultValue;
       }
 
       // Set default values
       const defaultText =
-        "No text was entered into the <i>text</i> parameter of the URL. Not sure how to use this? <h1>What is this?</h1>This is a simple page that allows you to send anyone text that will be typed out. Simply add <i>?text=<b>your-text</b></i> to the URL to type something of your own. <h1>What URL Parameters are There?</h1> With the URL parameters, you can change the font, typing speed, whether or not whole words are typed at a time, and whether or not to render HTML content. (For example: <span><i>?text=<b>Hello%20World</b> &font=<b>Arial</b> &typeSpeed=<b>50</b> &typeWords=<b>true</b> &renderHTML=<b>false</b> &align=<b>center</b> </i></span>.) <br/><br/> This was made by @Best_codes. Enjoy!";
+        "Type your text by adding <i>?text=your-text</i> to the URL.";
       const defaultFont = "Segoe UI, sans-serif";
       const defaultTypeSpeed = 25;
-      const defaultTypeWords = "false";
-      const defaultRenderHTML = "true";
       const defaultAlign = "left";
 
       // Get URL parameters or default values
       const text = decodeURIComponent(getURLParameter("text", defaultText));
-      const finishedText = text;
       const font = getURLParameter("font", defaultFont);
       const typeSpeed = parseInt(
         getURLParameter("typeSpeed", defaultTypeSpeed),
         10
       );
-      const typeWords =
-        getURLParameter("typeWords", defaultTypeWords) === "true";
-      const renderHTML =
-        getURLParameter("renderHTML", defaultRenderHTML) === "true";
       const align = getURLParameter("align", defaultAlign);
 
       const typingText = document.querySelector(".typing-text");
@@ -100,54 +90,15 @@
 
       function typeWriter() {
         if (i < text.length) {
-          let nextChar = text.charAt(i);
-          let nextChunk = nextChar;
-
-          if (typeWords === "true" && nextChar === " ") {
-            // Find the next space or the end of the text
-            const nextSpaceIndex = text.indexOf(" ", i + 1);
-            nextChunk = text.substring(
-              i,
-              nextSpaceIndex === -1 ? text.length : nextSpaceIndex + 1
-            );
-            i = nextSpaceIndex === -1 ? text.length : nextSpaceIndex + 1;
-          } else if (text.charAt(i) === "<" && renderHTML === "true") {
-            // Handle HTML tags
-            const closingTagIndex = text.indexOf(">", i);
-            nextChunk = text.substring(i, closingTagIndex + 1);
-            i = closingTagIndex + 1;
-          } else {
-            // Regular character
-            i++;
-          }
-
-          currentText += nextChunk;
-          if (renderHTML == "true") {
-            typingText.innerHTML = currentText;
-          } else {
-            typingText.textContent = currentText;
-          }
-          /*typingText.innerHTML = currentText;*/
+          const nextChar = text.charAt(i);
+          currentText += nextChar;
+          typingText.innerHTML = currentText;
+          i++;
           setTimeout(typeWriter, typeSpeed);
-        } else {
-          if (renderHTML == "true") {
-            typingText.innerHTML = finishedText;
-          } else {
-            typingText.textContent = finishedText;
-          }
-          console.log("done");
         }
       }
 
-      function renderText(text) {
-        // Reset the variables
-        i = 0;
-        currentText = "";
-        typeWriter();
-      }
-
-      // Trigger the rendering based on the typeWords parameter
-      renderText(text);
+      typeWriter();
     </script>
   </body>
 </html>
