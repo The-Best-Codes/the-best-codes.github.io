@@ -95,59 +95,49 @@
 
       function typeWriter() {
         if (i < text.length) {
-          if (text.charAt(i) === "<" && renderHTML) {
+          let nextChar = text.charAt(i);
+          let nextChunk = nextChar;
+
+          if (typeWords === "true" && nextChar === " ") {
+            // Find the next space or the end of the text
+            const nextSpaceIndex = text.indexOf(" ", i + 1);
+            nextChunk = text.substring(
+              i,
+              nextSpaceIndex === -1 ? text.length : nextSpaceIndex + 1
+            );
+            i = nextSpaceIndex === -1 ? text.length : nextSpaceIndex + 1;
+          } else if (text.charAt(i) === "<" && renderHTML) {
+            // Handle HTML tags
             const closingTagIndex = text.indexOf(">", i);
-            currentText += text.substring(i, closingTagIndex + 1);
+            nextChunk = text.substring(i, closingTagIndex + 1);
             i = closingTagIndex + 1;
           } else {
-            currentText += text.charAt(i);
+            // Regular character
             i++;
           }
+
+          currentText += nextChunk;
           typingText.innerHTML = currentText;
           setTimeout(typeWriter, typeSpeed);
         } else {
-          typingText.innerHTML = finishedText;
+          if (renderHTML) {
+            typingText.innerHTML = finishedText;
+          } else {
+            typingText.textContent = finishedText;
+          }
           console.log("done");
         }
       }
 
       function renderText(text) {
-        let i = 0;
-        let currentText = "";
-
-        function typeWriter() {
-          if (i < text.length) {
-            if (text.charAt(i) === "<" && renderHTML) {
-              const closingTagIndex = text.indexOf(">", i);
-              currentText += text.substring(i, closingTagIndex + 1);
-              i = closingTagIndex + 1;
-            } else {
-              currentText += text.charAt(i);
-              i++;
-            }
-            typingText.innerHTML = currentText;
-            setTimeout(typeWriter, typeSpeed);
-          } else {
-            typingText.innerHTML = finishedText;
-            console.log("done");
-          }
-        }
-
+        // Reset the variables
+        i = 0;
+        currentText = "";
         typeWriter();
       }
 
-      if (typeWords === "true") {
-        const tempContainer = document.createElement("div");
-        tempContainer.innerHTML = text;
-        const nodes = Array.from(tempContainer.childNodes);
-        nodes.forEach((node, index) => {
-          setTimeout(() => {
-            typingText.appendChild(node);
-          }, index * typeSpeed);
-        });
-      } else {
-        renderText(text);
-      }
+      // Trigger the rendering based on the typeWords parameter
+      renderText(text);
     </script>
   </body>
 </html>
