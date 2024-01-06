@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" type="image/png" href="favicon_32_32_compress.ico" />
+    <title>
+      Words Per Minute Calculator - Free Online Freestyle Typing Test | Best
+      Codes
+    </title>
+    <meta
+      name="description"
+      content="Free Online Freestyle Typing Test | Best Codes. Tired of those unfair tests that only let you type what they want? Try our online freestyle typing test. It's 100% free, and easy to use! "
+    />
+    <meta
+      name="keywords"
+      content="Typing Test, Freestyle Typing Test, Typing Speed Test, Typing Speed, Typing Speed Calculator, Words Per Minute, Words Per Minute Calculator, Best Codes, Best Codes's Official Website"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+      h1 {
+        color: #333;
+      }
+      p {
+        color: #303030;
+      }
+      textarea {
+        width: 100%;
+        resize: vertical;
+        padding: 10px;
+        font-size: 14px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 14px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+    <script>
+      var startTime;
+      var isCalculating = false;
+      var isTestCompleted = false;
+      var isCharBased = true;
+      var charPerWord = 8;
+
+      function startCalculating() {
+        if (!isCalculating) {
+          startTime = new Date().getTime();
+          isCalculating = true;
+          document.getElementById("message").innerHTML =
+            "Testing... Press enter to finish";
+        }
+      }
+
+      function calculateWPM(event) {
+        var text = document.getElementById("text").value.trim();
+        if (event.keyCode === 13 && text !== "") {
+          var endTime = new Date().getTime();
+          var wordCount;
+          if (isCharBased) {
+            wordCount = Math.ceil(text.length / charPerWord);
+          } else {
+            wordCount = text.split(/\s+/).length;
+          }
+          var totalTimeInSeconds = (endTime - startTime) / 1000;
+          var wordsPerMinute = Math.round(
+            (wordCount / totalTimeInSeconds) * 60
+          );
+          document.getElementById("result").innerHTML =
+            "Your typing speed is: " +
+            "<h1>" +
+            decodedResult +
+            " WPM" +
+            "</h1>";
+          isCalculating = false;
+          isTestCompleted = true;
+          var encodedText = encodeURIComponent(text);
+          var encodedResult = encodeURIComponent(wordsPerMinute);
+          window.location.hash = encodedText + "|" + encodedResult;
+          document.getElementById("message").innerHTML = "Testing complete!";
+          document.getElementById("testAgainButton").style.display = "block";
+          document.getElementById("text").disabled = true;
+        }
+      }
+
+      function testAgain() {
+        document.getElementById("text").value = "";
+        document.getElementById("result").innerHTML = "";
+        document.getElementById("message").innerHTML =
+          "Type anything in the box to test your WPM";
+        document.getElementById("testAgainButton").style.display = "none";
+        isCalculating = false;
+        isTestCompleted = false;
+        document.getElementById("text").disabled = false;
+      }
+
+      function loadSavedData() {
+        var hash = window.location.hash.substr(1);
+        if (hash) {
+          var parts = hash.split("|");
+          var decodedText = decodeURIComponent(parts[0]);
+          var decodedResult = decodeURIComponent(parts[1]);
+          document.getElementById("text").value = decodedText;
+          document.getElementById("result").innerHTML =
+            "Your typing speed is: " +
+            "<h1>" +
+            decodedResult +
+            " WPM" +
+            "</h1>";
+          document.getElementById("message").innerHTML = "Testing complete!";
+          document.getElementById("testAgainButton").style.display = "block";
+          document.getElementById("text").disabled = true;
+          isTestCompleted = true;
+        }
+      }
+
+      function checkInput(event) {
+        if (isTestCompleted) {
+          event.preventDefault();
+        }
+      }
+
+      function toggleCharBased() {
+        isCharBased = !isCharBased;
+        if (isCharBased) {
+          charPerWord = parseInt(
+            document.getElementById("charPerWordInput").value
+          );
+        }
+      }
+
+      window.onload = loadSavedData;
+
+      function reset() {
+        location.replace(
+          "https://the-best-codes.github.io/projects/typeSpeedTest/index.html"
+        );
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Words Per Minute Calculator</h1>
+    <h2>Press Enter when done</h2>
+    <p>
+      The page will start calculating as soon as you begin to type. Press Enter
+      to finish the test. Avoid using short words, words of about 8 letters are
+      good.
+      <b
+        >For accurite results, type for about one minute. This test does not
+        check for accuracy.</b
+      >
+    </p>
+    <h1 id="message">Type anything in the box to test your Words Per Minute</h1>
+    <input
+      type="checkbox"
+      id="charBasedCheckbox"
+      onclick="toggleCharBased()"
+      checked
+    />
+    <!-- Set the checkbox to checked by default -->
+    <label for="charBasedCheckbox">Calculate based on</label>
+    <input
+      type="number"
+      id="charPerWordInput"
+      value="8"
+      min="1"
+      max="255"
+      onchange="toggleCharBased()"
+      style="width: 50px"
+    />
+    <label for="charPerWordInput">characters per word</label> <br />
+    <textarea
+      id="text"
+      autofocus
+      style="margin-top: 10px; width: 80vw; height: 400px; max-width: 800px"
+      placeholder="Type here to begin..."
+      onkeydown="startCalculating()"
+      onkeyup="calculateWPM(event)"
+      oninput="checkInput(event)"
+    ></textarea
+    ><br />
+    <p id="result"></p>
+    <button id="testAgainButton" style="display: none" onclick="testAgain()">
+      Test Again
+    </button>
+    <button
+      id="reset"
+      style="display: inline; margin-top: 10px"
+      onclick="reset()"
+    >
+      Reset
+    </button>
+  </body>
+</html>
