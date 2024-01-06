@@ -51,8 +51,8 @@
       var startTime;
       var isCalculating = false;
       var isTestCompleted = false;
-      var isCharBased = true;
-      var charPerWord = 8;
+      var isCharBased = true; // Set the checkbox state to true
+      var charPerWord = 8; // Added variable to store number of characters per word
 
       function startCalculating() {
         if (!isCalculating) {
@@ -65,13 +65,14 @@
 
       function calculateWPM(event) {
         var text = document.getElementById("text").value.trim();
+
         if (event.keyCode === 13 && text !== "") {
           var endTime = new Date().getTime();
           var wordCount;
           if (isCharBased) {
-            wordCount = Math.ceil(text.length / charPerWord);
+            wordCount = Math.ceil(text.length / charPerWord); // Calculate word count based on characters per word
           } else {
-            wordCount = text.split(/\s+/).length;
+            wordCount = text.split(/\s+/).length; // Calculate word count based on spaces
           }
           var totalTimeInSeconds = (endTime - startTime) / 1000;
           var wordsPerMinute = Math.round(
@@ -80,17 +81,22 @@
           document.getElementById("result").innerHTML =
             "Your typing speed is: " +
             "<h1>" +
-            decodedResult +
-            " WPM" +
-            "</h1>";
+            wordsPerMinute +
+            "</h1>" +
+            " WPM";
           isCalculating = false;
           isTestCompleted = true;
+
+          // Save text and result in URL hashtag
           var encodedText = encodeURIComponent(text);
           var encodedResult = encodeURIComponent(wordsPerMinute);
           window.location.hash = encodedText + "|" + encodedResult;
+
+          // Update message and show "Test Again" button
           document.getElementById("message").innerHTML = "Testing complete!";
           document.getElementById("testAgainButton").style.display = "block";
-          document.getElementById("text").disabled = true;
+
+          document.getElementById("text").disabled = true; // Disable textarea
         }
       }
 
@@ -102,7 +108,7 @@
         document.getElementById("testAgainButton").style.display = "none";
         isCalculating = false;
         isTestCompleted = false;
-        document.getElementById("text").disabled = false;
+        document.getElementById("text").disabled = false; // Enable textarea
       }
 
       function loadSavedData() {
@@ -115,12 +121,12 @@
           document.getElementById("result").innerHTML =
             "Your typing speed is: " +
             "<h1>" +
-            decodedResult +
-            " WPM" +
-            "</h1>";
+            wordsPerMinute +
+            "</h1>" +
+            " WPM";
           document.getElementById("message").innerHTML = "Testing complete!";
           document.getElementById("testAgainButton").style.display = "block";
-          document.getElementById("text").disabled = true;
+          document.getElementById("text").disabled = true; // Disable textarea
           isTestCompleted = true;
         }
       }
@@ -132,11 +138,11 @@
       }
 
       function toggleCharBased() {
-        isCharBased = !isCharBased;
+        isCharBased = !isCharBased; // Toggle checkbox state
         if (isCharBased) {
           charPerWord = parseInt(
             document.getElementById("charPerWordInput").value
-          );
+          ); // Get the value from the number box
         }
       }
 
@@ -144,7 +150,7 @@
 
       function reset() {
         location.replace(
-          "https://the-best-codes.github.io/projects/typeSpeedTest/index.html"
+          "https://the-best-codes.github.io/projects/typeSpeedTest/"
         );
       }
     </script>
@@ -183,14 +189,14 @@
     <textarea
       id="text"
       autofocus
-      style="margin-top: 10px; width: 80vw; height: 400px; max-width: 800px"
+      style="margin-top: 10px; width: 80vw; height: 250px; max-width: 800px"
       placeholder="Type here to begin..."
       onkeydown="startCalculating()"
       onkeyup="calculateWPM(event)"
       oninput="checkInput(event)"
     ></textarea
     ><br />
-    <p id="result"></p>
+    <p id="result" style="width: 80vw; max-width: 650px"></p>
     <button id="testAgainButton" style="display: none" onclick="testAgain()">
       Test Again
     </button>
