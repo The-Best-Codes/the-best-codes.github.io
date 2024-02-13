@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(100vh - 20px); /* Reduce height to avoid scrollbars */
+      }
+
+      .heart {
+        display: inline-block;
+        width: 200px;
+        aspect-ratio: 1;
+        border-image: radial-gradient(red 69%, #0000 70%) 84.5%/50%;
+        clip-path: polygon(-41% 0, 50% 91%, 141% 0);
+        transition: transform 0.3s ease;
+      }
+
+      .heart:hover {
+        transform: scale(1.2);
+      }
+
+      .heart.clicked {
+        transform: scale(1.3);
+      }
+
+      .heart.clicked > .heart-text {
+        color: white !important;
+      }
+
+      .heart-text {
+        margin-top: 55px;
+        font-size: 16px;
+        user-select: none;
+        color: red;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(100% - 20px); /* Reduce width to avoid scrollbars */
+        height: calc(100% - 20px); /* Reduce height to avoid scrollbars */
+        pointer-events: none;
+        z-index: -2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="heart" onclick="toggle(this)">
+        <p id="textInner" class="heart-text" style="opacity: 0">
+          Happy Valentine's Day!
+        </p>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@latest"></script>
+    <script>
+      function toggle(element) {
+        element.classList.toggle("clicked");
+        if (element.classList.contains("clicked")) {
+          document.getElementById("textInner").style.opacity = "1";
+          createConfetti();
+        } else {
+          document.getElementById("textInner").style.opacity = "0";
+        }
+      }
+
+      function createConfetti() {
+        // Create a canvas element and get its context
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+
+        // Define the emoji shape
+        const emojiShape = confetti.shapeFromText({
+          text: "❤️", // You can use any emoji here
+          scalar: 3,
+        });
+
+        // Call the confetti function with the emoji shape and other options
+        confetti({
+          particleCount: 225, // You can change the number of confetti particles
+          scalar: 3, // Make it a bit larger
+          angle: 90, // You can change the angle of the confetti launch
+          spread: 360, // You can change the spread of the confetti launch
+          startVelocity: 25, // You can change the initial velocity of the confetti particles
+          decay: 0.95, // You can change the decay rate of the confetti particles
+          shapes: [emojiShape], // You can pass an array of shapes to use as confetti particles
+          origin: { x: 0.5, y: 0.4 }, // You can change the origin of the confetti launch
+          zIndex: -1, // You can change the z-index of the confetti canvas
+        });
+      }
+    </script>
+  </body>
+</html>
