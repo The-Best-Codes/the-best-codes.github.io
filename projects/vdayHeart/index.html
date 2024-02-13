@@ -66,6 +66,20 @@
         pointer-events: none;
         z-index: -2;
       }
+
+      .instructions {
+        color: white;
+        font-size: 14px;
+        transform: translate(0, -20px);
+        transition: all 0.3s ease;
+        text-align: center;
+        opacity: 0;
+      }
+
+      .heart:hover .instructions {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
     </style>
   </head>
   <body>
@@ -74,6 +88,7 @@
         <p id="textInner" class="heart-text" style="opacity: 0">
           Happy Valentine's Day!
         </p>
+        <p class="instructions">(Click me!)</p>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@latest"></script>
