@@ -10,12 +10,23 @@
       content="Happy Valentine's Day! - CSS Heart Shape with Confetti | Best Codes's Official Website"
     />
     <style>
+      @keyframes moveGradient {
+        0% {
+          background-position: 0% 0%;
+        }
+        100% {
+          background-position: 100% 0%;
+        }
+      }
+
       body {
         display: flex;
         align-items: center;
         justify-content: center;
         height: calc(100vh - 20px); /* Reduce height to avoid scrollbars */
-        background: linear-gradient(45deg, #ff8080, transparent);
+        background: linear-gradient(45deg, #ff5353, #ff7f7f, #ffafaf, #ffd4d4);
+        background-size: 200% 200%; /* Increase the size to allow movement */
+        animation: moveGradient 10s linear infinite alternate; /* Adjust the duration as needed */
       }
 
       .heart {
