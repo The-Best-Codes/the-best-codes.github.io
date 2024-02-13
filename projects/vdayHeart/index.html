@@ -70,15 +70,19 @@
       .instructions {
         color: white;
         font-size: 14px;
-        transform: translate(0, -20px);
+        transform: translate(0, 20px);
         transition: all 0.3s ease;
         text-align: center;
         opacity: 0;
       }
 
       .heart:hover .instructions {
-        transform: translate(0, 0);
+        transform: translate(0, -20px);
         opacity: 1;
+      }
+
+      .heart.clicked .instructions {
+        opacity: 0;
       }
     </style>
   </head>
