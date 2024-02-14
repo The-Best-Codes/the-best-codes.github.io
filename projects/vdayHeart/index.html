@@ -102,6 +102,14 @@
         opacity: 1;
       }
 
+      /* On mobile devices, show the intructions by default (mobile can't hover) */
+      @media (max-width: 600px) {
+        .instructions {
+          transform: translate(-50%, -40px);
+          opacity: 1;
+        }
+      }
+
       .heart.clicked .instructions {
         opacity: 0;
       }
