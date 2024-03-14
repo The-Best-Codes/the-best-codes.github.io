@@ -48,8 +48,6 @@
         -webkit-animation: fadein var(--main-fade-dur); /* Safari and Chrome */
         -o-animation: fadein var(--main-fade-dur); /* Opera */
         -ms-animation: fadein var(--main-fade-dur); /* Internet Explorer */
-        filter: blur(50px) invert(1);
-        transition: 0.75s ease;
       }
 
       .main-a {
@@ -59,10 +57,11 @@
       @keyframes fadein {
         from {
           opacity: 0;
+          filter: blur(50px) invert(1);
         }
         to {
           opacity: 1;
-          filter: blur(0px) invert(0);
+          filter: blur(0px) invert(0) !important;
         }
       }
 

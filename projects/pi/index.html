@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate Digits of Pi | BestCodes Official Website</title>
+    <link rel="icon" type="image/png" href="favicon_32_32_compress.ico" />
+    <style>
+      * {
+        box-sizing: border-box;
+        transition: all 0.5s ease;
+      }
+
+      body {
+        font-family: sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Style the header */
+      .header {
+        position: sticky;
+        top: 0;
+        background: #123;
+        color: #f1f1f1;
+        padding: 5px 10px;
+        text-align: center;
+      }
+
+      .header h2 {
+        margin: 0;
+      }
+
+      .header button {
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+
+      /* Page content */
+      .content {
+        padding: 16px;
+      }
+
+      .content-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        border-radius: 15px;
+        border: #4caf50 solid 1px;
+        margin: auto;
+        margin-top: 25px;
+        width: 75vw;
+        height: 75vh;
+      }
+
+      .button-toolbar-top {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: -webkit-fill-available;
+      }
+
+      .button-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .button-group {
+          flex-direction: row;
+        }
+
+        .button-toolbar-top {
+          flex-direction: column;
+          background-color: white;
+          position: static;
+        }
+
+        #pi-div {
+          max-height: 45vh !important;
+        }
+
+        .content {
+          margin-top: auto;
+        }
+      }
+
+      /* The sticky class is added to the header when it reaches its scroll position */
+      .sticky {
+        position: fixed;
+        width: 100%;
+      }
+
+      /* Add some top padding to the page content to prevent sudden quick movement */
+      .sticky + .content {
+        padding-top: 102px;
+      }
+
+      /* Style the button */
+      button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        filter: drop-shadow(0 0 5px #777);
+      }
+
+      input {
+        background-color: #f1f1f1;
+        border: solid 1px #4caf50;
+        color: #123;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        border-radius: 15px;
+        cursor: pointer;
+        margin-top: 2.5px;
+      }
+
+      input:hover {
+        filter: drop-shadow(0 0 5px #777);
+      }
+
+      label {
+        display: block;
+        margin-right: 10px;
+      }
+
+      #pi-div {
+        padding: 10px;
+        text-align: center;
+        max-width: 65vw;
+        max-height: 60vh;
+        overflow-y: auto;
+      }
+
+      ::-webkit-scrollbar {
+        transition: all 0.3s ease;
+        width: 5px;
+        height: 5px;
+      }
+
+      :hover::-webkit-scrollbar {
+        transition: all 0.3s ease;
+        width: 5px !important;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1b4;
+        border-radius: 10px;
+      }
+
+      :hover::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: rgba(30, 30, 30, 0.5);
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(30, 30, 30, 0.75);
+      }
+
+      ::selection {
+        background: #555;
+        color: #fff;
+      }
+
+      /* Cookie Notice Styles */
+      .cookie-notice {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.9;
+        background-color: #252e39;
+        color: #fff;
+        padding: 10px;
+        z-index: 10000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+      }
+
+      .cookie-notice p {
+        margin-right: 10px;
+      }
+
+      .cookie-notice a {
+        color: #fff;
+        text-decoration: underline;
+      }
+
+      .cookie-btn {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .cookie-btn:hover {
+        background-color: #3e8e41;
+      }
+
+      .cookie-btn:not(:hover) {
+        background-color: #4caf50;
+      }
+
+      .cookie-btn:focus {
+        outline: none;
+      }
+
+      .cookie-btn:active {
+        transform: scale(0.95);
+      }
+
+      .cookie-notice a:hover {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      @media (max-width: 768px) {
+        .cookie-notice {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .cookie-notice p {
+          margin-bottom: 10px;
+          text-align: center;
+        }
+
+        .cookie-btn {
+          width: 100%;
+        }
+      }
+
+      p {
+        cursor: text;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Cookie Notice -->
+    <div id="cookieNotice" class="cookie-notice" style="display: none">
+      <p>
+        This website uses cookies to ensure you have an awesome experience.
+        <a
+          href="https://www.aboutcookies.org/"
+          target="_blank"
+          style="margin-left: 10px; margin-right: 10px"
+          >More About Cookies</a
+        >
+      </p>
+      <button id="acceptCookies" class="cookie-btn">Got it!</button>
+    </div>
+    <div class="header" id="myHeader">
+      <h2>Generate Digits of Pi</h2>
+    </div>
+    <div class="content-wrapper">
+      <div class="button-toolbar-top">
+        <div class="button-group">
+          <button
+            id="startStopButton"
+            onclick="toggleGeneration()"
+            style="margin-right: 10px"
+          >
+            Start
+          </button>
+          <button
+            id="resetButton"
+            onclick="location.reload()"
+            style="margin-right: 10px; background-color: #af4c4c"
+          >
+            Reset
+          </button>
+        </div>
+        <div class="button-group" style="margin-top: 2.5px">
+          <label for="intervalDelay">Delay (ms):</label>
+          <input
+            id="intervalDelay"
+            type="number"
+            value="10"
+            min="0"
+            max="10000"
+            step="1"
+            style="margin-right: 10px"
+            oninput="updateIntervalDelay()"
+          />
+          <label for="numberOfDigits">Digits:</label>
+          <input
+            id="numberOfDigits"
+            type="number"
+            value="10"
+            min="0"
+            max="10000"
+            step="1"
+            style="margin-right: 10px"
+            oninput="updateNumberOfDigits()"
+          />
+        </div>
+        <div class="button-group">
+          <div style="margin: 0 10px">
+            <span id="numberDigitsDone">0</span><span>&nbsp;digits</span>
+          </div>
+          <button id="copyButton" onclick="copyPi()" style="margin-right: 15px">
+            Copy
+          </button>
+        </div>
+      </div>
+      <div class="content">
+        <div
+          style="word-wrap: break-word; font-family: Arial; text-align: left"
+          id="pi-div"
+        ></div>
+      </div>
+    </div>
+    <script>
+      let generator = generateDigitsOfPi();
+      let hasDoneFirstIteration = false;
+      let intervalId;
+      let isGenerating = false;
+
+      var G_INTERVAL_DELAY = 10;
+      var G_NUMBER_OF_DIGITS = 10;
+
+      function* generateDigitsOfPi() {
+        let q = 1n;
+        let r = 180n;
+        let t = 60n;
+        let i = 2n;
+        while (true) {
+          let digit = ((i * 27n - 12n) * q + r * 5n) / (t * 5n);
+          yield Number(digit);
+          let u = i * 3n;
+          u = (u + 1n) * 3n * (u + 2n);
+          r = u * 10n * (q * (i * 5n - 2n) + r - t * digit);
+          q *= 10n * i * (i++ * 2n - 1n);
+          t *= u;
+        }
+      }
+
+      function toggleGeneration() {
+        if (isGenerating) {
+          clearInterval(intervalId);
+          document.getElementById("startStopButton").textContent = "Resume";
+        } else {
+          intervalId = setInterval(displayTenNextDigits, G_INTERVAL_DELAY);
+          document.getElementById("startStopButton").textContent = "Pause";
+        }
+        isGenerating = !isGenerating;
+      }
+
+      function scrollToBottomIfNearEnd(element) {
+        const nearBottom =
+          element.scrollHeight - element.scrollTop - element.clientHeight < 100;
+        if (nearBottom) {
+          element.scrollTop = element.scrollHeight;
+        }
+      }
+
+      function displayTenNextDigits() {
+        let digits = "";
+        for (let i = 0; i < G_NUMBER_OF_DIGITS; i++) {
+          digits += generator.next().value;
+        }
+        if (!hasDoneFirstIteration) {
+          hasDoneFirstIteration = true;
+          digits = digits.replace(/^3/, "3.");
+        }
+        const piDiv = document.querySelector("#pi-div");
+        piDiv.insertAdjacentHTML("beforeend", digits);
+        const numberDigitsDone = document.querySelector("#numberDigitsDone");
+        numberDigitsDone.textContent = piDiv.innerText.length - 1;
+        scrollToBottomIfNearEnd(piDiv);
+      }
+
+      function copyPi() {
+        const piDiv = document.querySelector("#pi-div");
+        const digits = piDiv.innerText;
+        navigator.clipboard.writeText(digits);
+        const copyButton = document.querySelector("#copyButton");
+        copyButton.textContent = "Copied!";
+        setTimeout(() => (copyButton.textContent = "Copy"), 1000);
+      }
+
+      function updateIntervalDelay() {
+        G_INTERVAL_DELAY = document.querySelector("#intervalDelay").value;
+      }
+
+      function updateNumberOfDigits() {
+        G_NUMBER_OF_DIGITS = document.querySelector("#numberOfDigits").value;
+      }
+    </script>
+    <!-- Default Statcounter code for BestCodes's Website
+https://the-best-codes.github.io/ -->
+    <script type="text/javascript">
+      var sc_project = 12947838;
+      var sc_invisible = 1;
+      var sc_security = "64126f45";
+    </script>
+    <script
+      type="text/javascript"
+      src="https://www.statcounter.com/counter/counter.js"
+      async
+    ></script>
+    <noscript>
+      <div class="statcounter">
+        <a title="Web Analytics" href="https://statcounter.com/" target="_blank"
+          ><img
+            class="statcounter"
+            src="https://c.statcounter.com/12947838/0/64126f45/1/"
+            alt="Web Analytics"
+            referrerpolicy="no-referrer-when-downgrade"
+        /></a>
+      </div>
+    </noscript>
+    <!-- End of Statcounter Code -->
+    <script>
+      // Add cookie consent notice
+      window.onload = function () {
+        var cookieNotice = document.getElementById("cookieNotice");
+        var acceptCookies = document.getElementById("acceptCookies");
+
+        acceptCookies.onclick = function () {
+          cookieNotice.style.display = "none";
+          // Set a cookie to remember the user's consent
+          document.cookie =
+            "cookies_accepted=true;expires=" +
+            new Date(
+              new Date().setFullYear(new Date().getFullYear() + 1)
+            ).toUTCString() +
+            ";path=/";
+        };
+
+        // Check if the cookie consent has been previously accepted
+        if (document.cookie.indexOf("cookies_accepted") != -1) {
+          cookieNotice.style.display = "none";
+        } else {
+          cookieNotice.style.display = "flex";
+        }
+      };
+    </script>
+  </body>
+</html>
