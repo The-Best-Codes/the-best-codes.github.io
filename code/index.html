@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML Editor</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      ::-webkit-scrollbar {
+        display: none;
+        width: 0px;
+        height: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="editor" style="height: 45vh"></div>
+    <iframe
+      id="output"
+      style="width: 100%; height: 45vh; border: 1px solid black"
+    ></iframe>
+
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.min.js"></script>
+    <script>
+      // Configure the loader
+      require.config({
+        paths: {
+          vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs",
+        },
+      });
+
+      // Load the Monaco Editor
+      require(["vs/editor/editor.main"], () => {
+        const editor = monaco.editor.create(document.getElementById("editor"), {
+          value: "", // Initialize with empty value
+          language: "html",
+          theme: "vs-light",
+        });
+
+        monaco.languages.html.htmlDefaults.setOptions({
+          suggest: {
+            emmet: true,
+          },
+        });
+
+        // Update iframe content when editor content changes
+        editor.onDidChangeModelContent(() => {
+          const htmlContent = editor.getValue();
+          document.getElementById("output").srcdoc = htmlContent;
+        });
+
+        // Check if there's a code parameter in the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const codeParam = urlParams.get("code");
+        if (codeParam) {
+          editor.setValue(decodeURIComponent(codeParam));
+          document.getElementById("output").srcdoc =
+            decodeURIComponent(codeParam);
+        }
+      });
+    </script>
+  </body>
+</html>
