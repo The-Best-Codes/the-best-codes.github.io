@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play florr.io as a Beginner | Best Codes</title>
+    <link rel="icon" type="image/png" href="../../favicon_32_32_compress.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Ubuntu", sans-serif;
+        color: white;
+        -webkit-text-stroke: 2px black;
+      }
+
+      body,
+      html {
+        height: 100vh;
+        margin: 0;
+      }
+
+      body {
+        margin: 5px;
+        height: calc(100vh - 10px);
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: 70% auto;
+        /* Main content and sidebar */
+        grid-template-rows: 75% 25%;
+        /* Main square and rectangle */
+        height: 100%;
+      }
+
+      .main-square {
+        grid-column: 1;
+        grid-row: 1;
+        margin: 5px;
+      }
+
+      .rectangle {
+        grid-column: 1;
+        grid-row: 2;
+        background-color: rgb(200, 200, 200);
+        margin: 5px;
+      }
+
+      .sidebar {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        background-color: rgb(200, 200, 200);
+        margin: 5px;
+      }
+
+      .no-outline {
+        -webkit-text-stroke: 0px;
+      }
+
+      .no-outline * {
+        -webkit-text-stroke: 0px;
+      }
+
+      .black-children * {
+        color: black; /* Try not to laugh at the class name */
+      }
+
+      @media only screen and (max-width: 600px) {
+        .grid-container {
+          grid-template-columns: 1fr;
+          /* Stack the elements on small screens */
+          grid-template-rows: 50% 25% auto;
+          /* Adjust the rows to fit content */
+        }
+
+        .main-square,
+        .rectangle,
+        .sidebar {
+          grid-column: 1;
+          /* All elements in the first column */
+          margin: 5px 0;
+          /* Adjust margin for vertical stacking */
+        }
+
+        .sidebar {
+          grid-row: 3;
+          /* Place the sidebar at the bottom */
+        }
+
+        .main-square {
+          grid-row: 1;
+          /* Place the main square at the top */
+        }
+
+        .rectangle {
+          grid-row: 2;
+          /* Place the rectangle in the middle */
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <div class="main-square">
+        <iframe
+          src="https://florr.io"
+          style="width: 100%; height: 100%"
+          frameborder="0"
+        ></iframe>
+      </div>
+      <div class="rectangle" style="padding: 10px; overflow-y: auto">
+        <h1 style="font-size: 3rem">Play Florr.io as a Beginner</h1>
+        <div
+          style="font-size: 24px; color: black"
+          class="no-outline black-children"
+        >
+          <p>
+            Welcome to my florr.io mod! This will only be useful to you if you
+            have a florr account already and want to play florr play as a
+            begginner. If you don't play florr yet, go to
+            <a href="https://florr.io">florr.io</a> and try it!
+          </p>
+          <b>Note: </b
+          ><span
+            >The <i>Sign in with Discord</i> and
+            <i> Sign in with Apple</i> buttons will not work. I've disabled them
+            for now.</span
+          >
+        </div>
+      </div>
+      <div class="sidebar" style="padding: 10px; overflow-y: auto">
+        <h1 style="font-size: 3rem">Florr.io</h1>
+        <h2 style="font-size: 1rem">More Content Coming Soon</h2>
+        <div
+          style="font-size: 24px; color: black"
+          class="no-outline black-children"
+        >
+          <p>More content coming soon! (Tools, maps, etc.)</p>
+        </div>
+        <img
+          src="Map_27_-_Jan_8_24_v1.webp"
+          alt="Map of florr"
+          style="width: 100%"
+        />
+      </div>
+    </div>
+  </body>
+</html>
