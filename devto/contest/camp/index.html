@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+    <style>
+      /* Ensure consistent sizing across browsers */
+      * {
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+        font-family: "Varela Round";
+      }
+
+      /* Responsive Styles */
+      @media only screen and (max-width: 768px) {
+        section#camp-activities-inquiry {
+          width: 80vw !important;
+        }
+
+        section#camp-activities-inquiry h1 {
+          font-size: 1.8rem;
+          text-align: center;
+        }
+
+        section#camp-activities-inquiry label,
+        section#camp-activities-inquiry button {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        section#camp-activities-inquiry textarea {
+          height: 100px;
+        }
+      }
+
+      html {
+        width: 100vw;
+        min-height: 100vh;
+      }
+
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-image: url(https://www.publicdomainpictures.net/pictures/10000/velka/2185-1268335213EVXV.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+      }
+
+      section#camp-activities-inquiry {
+        background-color: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        padding: 15px;
+        margin: 10px auto;
+        max-width: 700px;
+        width: 50vw;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      section#camp-activities-inquiry h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        margin-top: 15px;
+        text-align: center;
+      }
+
+      section#camp-activities-inquiry label {
+        display: block;
+        margin-bottom: 2.5px;
+        margin-top: 10px;
+        font-weight: 500;
+      }
+
+      section#camp-activities-inquiry select,
+      section#camp-activities-inquiry textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        font-size: 1rem;
+        resize: none;
+        outline: 1px solid #4caf50 !important;
+      }
+
+      section#camp-activities-inquiry form {
+        margin: 0;
+      }
+
+      section#camp-activities-inquiry button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        margin-top: 15px;
+        width: 100%;
+      }
+
+      section#camp-activities-inquiry button:hover {
+        background-color: #3e8e41;
+      }
+
+      .ts-control {
+        outline: 1px solid #4caf50;
+        border-radius: 5px;
+      }
+
+      .ts-dropdown.single {
+        border-radius: 5px;
+      }
+
+      .option.active {
+        background-color: #4caf50;
+        color: white;
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar {
+        transition: all 0.3s ease;
+        width: 5px;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: rgba(30, 30, 30, 0.5);
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(30, 30, 30, 0.75);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- devto/contest/camp/index.html dev.to Camp Activities Inquiry template -->
+    <section id="camp-activities-inquiry">
+      <h1>Camp Activities Inquiry</h1>
+      <form action="/submit-form" method="POST">
+        <label for="activity-select"
+          >Which camp activities are you most looking forward to?</label
+        >
+        <select id="activity-select" name="activity">
+          <option value="">--Please choose an option--</option>
+          <option value="hiking">Hiking</option>
+          <option value="canoeing">Canoeing</option>
+          <option value="fishing">Fishing</option>
+          <option value="crafts">Crafts</option>
+          <option value="archery">Archery</option>
+        </select>
+
+        <label for="food-allergies">Food Allergies (if any)</label>
+        <textarea
+          id="food-allergies"
+          name="food_allergies"
+          rows="4"
+          cols="50"
+        ></textarea>
+
+        <label for="additional-info"
+          >Additional things the counselor should know</label
+        >
+        <textarea
+          id="additional-info"
+          name="additional_info"
+          rows="4"
+          cols="50"
+        ></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+    <!-- devto/contest/camp/index.html end dev.to Camp Activities Inquiry template -->
+    <script>
+      var settings = {};
+      new TomSelect("#activity-select", settings);
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const labelElement = document.querySelector(
+          'label[for="activity-select-ts-control"]'
+        );
+        labelElement.addEventListener("click", (event) => {
+          event.stopPropagation();
+          event.preventDefault();
+        });
+      });
+    </script>
+  </body>
+</html>
