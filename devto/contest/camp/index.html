@@ -249,7 +249,7 @@
 
         document.querySelector("form").addEventListener("submit", (event) => {
           event.preventDefault();
-          window.location.href = `/?ref=${encodeURIComponent(
+          window.location.href = `/submit-form/index.html?ref=${encodeURIComponent(
             window.location.href
           )}&reason=submit&data=${encodeURIComponent(
             JSON.stringify(new FormData(event.target))
