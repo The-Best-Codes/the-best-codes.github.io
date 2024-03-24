@@ -249,86 +249,13 @@
 
         document.querySelector("form").addEventListener("submit", (event) => {
           event.preventDefault();
-          const data = new FormData(event.target);
-          const activity = data.get("activity");
-          const food_allergies = data.get("food_allergies");
-          const additional_info = data.get("additional_info");
-
-          let proceedWithoutActivity = false;
-          let proceedWithoutFoodAllergies = true; // Assume it's okay to proceed without this info by default
-          let proceedWithoutAdditionalInfo = true; // Assume it's okay to proceed without this info by default
-
-          // Function to handle form submission
-          const submitForm = () => {
-            window.location.href = `/submit-form/index.html?activity=${encodeURIComponent(
-              activity
-            )}&food_allergies=${encodeURIComponent(
-              food_allergies
-            )}&additional_info=${encodeURIComponent(additional_info)}`;
-          };
-
-          // Function to show warning if a field is empty
-          const showAlert = (message) => {
-            return swal({
-              title: "Warning",
-              text: message,
-              icon: "warning",
-              buttons: {
-                cancel: "OK",
-                proceed: {
-                  text: "Proceed Anyway",
-                  value: true,
-                },
-              },
-              dangerMode: true,
-            });
-          };
-
-          // Start the form validation and submission process
-          Promise.resolve()
-            .then(() => {
-              if (!activity) {
-                return showAlert("Please select an activity").then((value) => {
-                  proceedWithoutActivity = value;
-                });
-              }
-            })
-            .then(() => {
-              if (!food_allergies) {
-                return showAlert(
-                  "If you have any food allergies, please enter them."
-                ).then((value) => {
-                  proceedWithoutFoodAllergies = value;
-                });
-              }
-            })
-            .then(() => {
-              if (!additional_info) {
-                return showAlert(
-                  "If you have any additional information, please enter it."
-                ).then((value) => {
-                  proceedWithoutAdditionalInfo = value;
-                });
-              }
-            })
-            .then(() => {
-              if (
-                proceedWithoutActivity &&
-                proceedWithoutFoodAllergies &&
-                proceedWithoutAdditionalInfo
-              ) {
-                submitForm();
-              } else {
-                // If user did not proceed for any of the fields, do not submit
-                console.error("Form submission cancelled by user.");
-              }
-            })
-            .catch((error) => {
-              console.error("An unexpected error occurred: ", error);
-            });
+          window.location.href = `/?ref=${encodeURIComponent(
+            window.location.href
+          )}&reason=submit&data=${encodeURIComponent(
+            JSON.stringify(new FormData(event.target))
+          )}`;
         });
       });
     </script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>
