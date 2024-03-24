@@ -264,10 +264,10 @@
           };
 
           // Function to show warning if a field is empty
-          const showAlert = (field, message) => {
+          const showAlert = (title, text) => {
             return swal({
-              title: "Warning",
-              text: message,
+              title: title,
+              text: text,
               icon: "warning",
               buttons: {
                 ok: "OK",
@@ -277,7 +277,7 @@
             });
           };
 
-          // Promise chain to ensure all checks are done sequentially
+          // Start the form validation and submission process
           Promise.resolve()
             .then(() => {
               if (!activity) {
@@ -289,35 +289,38 @@
             .then(() => {
               if (!food_allergies) {
                 return showAlert(
-                  "food_allergies",
+                  "Warning",
                   "If you have any food allergies, please enter them."
                 );
               }
             })
             .then((value) => {
-              if (value === null && !food_allergies) {
-                // User chose to proceed anyway without food allergies
-                return Promise.resolve();
+              // If the user clicks "OK", stop the process to allow correction
+              if (value !== "cancel" && !food_allergies) {
+                return Promise.reject(new Error("Food allergies not provided"));
               }
             })
             .then(() => {
               if (!additional_info) {
                 return showAlert(
-                  "additional_info",
+                  "Warning",
                   "If you have any additional information, please enter it."
                 );
               }
             })
             .then((value) => {
-              if (value === null && !additional_info) {
-                // User chose to proceed anyway without additional info
-                return Promise.resolve();
+              // If the user clicks "OK", stop the process to allow correction
+              if (value !== "cancel" && !additional_info) {
+                return Promise.reject(
+                  new Error("Additional information not provided")
+                );
               }
             })
             .then(submitForm)
             .catch((error) => {
-              console.error(error.message);
-              // Handle any step where the user did not proceed
+              // Log the error or handle it as needed
+              console.error(error);
+              // Here you can inform the user to correct the form or handle the error as per your UX
             });
         });
       });
