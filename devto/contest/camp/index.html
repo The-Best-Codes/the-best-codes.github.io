@@ -177,6 +177,14 @@
       ::-webkit-scrollbar-thumb:hover {
         background: rgba(30, 30, 30, 0.75);
       }
+
+      .swal-button.swal-button--confirm {
+        background-color: #4caf50;
+      }
+
+      .swal-button.swal-button--confirm:hover {
+        background-color: #3e8e41;
+      }
     </style>
   </head>
   <body>
@@ -237,8 +245,46 @@
           const food_allergies = data.get("food_allergies");
           const additional_info = data.get("additional_info");
 
-          if (!activity || !food_allergies || !additional_info) {
-            swal("Error", "Please fill out all fields.", "error");
+          if (!food_allergies) {
+            swal({
+              title: "Warning",
+              text: "If you have any food allergies, please enter them.",
+              icon: "warning",
+              buttons: {
+                ok: "OK",
+                cancel: "Proceed Anyway",
+              },
+              dangerMode: true,
+            }).then((value) => {
+              if (value === "cancel") {
+                // Proceed with the form submission
+              } else {
+                return;
+              }
+            });
+          }
+
+          if (!additional_info) {
+            swal({
+              title: "Warning",
+              text: "If you have any additional information, please enter it.",
+              icon: "warning",
+              buttons: {
+                ok: "OK",
+                cancel: "Proceed Anyway",
+              },
+              dangerMode: true,
+            }).then((value) => {
+              if (value === "cancel") {
+                // Proceed with the form submission
+              } else {
+                return;
+              }
+            });
+          }
+
+          if (!activity) {
+            swal("Error", "Please select an activity", "error");
           } else {
             window.location.href = `/submit-form/index.html?activity=${encodeURIComponent(
               activity
