@@ -245,53 +245,75 @@
           const food_allergies = data.get("food_allergies");
           const additional_info = data.get("additional_info");
 
-          if (!food_allergies) {
-            swal({
-              title: "Warning",
-              text: "If you have any food allergies, please enter them.",
-              icon: "warning",
-              buttons: {
-                ok: "OK",
-                cancel: "Proceed Anyway",
-              },
-              dangerMode: true,
-            }).then((value) => {
-              if (value === "cancel") {
-                // Proceed with the form submission
-              } else {
-                return;
-              }
-            });
-          }
-
-          if (!additional_info) {
-            swal({
-              title: "Warning",
-              text: "If you have any additional information, please enter it.",
-              icon: "warning",
-              buttons: {
-                ok: "OK",
-                cancel: "Proceed Anyway",
-              },
-              dangerMode: true,
-            }).then((value) => {
-              if (value === "cancel") {
-                // Proceed with the form submission
-              } else {
-                return;
-              }
-            });
-          }
-
           if (!activity) {
             swal("Error", "Please select an activity", "error");
-          } else {
-            window.location.href = `/submit-form/index.html?activity=${encodeURIComponent(
-              activity
-            )}&food_allergies=${encodeURIComponent(
-              food_allergies
-            )}&additional_info=${encodeURIComponent(additional_info)}`;
+            return;
           }
+
+          const checkFoodAllergies = () => {
+            return new Promise((resolve) => {
+              if (!food_allergies) {
+                swal({
+                  title: "Warning",
+                  text: "If you have any food allergies, please enter them.",
+                  icon: "warning",
+                  buttons: {
+                    ok: "OK",
+                    cancel: "Proceed Anyway",
+                  },
+                  dangerMode: true,
+                }).then((value) => {
+                  if (value === "cancel") {
+                    resolve(true);
+                  } else {
+                    resolve(false);
+                  }
+                });
+              } else {
+                resolve(true);
+              }
+            });
+          };
+
+          const checkAdditionalInfo = () => {
+            return new Promise((resolve) => {
+              if (!additional_info) {
+                swal({
+                  title: "Warning",
+                  text: "If you have any additional information, please enter it.",
+                  icon: "warning",
+                  buttons: {
+                    ok: "OK",
+                    cancel: "Proceed Anyway",
+                  },
+                  dangerMode: true,
+                }).then((value) => {
+                  if (value === "cancel") {
+                    resolve(true);
+                  } else {
+                    resolve(false);
+                  }
+                });
+              } else {
+                resolve(true);
+              }
+            });
+          };
+
+          checkFoodAllergies().then((proceedFoodAllergies) => {
+            if (proceedFoodAllergies) {
+              checkAdditionalInfo().then((proceedAdditionalInfo) => {
+                if (proceedAdditionalInfo) {
+                  // Proceed with the form submission
+                  window.location.href = `/submit-form/index.html?activity=${encodeURIComponent(
+                    activity
+                  )}&food_allergies=${encodeURIComponent(
+                    food_allergies
+                  )}&additional_info=${encodeURIComponent(additional_info)}`;
+                }
+              });
+            }
+          });
         });
       });
     </script>
