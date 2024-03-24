@@ -185,6 +185,14 @@
       .swal-button.swal-button--confirm:hover {
         background-color: #3e8e41;
       }
+
+      .swal-button.swal-button--ok {
+        background-color: #4caf50;
+      }
+
+      .swal-button.swal-button--ok:hover {
+        background-color: #3e8e41;
+      }
     </style>
   </head>
   <body>
@@ -238,6 +246,7 @@
           event.stopPropagation();
           event.preventDefault();
         });
+
         document.querySelector("form").addEventListener("submit", (event) => {
           event.preventDefault();
           const data = new FormData(event.target);
@@ -245,75 +254,71 @@
           const food_allergies = data.get("food_allergies");
           const additional_info = data.get("additional_info");
 
-          if (!activity) {
-            swal("Error", "Please select an activity", "error");
-            return;
-          }
+          // Function to handle form submission
+          const submitForm = () => {
+            window.location.href = `/submit-form/index.html?activity=${encodeURIComponent(
+              activity
+            )}&food_allergies=${encodeURIComponent(
+              food_allergies
+            )}&additional_info=${encodeURIComponent(additional_info)}`;
+          };
 
-          const checkFoodAllergies = () => {
-            return new Promise((resolve) => {
+          // Function to show warning if a field is empty
+          const showAlert = (field, message) => {
+            return swal({
+              title: "Warning",
+              text: message,
+              icon: "warning",
+              buttons: {
+                ok: "OK",
+                cancel: "Proceed Anyway",
+              },
+              dangerMode: true,
+            });
+          };
+
+          // Promise chain to ensure all checks are done sequentially
+          Promise.resolve()
+            .then(() => {
+              if (!activity) {
+                return swal("Error", "Please select an activity", "error").then(
+                  () => Promise.reject(new Error("No activity selected"))
+                );
+              }
+            })
+            .then(() => {
               if (!food_allergies) {
-                swal({
-                  title: "Warning",
-                  text: "If you have any food allergies, please enter them.",
-                  icon: "warning",
-                  buttons: {
-                    ok: "OK",
-                    cancel: "Proceed Anyway",
-                  },
-                  dangerMode: true,
-                }).then((value) => {
-                  if (value === "cancel") {
-                    resolve(true);
-                  } else {
-                    resolve(false);
-                  }
-                });
-              } else {
-                resolve(true);
+                return showAlert(
+                  "food_allergies",
+                  "If you have any food allergies, please enter them."
+                );
               }
-            });
-          };
-
-          const checkAdditionalInfo = () => {
-            return new Promise((resolve) => {
+            })
+            .then((value) => {
+              if (value === null && !food_allergies) {
+                // User chose to proceed anyway without food allergies
+                return Promise.resolve();
+              }
+            })
+            .then(() => {
               if (!additional_info) {
-                swal({
-                  title: "Warning",
-                  text: "If you have any additional information, please enter it.",
-                  icon: "warning",
-                  buttons: {
-                    ok: "OK",
-                    cancel: "Proceed Anyway",
-                  },
-                  dangerMode: true,
-                }).then((value) => {
-                  if (value === "cancel") {
-                    resolve(true);
-                  } else {
-                    resolve(false);
-                  }
-                });
-              } else {
-                resolve(true);
+                return showAlert(
+                  "additional_info",
+                  "If you have any additional information, please enter it."
+                );
               }
+            })
+            .then((value) => {
+              if (value === null && !additional_info) {
+                // User chose to proceed anyway without additional info
+                return Promise.resolve();
+              }
+            })
+            .then(submitForm)
+            .catch((error) => {
+              console.error(error.message);
+              // Handle any step where the user did not proceed
             });
-          };
-
-          checkFoodAllergies().then((proceedFoodAllergies) => {
-            if (proceedFoodAllergies) {
-              checkAdditionalInfo().then((proceedAdditionalInfo) => {
-                if (proceedAdditionalInfo) {
-                  // Proceed with the form submission
-                  window.location.href = `/submit-form/index.html?activity=${encodeURIComponent(
-                    activity
-                  )}&food_allergies=${encodeURIComponent(
-                    food_allergies
-                  )}&additional_info=${encodeURIComponent(additional_info)}`;
-                }
-              });
-            }
-          });
         });
       });
     </script>
