@@ -254,6 +254,10 @@
           const food_allergies = data.get("food_allergies");
           const additional_info = data.get("additional_info");
 
+          let proceedWithoutActivity = false;
+          let proceedWithoutFoodAllergies = true; // Assume it's okay to proceed without this info by default
+          let proceedWithoutAdditionalInfo = true; // Assume it's okay to proceed without this info by default
+
           // Function to handle form submission
           const submitForm = () => {
             window.location.href = `/submit-form/index.html?activity=${encodeURIComponent(
@@ -264,14 +268,17 @@
           };
 
           // Function to show warning if a field is empty
-          const showAlert = (title, text) => {
+          const showAlert = (message) => {
             return swal({
-              title: title,
-              text: text,
+              title: "Warning",
+              text: message,
               icon: "warning",
               buttons: {
-                ok: "OK",
-                cancel: "Proceed Anyway",
+                cancel: "OK",
+                proceed: {
+                  text: "Proceed Anyway",
+                  value: true,
+                },
               },
               dangerMode: true,
             });
@@ -281,46 +288,43 @@
           Promise.resolve()
             .then(() => {
               if (!activity) {
-                return swal("Error", "Please select an activity", "error").then(
-                  () => Promise.reject(new Error("No activity selected"))
-                );
+                return showAlert("Please select an activity").then((value) => {
+                  proceedWithoutActivity = value;
+                });
               }
             })
             .then(() => {
               if (!food_allergies) {
                 return showAlert(
-                  "Warning",
                   "If you have any food allergies, please enter them."
-                );
-              }
-            })
-            .then((value) => {
-              // If the user clicks "OK", stop the process to allow correction
-              if (value !== "cancel" && !food_allergies) {
-                return Promise.reject(new Error("Food allergies not provided"));
+                ).then((value) => {
+                  proceedWithoutFoodAllergies = value;
+                });
               }
             })
             .then(() => {
               if (!additional_info) {
                 return showAlert(
-                  "Warning",
                   "If you have any additional information, please enter it."
-                );
+                ).then((value) => {
+                  proceedWithoutAdditionalInfo = value;
+                });
               }
             })
-            .then((value) => {
-              // If the user clicks "OK", stop the process to allow correction
-              if (value !== "cancel" && !additional_info) {
-                return Promise.reject(
-                  new Error("Additional information not provided")
-                );
+            .then(() => {
+              if (
+                proceedWithoutActivity &&
+                proceedWithoutFoodAllergies &&
+                proceedWithoutAdditionalInfo
+              ) {
+                submitForm();
+              } else {
+                // If user did not proceed for any of the fields, do not submit
+                console.error("Form submission cancelled by user.");
               }
             })
-            .then(submitForm)
             .catch((error) => {
-              // Log the error or handle it as needed
-              console.error(error);
-              // Here you can inform the user to correct the form or handle the error as per your UX
+              console.error("An unexpected error occurred: ", error);
             });
         });
       });
