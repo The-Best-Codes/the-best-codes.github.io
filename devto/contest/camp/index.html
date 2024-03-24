@@ -230,7 +230,25 @@
           event.stopPropagation();
           event.preventDefault();
         });
+        document.querySelector("form").addEventListener("submit", (event) => {
+          event.preventDefault();
+          const data = new FormData(event.target);
+          const activity = data.get("activity");
+          const food_allergies = data.get("food_allergies");
+          const additional_info = data.get("additional_info");
+
+          if (!activity || !food_allergies || !additional_info) {
+            swal("Error", "Please fill out all fields.", "error");
+          } else {
+            window.location.href = `/submit-form/index.html?activity=${encodeURIComponent(
+              activity
+            )}&food_allergies=${encodeURIComponent(
+              food_allergies
+            )}&additional_info=${encodeURIComponent(additional_info)}`;
+          }
+        });
       });
     </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>
