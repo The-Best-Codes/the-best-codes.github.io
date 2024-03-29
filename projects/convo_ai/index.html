@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+      }
+
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+      }
+
+      .form-container {
+        width: 20vw;
+        max-width: 650px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      input[type="email"],
+      input[type="password"],
+      button {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      button {
+        background-color: #5cb85c;
+        color: white;
+        border: none;
+        cursor: pointer;
+        height: 35px;
+      }
+
+      button:hover {
+        background-color: #4cae4c;
+      }
+
+      .forgot-password {
+        text-align: right;
+        margin-bottom: 10px;
+      }
+
+      .forgot-password a {
+        text-decoration: none;
+        color: #5cb85c;
+        font-size: 0.9em;
+      }
+
+      .social-buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .social-button {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        background-color: #5cb85c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .social-button img {
+        max-width: 20px;
+        max-height: 20px;
+        border-radius: 50%;
+      }
+
+      .signup-text {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .signup-text a {
+        text-decoration: none;
+        color: #5cb85c;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          width: 90%;
+        }
+      }
+
+      h2,
+      p {
+        margin: 0;
+        padding: 0;
+      }
+
+      .subtext {
+        margin-top: 5px;
+        margin-bottom: 15px;
+        color: #777;
+      }
+
+      input:focus {
+        outline: 1px dashed #4caf50;
+      }
+
+      label {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        margin-top: 5px;
+        margin-bottom: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <form>
+        <h2>Sign In</h2>
+        <p class="subtext">to continue to Convo AI</p>
+        <label for="email">Email:</label>
+        <input type="email" placeholder="Enter your email" required />
+        <label for="password">Password:</label>
+        <input type="password" placeholder="Enter your password" required />
+        <div class="forgot-password">
+          <a href="#">Forgot password?</a>
+        </div>
+        <button type="submit">Login</button>
+
+        <div class="social-buttons">
+          <button class="social-button" title="Sign in with Google">
+            <img
+              src="https://www.google.com/s2/favicons?domain=google.com&sz=40"
+              alt="Google"
+            />
+          </button>
+          <button class="social-button" title="Sign in with GitHub">
+            <img
+              src="https://www.google.com/s2/favicons?domain=github.com&sz=40"
+              alt="GitHub"
+            />
+          </button>
+        </div>
+
+        <div class="signup-text">
+          Don't have an account? <a href="#">Sign up</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
