@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decorated Wiggling Easter Eggs</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        height: 100vh;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      body {
+        height: 200vh;
+        background-color: rebeccapurple;
+      }
+
+      .egg-row {
+        position: fixed;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        transform: translateY(-50%);
+      }
+
+      .egg {
+        display: inline-block;
+        width: 60px;
+        height: 80px;
+        margin: 0 10px;
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        position: relative;
+        vertical-align: top;
+      }
+
+      .eye {
+        position: absolute;
+        width: 10%;
+        height: 15%;
+        background-color: black;
+        border-radius: 50%;
+        top: 30%;
+      }
+
+      .eye.left {
+        left: 25%;
+        top: 40%;
+      }
+
+      .eye.right {
+        right: 25%;
+        top: 40%;
+      }
+
+      .smile {
+        position: absolute;
+        width: 40%;
+        height: 20%;
+        border: 3px solid;
+        border-radius: 100%;
+        border-top: none;
+        border-right-color: transparent;
+        border-left-color: transparent;
+        bottom: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        /* Start with smiles hidden */
+      }
+
+      .decoration {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        /* Adjust based on your texture/image */
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="egg-row">
+      <!-- Eggs will receive random colors and decorations through JavaScript -->
+      <!-- The smile's opacity will change based on scroll position -->
+    </div>
+
+    <script>
+      // Define a list of Easter colors
+      var eggColors = ["#FFC0CB", "#FFFACD", "#BAE0E2", "#D3FFCE", "#FFDDCA"];
+
+      // Function to assign random color and decoration to each egg
+      function decorateEggs() {
+        var eggs = document.querySelectorAll(".egg");
+        eggs.forEach(function (egg) {
+          var randomColorIndex = Math.floor(Math.random() * eggColors.length);
+          var color = eggColors[randomColorIndex];
+          egg.style.backgroundColor = color;
+          // Add a decoration pattern or image (uncomment and set the background-image property)
+          egg.innerHTML +=
+            '<div class="decoration" style="background-image: url(\'path-to-your-image.png\');"></div>';
+        });
+      }
+
+      // Function to wiggle the eggs with random factors
+      function wiggleEggs() {
+        var eggs = document.querySelectorAll(".egg");
+        eggs.forEach(function (egg, index) {
+          var direction = parseInt(
+            egg.getAttribute("data-wiggle-direction"),
+            10
+          );
+          var scrollY =
+            window.pageYOffset || document.documentElement.scrollTop;
+          var wiggleFactor = 20; //Math.random() * 10; // Random factor between 0 and 10
+          var wiggleAngle =
+            Math.sin(scrollY / 100 + index) * direction * wiggleFactor;
+          egg.style.transform = "rotate(" + wiggleAngle + "deg)";
+        });
+      }
+
+      // Function to control the opacity of smiles
+      function controlSmiles() {
+        var smiles = document.querySelectorAll("#face");
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        var scrollHeight =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        var bottomZoneStart = scrollHeight * 0.5; // Starting point of the last 50%
+        smiles.forEach(function (smile) {
+          if (scrollY > bottomZoneStart) {
+            var opacity =
+              (scrollY - bottomZoneStart) / (scrollHeight - bottomZoneStart);
+            smile.style.opacity = Math.min(opacity, 1);
+          } else {
+            smile.style.opacity = 0;
+          }
+        });
+      }
+      // Function to generate the eggs dynamically
+      function generateEggs(numEggs) {
+        const eggRow = document.querySelector(".egg-row");
+        for (let i = 0; i < numEggs; i++) {
+          const egg = document.createElement("div");
+          egg.className = "egg";
+          egg.setAttribute("data-wiggle-direction", i % 2 === 0 ? "1" : "-1");
+          egg.innerHTML = `
+      <div class="eye left" id="face"></div>
+      <div class="eye right" id="face"></div>
+      <div class="smile" id="face"></div>
+    `;
+          eggRow.appendChild(egg);
+        }
+      }
+
+      // Call functions on load
+      window.onload = function () {
+        generateEggs(10); // Generate x eggs, change this number to add more eggs
+        decorateEggs();
+        wiggleEggs(); // Initial call for wiggle
+        controlSmiles(); // Initial call for smiles
+      };
+
+      // Event listener for scrolling
+      window.addEventListener("scroll", function () {
+        wiggleEggs();
+        controlSmiles();
+      });
+    </script>
+  </body>
+</html>
