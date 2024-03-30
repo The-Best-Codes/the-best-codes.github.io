@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI API Dashboard</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --main-color: #df2bff;
+        --accent-color: #ca1ee9;
+        --main-fade-dur: 0.3s;
+        --main-bg-color: #fff;
+        --secondary-bg-color: #f2f2f2;
+        --main-text-color: #000;
+        --secondary-text-color: #fff;
+        --main-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        --labels-color: #9b9b9b;
+      }
+
+      body.night-mode {
+        --main-bg-color: #333;
+        --secondary-bg-color: #222;
+        --main-text-color: #fff;
+        --secondary-text-color: #000;
+        --main-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--secondary-bg-color);
+        display: flex;
+        flex-direction: row;
+      }
+
+      .dashboard {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 15px;
+      }
+
+      .info-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--main-bg-color);
+        border-radius: 15px;
+        padding: 15px;
+        box-shadow: var(--main-shadow);
+        min-height: 100px;
+        min-width: 250px;
+        /* grid-row: span 2; */
+        /* grid-column: span 2; */
+      }
+
+      .chart {
+        grid-column: span 4;
+        background-color: var(--main-bg-color);
+        border-radius: 15px;
+        padding: 15px;
+        box-shadow: var(--main-shadow);
+      }
+
+      /* Responsive styles */
+      @media (max-width: 1224px) {
+        /* Adjust the grid to have 2 columns for info boxes when the screen is smaller */
+        .dashboard {
+          grid-template-columns: repeat(2, minmax(200px, 1fr));
+        }
+
+        .chart {
+          grid-column: span 2; /* Chart takes full width on smaller screens */
+        }
+      }
+
+      @media (max-width: 650px) {
+        .dashboard {
+          grid-template-columns: 1fr; /* Stack all elements in a single column */
+        }
+
+        .info-box,
+        .chart {
+          grid-column: span 1;
+        }
+      }
+
+      .sidebar {
+        background-color: var(--main-bg-color);
+        padding: 20px;
+        height: 100vh;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 200px;
+        overflow-y: auto;
+        box-shadow: var(--main-shadow);
+      }
+
+      .sidebar-header {
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+
+      .sidebar-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .sidebar-item {
+        padding: 5px 10px;
+        background-color: var(--main-color);
+        color: var(--secondary-text-color);
+        border-radius: 5px;
+        box-shadow: var(--main-shadow);
+        cursor: pointer;
+        transition: var(--main-fade-dur) ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2 style="font-size: 24px; font-weight: lighter; margin-top: 0">
+          AI API Dashboard
+        </h2>
+      </div>
+      <div class="sidebar-content">
+        <div class="sidebar-item">Option 1</div>
+        <div class="sidebar-item">Option 2</div>
+        <div class="sidebar-item">Option 3</div>
+        <div class="sidebar-item">Option 4</div>
+        <div class="sidebar-item">Option 5</div>
+      </div>
+    </div>
+    <div class="container" style="width: 100%">
+      <div class="dashboard">
+        <div class="info-box">API Calls</div>
+        <div class="info-box">Success Rate</div>
+        <div class="info-box">Average Response</div>
+        <div class="info-box">Error Rate</div>
+        <div class="chart">
+          <!-- Chart would go here, you can use a library like Chart.js to render it -->
+          Chart Placeholder
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
