@@ -22,6 +22,14 @@
         --labels-color: #9b9b9b;
       }
 
+      body.night-mode {
+        --main-bg-color: #333;
+        --secondary-bg-color: #222;
+        --main-text-color: #fff;
+        --secondary-text-color: #000;
+        --main-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+
       body,
       html {
         height: 100%;
@@ -153,9 +161,24 @@
         margin-top: 5px;
         margin-bottom: 2px;
       }
+
+      button.theme-toggle {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: var(--main-text-color);
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+      }
     </style>
   </head>
   <body>
+    <button
+      class="theme-toggle"
+      title="Toggle theme"
+      onclick="if (document.body.classList.contains('night-mode')) document.body.classList.remove('night-mode'); else document.body.classList.add('night-mode')"
+    ></button>
     <div class="ui_container">
       <div class="form-container">
         <form>
