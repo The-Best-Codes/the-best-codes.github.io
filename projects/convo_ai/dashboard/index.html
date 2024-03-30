@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI API Dashboard</title>
+    <title>Convo AI Dashboard</title>
     <style>
       * {
         box-sizing: border-box;
@@ -92,7 +92,7 @@
 
       .sidebar {
         background-color: var(--main-bg-color);
-        padding: 20px;
+        padding: 10px;
         height: 100vh;
         position: relative;
         top: 0;
@@ -103,40 +103,58 @@
       }
 
       .sidebar-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        flex-direction: row;
         margin-bottom: 20px;
-        margin-top: 20px;
+        margin-top: 10px;
+      }
+
+      .sidebar-header img {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        width: 25px;
+        height: 25px;
       }
 
       .sidebar-content {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 5px;
       }
 
       .sidebar-item {
         padding: 5px 10px;
         background-color: var(--main-color);
         color: var(--secondary-text-color);
-        border-radius: 5px;
+        border-radius: 10px;
         box-shadow: var(--main-shadow);
         cursor: pointer;
         transition: var(--main-fade-dur) ease;
+      }
+
+      .sidebar-item:hover {
+        background-color: var(--accent-color);
       }
     </style>
   </head>
   <body>
     <div class="sidebar">
       <div class="sidebar-header">
-        <h2 style="font-size: 24px; font-weight: lighter; margin-top: 0">
-          AI API Dashboard
-        </h2>
+        <img src="../images/logo.webp" alt="Logo" />
+        <h2 style="font-size: 24px; font-weight: lighter">Convo AI</h2>
       </div>
       <div class="sidebar-content">
-        <div class="sidebar-item">Option 1</div>
-        <div class="sidebar-item">Option 2</div>
-        <div class="sidebar-item">Option 3</div>
-        <div class="sidebar-item">Option 4</div>
-        <div class="sidebar-item">Option 5</div>
+        <div class="sidebar-item">Overview</div>
+        <div class="sidebar-item">Chat</div>
+        <div class="sidebar-item">Playground</div>
+        <div class="sidebar-item">API Keys</div>
+        <div class="sidebar-item">Subscription</div>
+        <div class="sidebar-item">Settings</div>
+        <div class="sidebar-item">Logout</div>
       </div>
     </div>
     <div class="container" style="width: 100%">
