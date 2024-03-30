@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | Convo AI</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+      }
+
+      :root {
+        --main-color: #df2bff;
+        --accent-color: #ca1ee9;
+        --main-fade-dur: 0.3s;
+        --main-bg-color: #fff;
+        --secondary-bg-color: #f2f2f2;
+        --main-text-color: #000;
+        --secondary-text-color: #fff;
+        --main-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        --labels-color: #9b9b9b;
+      }
+
+      body.night-mode {
+        --main-bg-color: #333;
+        --secondary-bg-color: #222;
+        --main-text-color: #fff;
+        --secondary-text-color: #000;
+        --main-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+
+      body,
+      html {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        color: var(--main-text-color);
+      }
+
+      .form-container {
+        width: 30vw;
+        min-width: 250px;
+        max-width: 800px;
+        padding: 20px;
+        background-color: var(--main-bg-color);
+        border-radius: 10px;
+        box-shadow: var(--main-shadow);
+        margin: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      input[type="email"],
+      input[type="password"],
+      input[type="text"],
+      input[type="username"],
+      button {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      button {
+        background-color: var(--main-color);
+        color: var(--secondary-text-color);
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        height: 35px;
+      }
+
+      button:hover {
+        background-color: var(--accent-color);
+      }
+
+      .ui_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        background-color: var(--secondary-bg-color);
+        min-height: 100%;
+        height: fit-content;
+      }
+
+      .forgot-password {
+        text-align: right;
+        margin-bottom: 10px;
+      }
+
+      .forgot-password a {
+        text-decoration: none;
+        color: var(--main-color);
+        font-size: 0.9em;
+      }
+
+      .social-buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .social-button {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        background-color: var(--main-color);
+        color: var(--secondary-text-color);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .social-button img {
+        max-width: 20px;
+        max-height: 20px;
+        border-radius: 50%;
+      }
+
+      .signin-text {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .signin-text a {
+        text-decoration: none;
+        color: var(--main-color);
+      }
+
+      @media (max-width: 768px) {
+        .form-container {
+          width: 90vw;
+        }
+      }
+
+      h2,
+      p {
+        margin: 0;
+        padding: 0;
+      }
+
+      .subtext {
+        margin-top: 5px;
+        margin-bottom: 15px;
+        color: var(--labels-color);
+      }
+
+      input:focus {
+        outline: 1px dashed var(--main-color);
+      }
+
+      label {
+        font-size: 16px;
+        font-weight: bold;
+        color: var(--main-text-color);
+        margin-top: 5px;
+        margin-bottom: 2px;
+      }
+
+      button.theme-toggle {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: var(--main-text-color);
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <button
+      class="theme-toggle"
+      title="Toggle theme"
+      onclick="if (document.body.classList.contains('night-mode')) document.body.classList.remove('night-mode'); else document.body.classList.add('night-mode')"
+    ></button>
+    <div class="ui_container">
+      <div class="form-container">
+        <form>
+          <h2>Sign Up</h2>
+          <p class="subtext" style="margin-left: 2.5px">
+            to continue to Convo AI
+          </p>
+          <label for="username">Username:</label>
+          <input type="text" placeholder="Enter your username" required />
+          <label for="email">Email:</label>
+          <input type="email" placeholder="Enter your email" required />
+          <label for="password">Password:</label>
+          <input type="password" placeholder="Enter your password" required />
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" placeholder="Confirm your password" required />
+          <button type="submit">Sign Up</button>
+
+          <div class="social-buttons">
+            <button class="social-button" title="Sign up with Google">
+              <img
+                src="https://www.google.com/s2/favicons?domain=google.com&sz=40"
+                alt="Google"
+              />
+            </button>
+            <button class="social-button" title="Sign up with GitHub">
+              <img
+                src="https://www.google.com/s2/favicons?domain=github.com&sz=40"
+                alt="GitHub"
+              />
+            </button>
+          </div>
+
+          <div class="signin-text">
+            Already have an account? <a href="sign-in">Sign in</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
