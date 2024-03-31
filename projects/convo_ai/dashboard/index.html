@@ -43,6 +43,8 @@
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 15px;
         padding: 15px;
+        height: 100%;
+        width: 100%;
       }
 
       .info-box {
@@ -97,7 +99,7 @@
         position: relative;
         top: 0;
         left: 0;
-        width: 200px;
+        width: 325px;
         overflow-y: auto;
         box-shadow: var(--main-shadow);
       }
@@ -107,6 +109,7 @@
         align-items: center;
         justify-content: center;
         padding: 10px;
+        padding-left: 5px;
         flex-direction: row;
         margin-bottom: 20px;
         margin-top: 10px;
@@ -145,7 +148,9 @@
     <div class="sidebar">
       <div class="sidebar-header">
         <img src="../images/logo.webp" alt="Logo" />
-        <h2 style="font-size: 24px; font-weight: lighter">Convo AI</h2>
+        <h2 style="font-size: 24px; font-weight: lighter; margin: 0">
+          Convo AI
+        </h2>
       </div>
       <div class="sidebar-content">
         <div class="sidebar-item">Overview</div>
@@ -164,10 +169,53 @@
         <div class="info-box">Average Response</div>
         <div class="info-box">Error Rate</div>
         <div class="chart">
-          <!-- Chart would go here, you can use a library like Chart.js to render it -->
-          Chart Placeholder
+          <canvas id="usage-chart"></canvas>
         </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Sample function to generate hour labels (0 to 23)
+      function generateHourLabels() {
+        return Array.from({ length: 24 }, (_, i) => `${i}:00`);
+      }
+
+      // Sample data for API request usage for each hour
+      const apiUsageData = [
+        5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90,
+        95, 100, 105, 110, 115, 120,
+      ];
+
+      const ctx = document.getElementById("usage-chart").getContext("2d");
+
+      const chart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: generateHourLabels(),
+          datasets: [
+            {
+              label: "API Usage",
+              data: apiUsageData,
+              backgroundColor: "rgba(30, 30, 30, 1)",
+              borderRadius: 5,
+            },
+          ],
+        },
+        options: {
+          responsive: true, // Make the chart responsive
+          maintainAspectRatio: false, // Disable aspect ratio maintainance
+          scales: {
+            y: {
+              beginAtZero: true, // Start the y-axis at 0
+            },
+          },
+          plugins: {
+            legend: {
+              display: false, // Hide the legend if not needed
+            },
+          },
+        },
+      });
+    </script>
   </body>
 </html>
