@@ -172,6 +172,11 @@
         height: 25px;
         border-radius: 50%;
       }
+
+      button {
+        border: none;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -188,17 +193,30 @@
         </h2>
       </div>
       <div class="sidebar-content">
-        <div class="sidebar-item">Overview</div>
-        <div class="sidebar-item">Chat</div>
-        <div class="sidebar-item">Playground</div>
-        <div class="sidebar-item">API Keys</div>
-        <div class="sidebar-item">Subscription</div>
-        <div class="sidebar-item">Settings</div>
-        <div class="sidebar-item">Logout</div>
+        <div class="sidebar-item" onclick="Dashboard.navigate('overview')">
+          Overview
+        </div>
+        <div class="sidebar-item" onclick="Dashboard.navigate('chat')">
+          Chat
+        </div>
+        <div class="sidebar-item" onclick="Dashboard.navigate('playground')">
+          Playground
+        </div>
+        <div class="sidebar-item" onclick="Dashboard.navigate('keys')">
+          API Keys
+        </div>
+        <div class="sidebar-item" onclick="Dashboard.navigate('subscription')">
+          Subscription
+        </div>
+        <div class="sidebar-item" onclick="Dashboard.navigate('settings')">
+          Settings
+        </div>
+        <div class="sidebar-item" onclick="Dashboard.logout()">Logout</div>
       </div>
     </div>
     <div
       class="container"
+      id="overview"
       style="width: 100%; display: flex; flex-direction: column"
     >
       <div class="dashboard-header">
@@ -212,6 +230,26 @@
           <div class="info-box">Error Rate</div>
           <div class="chart">
             <canvas id="usage-chart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container"
+      id="chat"
+      style="width: 100%; display: none; flex-direction: column"
+    >
+      <div class="dashboard-header">
+        <h1 style="margin: 10px; font-weight: lighter">Chat</h1>
+      </div>
+      <div class="shadow-inset-container">
+        <div class="dashboard">
+          <div class="info-box">API Calls</div>
+          <div class="info-box">Success Rate</div>
+          <div class="info-box">Average Response</div>
+          <div class="info-box">Error Rate</div>
+          <div class="chart">
+            <canvas id="chat-usage-chart"></canvas>
           </div>
         </div>
       </div>
@@ -261,6 +299,33 @@
           },
         },
       });
+    </script>
+    <script>
+      const Dashboard = {
+        navigate: (page) => {
+          var pages = [
+            "overview",
+            "chat",
+            "playground",
+            "keys",
+            "subscription",
+          ];
+
+          for (var i = 0; i < pages.length; i++) {
+            if (pages[i] == page) {
+              var element = document.getElementById(pages[i]);
+              if (element) {
+                element.style.display = "flex";
+              }
+            } else {
+              var element = document.getElementById(pages[i]);
+              if (element) {
+                element.style.display = "none";
+              }
+            }
+          }
+        },
+      };
     </script>
   </body>
 </html>
