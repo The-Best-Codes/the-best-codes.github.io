@@ -19,6 +19,7 @@
         --secondary-text-color: #fff;
         --main-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         --labels-color: #9b9b9b;
+        --border-color: lightgray;
       }
 
       body.night-mode {
@@ -54,7 +55,7 @@
         background-color: var(--main-bg-color);
         border-radius: 15px;
         padding: 15px;
-        box-shadow: var(--main-shadow);
+        border: 1px solid var(--border-color);
         min-height: 100px;
         min-width: 250px;
         /* grid-row: span 2; */
@@ -66,7 +67,7 @@
         background-color: var(--main-bg-color);
         border-radius: 15px;
         padding: 15px;
-        box-shadow: var(--main-shadow);
+        border: 1px solid var(--border-color);
       }
 
       /* Responsive styles */
@@ -130,16 +131,17 @@
 
       .sidebar-item {
         padding: 5px 10px;
-        background-color: var(--secondary-bg-color);
+        background-color: var(--main-bg-color);
         color: var(--main-text-color);
         border-radius: 10px;
-        border: 1px solid var(--main-text-color);
+        border: 1px solid var(--border-color);
         cursor: pointer;
         transition: var(--main-fade-dur) ease;
       }
 
       .sidebar-item:hover {
         background-color: var(--main-color);
+        color: var(--secondary-text-color);
       }
     </style>
   </head>
