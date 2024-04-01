@@ -102,7 +102,6 @@
         left: 0;
         width: 325px;
         overflow-y: auto;
-        box-shadow: var(--main-shadow);
       }
 
       .sidebar-header {
@@ -143,6 +142,25 @@
         background-color: var(--main-color);
         color: var(--secondary-text-color);
       }
+
+      .dashboard-header {
+        width: 100%;
+        padding: 15px;
+        background-color: var(--main-bg-color);
+        color: var(--main-text-color);
+        text-align: center;
+        /* border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--main-shadow); */
+      }
+
+      .shadow-inset-container {
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 0;
+        margin: 0;
+        border: var(--border-color) 1px solid;
+        width: 100%;
+        height: 100%;
+      }
     </style>
   </head>
   <body>
@@ -163,14 +181,22 @@
         <div class="sidebar-item">Logout</div>
       </div>
     </div>
-    <div class="container" style="width: 100%">
-      <div class="dashboard">
-        <div class="info-box">API Calls</div>
-        <div class="info-box">Success Rate</div>
-        <div class="info-box">Average Response</div>
-        <div class="info-box">Error Rate</div>
-        <div class="chart">
-          <canvas id="usage-chart"></canvas>
+    <div
+      class="container"
+      style="width: 100%; display: flex; flex-direction: column"
+    >
+      <div class="dashboard-header">
+        <h1 style="margin: 10px; font-weight: lighter">Dashboard</h1>
+      </div>
+      <div class="shadow-inset-container">
+        <div class="dashboard">
+          <div class="info-box">API Calls</div>
+          <div class="info-box">Success Rate</div>
+          <div class="info-box">Average Response</div>
+          <div class="info-box">Error Rate</div>
+          <div class="chart">
+            <canvas id="usage-chart"></canvas>
+          </div>
         </div>
       </div>
     </div>
