@@ -223,11 +223,10 @@
         return Array.from({ length: 24 }, (_, i) => `${i}:00`);
       }
 
-      // Sample data for API request usage for each hour
-      const apiUsageData = [
-        5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90,
-        95, 100, 105, 110, 115, 120,
-      ];
+      // Random sample data for API request usage for each hour
+      const apiUsageData = Array.from({ length: 24 }, () =>
+        Math.floor(Math.random() * 100)
+      );
 
       const ctx = document.getElementById("usage-chart").getContext("2d");
 
@@ -237,7 +236,7 @@
           labels: generateHourLabels(),
           datasets: [
             {
-              label: "API Usage",
+              label: "Requests sent",
               data: apiUsageData,
               backgroundColor: "#f2f2f2",
               hoverBackgroundColor: "#df2bff",
