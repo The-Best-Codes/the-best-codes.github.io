@@ -393,9 +393,12 @@
               if (element) {
                 element.style.display = "flex";
                 window.history.pushState(
-                  null,
-                  null,
-                  window.location.pathname + "/?page=" + page
+                  {},
+                  "",
+                  window.location.origin +
+                    window.location.pathname +
+                    "?page=" +
+                    pages[i]
                 );
               }
             } else {
