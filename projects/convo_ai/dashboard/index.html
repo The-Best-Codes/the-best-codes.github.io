@@ -369,6 +369,13 @@
       });
     </script>
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var urlParameters = new URLSearchParams(window.location.search);
+        var page = urlParameters.get("page") || "overview";
+
+        Dashboard.navigate(page);
+      });
+
       var isBotResponding = false;
       const Dashboard = {
         navigate: (page) => {
@@ -385,6 +392,7 @@
               var element = document.getElementById(pages[i]);
               if (element) {
                 element.style.display = "flex";
+                window.history.pushState(null, null, "/?page=" + page);
               }
             } else {
               var element = document.getElementById(pages[i]);
@@ -425,6 +433,18 @@
             element.scrollTop = element.scrollHeight;
           },
           sendRequest: (query) => {
+            // Set the conversation context array by combining all the messages in the message container
+            var conversationContext = [];
+            var messages = document.getElementsByClassName("message-box");
+            for (var i = 0; i < messages.length; i++) {
+              conversationContext.push({
+                role: messages[i].classList.contains("message-bot")
+                  ? "assistant"
+                  : "user",
+                content: messages[i].textContent.trim(), // Using textContent to avoid HTML tags and leading/trailing spaces
+              });
+            }
+
             isBotResponding = true;
             const div = document.createElement("div");
             div.classList.add("message-box");
@@ -442,9 +462,16 @@
             );
             myHeaders.append("Content-Type", "application/json");
 
+            console.log(
+              conversationContext,
+              ...conversationContext,
+              JSON.stringify(...conversationContext)
+            );
+
             const raw = JSON.stringify({
               model: "convoai-pro",
               messages: [
+                ...conversationContext,
                 {
                   role: "user",
                   content: query,
