@@ -370,8 +370,10 @@
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        var urlParameters = new URLSearchParams(window.location.search);
-        var page = urlParameters.get("page") || "overview";
+        var url = window.location.href;
+        var regex = /#\/tab\/(\w+)/;
+        var match = url.match(regex);
+        var page = match ? match[1] : "overview";
 
         Dashboard.navigate(page);
       });
@@ -392,14 +394,7 @@
               var element = document.getElementById(pages[i]);
               if (element) {
                 element.style.display = "flex";
-                window.history.pushState(
-                  {},
-                  "",
-                  window.location.origin +
-                    window.location.pathname +
-                    "?page=" +
-                    pages[i]
-                );
+                location.replace("#/tab/" + pages[i]);
               }
             } else {
               var element = document.getElementById(pages[i]);
