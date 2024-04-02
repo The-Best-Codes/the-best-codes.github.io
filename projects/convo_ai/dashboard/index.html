@@ -392,7 +392,11 @@
               var element = document.getElementById(pages[i]);
               if (element) {
                 element.style.display = "flex";
-                window.history.pushState(null, null, "/?page=" + page);
+                window.history.pushState(
+                  null,
+                  null,
+                  window.location.pathname + "/?page=" + page
+                );
               }
             } else {
               var element = document.getElementById(pages[i]);
