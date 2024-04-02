@@ -604,7 +604,11 @@
               })
               .catch((error) => {
                 isBotResponding = false;
-                div.innerHTML = "Oops! Something went wrong. Error: " + error;
+                div.innerHTML =
+                  "Oops! Something went wrong. Error: " +
+                  error +
+                  ". Message: " +
+                  error?.message;
               });
           },
         },
