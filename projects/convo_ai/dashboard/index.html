@@ -393,12 +393,20 @@
         style="display: flex; flex-direction: column; align-items: center"
       >
         <div
-          id="message-container"
-          class="message-container"
-          style="width: 65%"
+          class="overflow-container"
+          style="width: 65%; overflow-y: auto; max-height: 100%"
         >
-          <div class="message-box message-bot" id="preset-message_message-sent">
-            Hello, how can I assist you today?
+          <div
+            id="message-container"
+            class="message-container"
+            style="width: 65%"
+          >
+            <div
+              class="message-box message-bot"
+              id="preset-message_message-sent"
+            >
+              Hello, how can I assist you today?
+            </div>
           </div>
         </div>
         <div class="input-container" style="width: 65%">
@@ -417,6 +425,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>
       // Sample function to generate hour labels (0 to 23)
       function generateHourLabels() {
@@ -475,6 +484,16 @@
           loaderElement.style.display = "none";
           loaderWrapper.style.display = "none";
         }, 700);
+
+        // Set options for marked
+        marked.use({
+          gfm: true,
+          renderer: new marked.Renderer(),
+          highlight: (code, lang) => {
+            const validLang = hljs.getLanguage(lang) ? lang : "plaintext";
+            return hljs.highlight(validLang, code).value;
+          },
+        });
       });
       document.addEventListener("DOMContentLoaded", function () {
         var url = window.location.href;
