@@ -390,14 +390,18 @@
       </div>
       <div
         class="shadow-inset-container"
-        style="display: flex; flex-direction: column"
+        style="display: flex; flex-direction: column; align-items: center"
       >
-        <div id="message-container" class="message-container">
+        <div
+          id="message-container"
+          class="message-container"
+          style="width: 65%"
+        >
           <div class="message-box message-bot" id="preset-message_message-sent">
             Hello, how can I assist you today?
           </div>
         </div>
-        <div class="input-container">
+        <div class="input-container" style="width: 65%">
           <input
             id="message-input"
             type="text"
@@ -565,12 +569,6 @@
               "Bearer sk-o7qCGMJNtIxnexo6sw7tXo9JldeEBHh9rtCcecolRsgnjL8g"
             );
             myHeaders.append("Content-Type", "application/json");
-
-            console.log(
-              conversationContext,
-              ...conversationContext,
-              JSON.stringify(...conversationContext)
-            );
 
             const raw = JSON.stringify({
               model: "convoai-pro",
