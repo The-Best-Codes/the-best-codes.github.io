@@ -177,6 +177,64 @@
         border: none;
         cursor: pointer;
       }
+
+      .message-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        overflow-y: auto;
+        flex-grow: 1;
+      }
+
+      .message-box {
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 14px;
+        max-width: 60%;
+      }
+
+      .message-bot {
+        background-color: var(--main-bg-color);
+        color: var(--main-text-color);
+        align-self: flex-start;
+      }
+
+      .message-user {
+        background-color: var(--main-color);
+        color: var(--secondary-text-color);
+        align-self: flex-end;
+      }
+
+      .input-container {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-top: 1px solid var(--border-color);
+        background-color: var(--secondary-bg-color);
+        gap: 10px;
+      }
+
+      .input-container input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        font-size: 14px;
+        outline: none;
+        box-sizing: border-box;
+      }
+
+      .input-container button {
+        background-color: var(--main-color);
+        color: var(--secondary-text-color);
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+        box-sizing: border-box;
+      }
     </style>
   </head>
   <body>
@@ -242,15 +300,25 @@
       <div class="dashboard-header">
         <h1 style="margin: 10px; font-weight: lighter">Chat</h1>
       </div>
-      <div class="shadow-inset-container">
-        <div class="dashboard">
-          <div class="info-box">API Calls</div>
-          <div class="info-box">Success Rate</div>
-          <div class="info-box">Average Response</div>
-          <div class="info-box">Error Rate</div>
-          <div class="chart">
-            <canvas id="chat-usage-chart"></canvas>
+      <div
+        class="shadow-inset-container"
+        style="display: flex; flex-direction: column"
+      >
+        <div id="message-container" class="message-container">
+          <div class="message-box message-bot" id="preset-message_message-sent">
+            Hello, how can I assist you today?
           </div>
+        </div>
+        <div class="input-container">
+          <input
+            id="message-input"
+            type="text"
+            class="input-box"
+            placeholder="Type your message here..."
+          />
+          <button class="send-button" onclick="Dashboard.chat.sendMessage()">
+            Send
+          </button>
         </div>
       </div>
     </div>
@@ -301,6 +369,7 @@
       });
     </script>
     <script>
+      var isBotResponding = false;
       const Dashboard = {
         navigate: (page) => {
           var pages = [
@@ -324,6 +393,91 @@
               }
             }
           }
+        },
+        logout: () => {
+          window.location.href = "https://convo.ai/logout";
+        },
+        chat: {
+          sendMessage: () => {
+            var input = document.getElementById("message-input");
+            var query = input.value;
+            if (isBotResponding) {
+              console.warn("Please wait for the bot to respond");
+              return;
+            }
+            if (input.value) {
+              const div = document.createElement("div");
+              div.classList.add("message-box");
+              div.classList.add("message-user");
+
+              div.innerHTML = input.value;
+
+              document.getElementById("message-container").appendChild(div);
+
+              input.value = "";
+
+              Dashboard.chat.scrollToBottom();
+              Dashboard.chat.sendRequest(query);
+            }
+          },
+          scrollToBottom: () => {
+            var element = document.getElementById("message-container");
+            element.scrollTop = element.scrollHeight;
+          },
+          sendRequest: (query) => {
+            isBotResponding = true;
+            const div = document.createElement("div");
+            div.classList.add("message-box");
+            div.classList.add("message-bot");
+
+            div.innerHTML = ` 
+                  <svg style="margin-bottom: -4px" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><style>.spinner_qM83{animation:spinner_8HQG 1.05s infinite}.spinner_oXPr{animation-delay:.1s}.spinner_ZTLf{animation-delay:.2s}@keyframes spinner_8HQG{0%,57.14%{animation-timing-function:cubic-bezier(0.33,.66,.66,1);transform:translate(0)}28.57%{animation-timing-function:cubic-bezier(0.33,0,.66,.33);transform:translateY(-6px)}100%{transform:translate(0)}}</style><circle class="spinner_qM83" cx="4" cy="12" r="3"/><circle class="spinner_qM83 spinner_oXPr" cx="12" cy="12" r="3"/><circle class="spinner_qM83 spinner_ZTLf" cx="20" cy="12" r="3"/></svg>
+                `;
+            document.getElementById("message-container").appendChild(div);
+
+            const myHeaders = new Headers();
+            myHeaders.append(
+              "Authorization",
+              "Bearer sk-o7qCGMJNtIxnexo6sw7tXo9JldeEBHh9rtCcecolRsgnjL8g"
+            );
+            myHeaders.append("Content-Type", "application/json");
+
+            const raw = JSON.stringify({
+              model: "convoai-pro",
+              messages: [
+                {
+                  role: "user",
+                  content: query,
+                },
+              ],
+              stream: false,
+            });
+
+            const requestOptions = {
+              method: "POST",
+              headers: myHeaders,
+              body: raw,
+              redirect: "follow",
+            };
+
+            fetch(
+              "https://api.convoai.tech/v1/chat/completions",
+              requestOptions
+            )
+              .then((response) => response.json())
+              .then((result) => {
+                isBotResponding = false;
+                div.innerHTML =
+                  result?.choices[0]?.message?.content ||
+                  "Oops! Something went wrong. Error: " +
+                    result?.error?.message +
+                    ". (Empty response)";
+              })
+              .catch((error) => {
+                isBotResponding = false;
+                div.innerHTML = "Oops! Something went wrong. Error: " + error;
+              });
+          },
         },
       };
     </script>
