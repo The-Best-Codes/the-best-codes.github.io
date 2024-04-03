@@ -221,6 +221,8 @@
         padding: 10px;
         overflow-y: auto;
         flex-grow: 1;
+        height: 70vh;
+        max-height: 100%;
       }
 
       .message-box {
@@ -255,7 +257,7 @@
         flex: 1;
         padding: 10px;
         border: 1px solid var(--border-color);
-        border-radius: 5px;
+        border-radius: 10px;
         font-size: 14px;
         outline: none;
         box-sizing: border-box;
@@ -270,6 +272,26 @@
         cursor: pointer;
         border: none;
         box-sizing: border-box;
+      }
+
+      ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background-color: transparent;
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: var(--main-color);
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--accent-color);
       }
     </style>
   </head>
