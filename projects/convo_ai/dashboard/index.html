@@ -581,7 +581,8 @@
           border-radius: 10px;
         "
       >
-        <h2>Settings</h2>
+        <h2 style="margin: 0px">Settings</h2>
+        <p>Settings are coming soon.</p>
       </div>
     </div>
     <div
@@ -826,6 +827,12 @@
                 document.getElementById(
                   "settings-modal-background"
                 ).style.display = "block";
+
+                document
+                  .getElementById("settings-modal-background")
+                  .addEventListener("click", () => {
+                    Dashboard.modal.close("settings");
+                  });
                 break;
             }
           },
