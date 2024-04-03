@@ -71,11 +71,13 @@
       input {
         background-color: var(--main-bg-color);
         color: var(--main-text-color);
+        font-family: "Arial", sans-serif;
       }
 
       textarea::placeholder,
       input::placeholder {
         color: var(--labels-color);
+        font-family: "Arial", sans-serif;
       }
 
       .dashboard {
@@ -232,6 +234,12 @@
         border-radius: 10px;
         font-size: 16px;
         max-width: 60%;
+      }
+
+      .message-box pre {
+        white-space: break-spaces;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
       }
 
       .message-box * {
