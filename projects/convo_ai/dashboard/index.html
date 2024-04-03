@@ -434,13 +434,13 @@
           </div>
         </div>
         <div class="input-container" style="width: 50%">
-          <input
+          <textarea
             id="message-input"
             type="text"
             class="input-box"
             placeholder="Type your message here..."
             onkeydown="if (event.keyCode === 13 && !event.shiftKey) {Dashboard.chat.sendMessage(); event.preventDefault()} else if (event.shiftKey && event.keyCode === 13) {this.value += '\n'} else if (event.keyCode === 13) {event.preventDefault()}"
-          />
+          ></textarea>
           <button class="send-button" onclick="Dashboard.chat.sendMessage()">
             Send
           </button>
