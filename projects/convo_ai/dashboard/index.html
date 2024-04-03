@@ -1,4 +1,4 @@
-<!-- Version 1.0.1 -->
+<!-- Version 1.0.2 -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -830,7 +830,10 @@
                 ).style.display = "block";
 
                 document.addEventListener("click", (e) => {
-                  if (!e.target.closest("#settings-modal-content")) {
+                  if (
+                    !e.target.closest("#settings-modal-content") &&
+                    !e.target.closest("button.settings-button")
+                  ) {
                     Dashboard.modal.close("settings");
                   }
                 });
