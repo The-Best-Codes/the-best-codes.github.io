@@ -633,7 +633,10 @@
               div.classList.add("message-box");
               div.classList.add("message-user");
 
-              div.innerHTML = input.value;
+              div.innerHTML = input.value
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/\n/g, "<br />");
 
               document.getElementById("message-container").appendChild(div);
 
