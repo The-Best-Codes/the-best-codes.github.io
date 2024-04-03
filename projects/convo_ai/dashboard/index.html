@@ -573,6 +573,7 @@
     <div class="modal" id="settings-modal" style="display: none">
       <div
         class="modal-content"
+        id="settings-modal-content"
         style="
           width: 50%;
           height: 50%;
@@ -828,12 +829,11 @@
                   "settings-modal-background"
                 ).style.display = "block";
 
-                document
-                  .getElementById("settings-modal-background")
-                  .addEventListener("click", () => {
+                document.addEventListener("click", (e) => {
+                  if (!e.target.closest("#settings-modal-content")) {
                     Dashboard.modal.close("settings");
-                  });
-                break;
+                  }
+                });
             }
           },
           close: (modal) => {
