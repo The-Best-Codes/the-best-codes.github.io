@@ -216,6 +216,7 @@
         width: 25px;
         height: 25px;
         border-radius: 50%;
+        border: 1px solid var(--border-color);
       }
 
       button {
@@ -315,16 +316,17 @@
       }
 
       .input-container button.settings-button svg {
-        transition: 0.7s ease;
+        transition: 0.45s ease;
         fill: var(--main-color) !important;
+        border: 1px solid var(--border-color);
       }
 
       .input-container button.settings-button:hover svg {
-        transform: rotate(90deg);
+        transform: rotate(180deg);
       }
 
       .input-container button.settings-button:active svg {
-        transform: rotate(180deg);
+        transform: rotate(360deg);
       }
 
       ::-webkit-scrollbar {
