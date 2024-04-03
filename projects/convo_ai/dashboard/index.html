@@ -623,20 +623,35 @@
         chat: {
           sendMessage: () => {
             var input = document.getElementById("message-input");
-            var query = input.value;
+            const inputValue = input.value.trim();
+            var query = inputValue;
             if (isBotResponding) {
               console.warn("Please wait for the bot to respond");
               return;
             }
-            if (input.value) {
+            if (inputValue) {
               const div = document.createElement("div");
               div.classList.add("message-box");
               div.classList.add("message-user");
 
-              div.innerHTML = input.value
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/\n/g, "<br />");
+              try {
+                div.innerHTML = marked.parse(
+                  inputValue
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/\n/g, "<br />")
+                );
+              } catch (error) {
+                console.error("Error parsing markdown:", error);
+                try {
+                  div.innerHTML =
+                    inputValue.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
+                    "<br /><span><em>It looks like your message was deformed.</em></span>";
+                } catch (error) {
+                  console.error("Error parsing HTML:", error);
+                  div.innerText = inputValue;
+                }
+              }
 
               document.getElementById("message-container").appendChild(div);
 
