@@ -4,8 +4,7 @@ var bc_menuItems = [];
 
 var bc_defaultMenuItems = [
   { "Open Settings": "bcEval('ww_openSettings();');" },
-  { "Close WeatherWorks": "bcEval('window.close();');" },
-  { "Reload WeatherWorks": "bcEval('window.location.reload();');" },
+  { "Reload Page": "bcEval('window.location.reload();');" },
   { "Open DevTools": "debugger" },
   { "Print Page": "bcEval('window.print();');" },
   {
