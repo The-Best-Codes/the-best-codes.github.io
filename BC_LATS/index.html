@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="https://" />
+    <link rel="icon" type="image/png" href="../favicon_32_32_compress.ico" />
     <title>Loading...</title>
     <style>
       body {
@@ -53,6 +53,8 @@
             redirectUrl + " - " + "Best Codes's Official Website | Analytics";
           var loadingText = document.getElementById("loadingText");
           loadingText.textContent = `Loading ${redirectUrl}...`;
+          var favicon = document.querySelector("link[rel='icon']");
+          favicon.href = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${redirectUrl}&size=128`;
           var statcounterScript = document.querySelector(
             'script[src="https://www.statcounter.com/counter/counter.js"]'
           );
