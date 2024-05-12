@@ -2,17 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>URL Redirect | Best Codes's Official Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../favicon_32_32_compress.ico" />
+    <title>Loading...</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      h1 {
+        font-size: 48px;
+        color: #333;
+      }
+
+      p {
+        font-size: 24px;
+        color: #777;
+      }
+
+      svg {
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var redirectUrl = window.location.href.split("?url=")[1]; // Split the URL and get everything after '?url='
         if (redirectUrl) {
+          var title = document.querySelector("title");
+          title.textContent =
+            redirectUrl + " - " + "Best Codes's Official Website | Analytics";
           var statcounterScript = document.querySelector(
             'script[src="https://www.statcounter.com/counter/counter.js"]'
           );
 
           var redirectTimeout = setTimeout(function () {
-            window.location.href = redirectUrl; // Redirect after 3 seconds no matter what
+            window.location.href = redirectUrl; // Redirect after 2 seconds no matter what
           }, 2000);
 
           if (
@@ -20,31 +52,62 @@
             statcounterScript.getAttribute("data-loaded") !== "true"
           ) {
             statcounterScript.addEventListener("load", function () {
-              clearTimeout(redirectTimeout); // Clear the 3-second timeout
+              clearTimeout(redirectTimeout); // Clear the 2-second timeout
               setTimeout(function () {
-                window.location.href = redirectUrl; // Redirect 1 second after the script loads
-              }, 1000);
+                window.location.href = redirectUrl; // Redirect 0.5 seconds after the script loads
+              }, 500);
             });
           }
         } else {
           document.body.innerHTML =
-            'No URL provided. This page is a simple redirect page by Best_codes. <a href="https://the-best-codes.github.io">Main Site</a><p>I made this page so that I can analyze the performance of my website and links that I share. This page contains one tracker and uses essential cookies only.</p>';
+            "Oops! Something went wrong. Please try again later and ensure that your URL is properly formatted.";
         }
       });
     </script>
   </head>
   <body>
-    <p>You should be redirected shortly.</p>
-    <p>
-      If you are not, click
-      <a id="redirect" href="https://the-best-codes.github.io/">here</a>.
-    </p>
-    <a href="https://the-best-codes.github.io/">Main Site</a>
-    <p>
-      I made this page so that I can analyze the performance of my website and
-      links that I share. This page contains one tracker and uses essential
-      cookies only.
-    </p>
+    <p>Loading...</p>
+    <svg
+      width="255"
+      height="255"
+      stroke="#4caf50"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <style>
+        .spinner_V8m1 {
+          transform-origin: center;
+          animation: spinner_zKoa 2s linear infinite;
+        }
+        .spinner_V8m1 circle {
+          stroke-linecap: round;
+          animation: spinner_YpZS 1.5s ease-in-out infinite;
+        }
+        @keyframes spinner_zKoa {
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        @keyframes spinner_YpZS {
+          0% {
+            stroke-dasharray: 0 150;
+            stroke-dashoffset: 0;
+          }
+          47.5% {
+            stroke-dasharray: 42 150;
+            stroke-dashoffset: -16;
+          }
+          95%,
+          100% {
+            stroke-dasharray: 42 150;
+            stroke-dashoffset: -59;
+          }
+        }
+      </style>
+      <g class="spinner_V8m1">
+        <circle cx="12" cy="12" r="9.5" fill="none" stroke-width="1"></circle>
+      </g>
+    </svg>
     <!-- Default Statcounter code for BestCodes's Website
 https://the-best-codes.github.io/ -->
     <script type="text/javascript">
