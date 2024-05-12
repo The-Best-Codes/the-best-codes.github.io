@@ -11,6 +11,7 @@
         padding: 0;
         display: flex;
         justify-content: center;
+        flex-direction: column;
         align-items: center;
         min-height: 100vh;
         font-family: Arial, sans-serif;
@@ -24,7 +25,8 @@
 
       p {
         font-size: 24px;
-        color: #777;
+        color: #555;
+        margin: 20px;
       }
 
       svg {
@@ -39,6 +41,8 @@
           var title = document.querySelector("title");
           title.textContent =
             redirectUrl + " - " + "Best Codes's Official Website | Analytics";
+          var loadingText = document.getElementById("loadingText");
+          loadingText.textContent = `Loading ${redirectUrl}...`;
           var statcounterScript = document.querySelector(
             'script[src="https://www.statcounter.com/counter/counter.js"]'
           );
@@ -66,7 +70,7 @@
     </script>
   </head>
   <body>
-    <p>Loading...</p>
+    <p id="loadingText">Loading...</p>
     <svg
       width="255"
       height="255"
