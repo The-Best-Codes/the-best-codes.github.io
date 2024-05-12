@@ -37,6 +37,15 @@
         font-size: 24px;
         color: #555;
         margin: 20px;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 85vw;
+      }
+
+      a {
+        color: #007bff;
       }
 
       svg {
@@ -52,7 +61,7 @@
           title.textContent =
             redirectUrl + " - " + "Best Codes's Official Website | Analytics";
           var loadingText = document.getElementById("loadingText");
-          loadingText.textContent = `Loading ${redirectUrl}...`;
+          loadingText.innerHTML = `Loading <a href="${redirectUrl}">${redirectUrl}</a>...`;
           var favicon = document.querySelector("link[rel='icon']");
           favicon.href = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${redirectUrl}&size=128`;
           var statcounterScript = document.querySelector(
