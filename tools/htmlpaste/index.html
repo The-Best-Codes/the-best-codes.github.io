@@ -9,12 +9,26 @@
     </title>
   </head>
   <body style="margin: 0; padding: 5px">
-    <button onclick="openAsText()" style="margin: 5px">Show As Text</button>
+    <button
+      onclick="openAsText()"
+      style="
+        margin: 5px;
+        padding: 5px;
+        background-color: rgb(0, 140, 255);
+        color: white;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        outline: none;
+      "
+    >
+      Show As Text
+    </button>
     <div
       id="content"
       autofocus
       autocapitalize="on"
-      style="width: 100vw; height: 100vh; margin: 5px"
+      style="width: 100vw; height: 100vh; margin: 5px; outline: none"
       contenteditable="true"
       data-placeholder="Type or paste HTML content here..."
     >
@@ -25,17 +39,31 @@
     const content = document.getElementById("content");
     content.focus();
 
+    navigator.clipboard
+      .readText()
+      .then((clipText) => {
+        content.innerHTML = clipText;
+      })
+      .catch((error) => {
+        console.error("Error pasting text: ", error);
+      });
+
     const range = document.createRange();
     range.selectNodeContents(content);
     const selection = window.getSelection();
     selection.removeAllRanges();
     selection.addRange(range);
 
-    document.execCommand("paste");
-
     function openAsText() {
-      const text = content.innerText;
-      window.open("data:text/html," + encodeURIComponent(text), "_blank");
+      const htmlContent = content.innerHTML;
+      const escapedHtml = htmlContent
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/&/g, "&amp;");
+
+      // Display the escaped HTML in a new window
+      const newWindow = window.open("about:blank", "_blank");
+      newWindow.document.write(`<pre>${escapedHtml}</pre>`);
     }
   </script>
 </html>
