@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="margin: 0; padding: 0">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,19 +7,14 @@
       Contenteditable DIV - Paste HTML Content Here | BestCodes's Official
       Website
     </title>
-    <style>
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-      }
-    </style>
   </head>
-  <body>
-    <button onclick="openAsText()">Show As Text</button>
+  <body style="margin: 0; padding: 5px">
+    <button onclick="openAsText()" style="margin: 5px">Show As Text</button>
     <div
       id="content"
-      style="width: 100vw; height: 100vh"
+      autofocus
+      autocapitalize="on"
+      style="width: 100vw; height: 100vh; margin: 5px"
       contenteditable="true"
       data-placeholder="Type or paste HTML content here..."
     >
@@ -29,6 +24,12 @@
   <script>
     const content = document.getElementById("content");
     content.focus();
+
+    const range = document.createRange();
+    range.selectNodeContents(content);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
 
     document.execCommand("paste");
 
