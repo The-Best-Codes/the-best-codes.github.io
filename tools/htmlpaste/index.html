@@ -38,6 +38,12 @@
     const content = document.getElementById("content");
     content.focus();
 
+    const range = document.createRange();
+    range.selectNodeContents(content);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+
     navigator.clipboard
       .read()
       .then((data) => {
@@ -59,18 +65,12 @@
         console.error("Error pasting HTML: ", error);
       });
 
-    const range = document.createRange();
-    range.selectNodeContents(content);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-
     function openAsText() {
       const htmlContent = content.innerHTML;
       const escapedHtml = htmlContent
         .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/&/g, "&amp;");
+        .replace(/>/g, "&gt;");
+      /*         .replace(/&/g, "&amp;"); */
 
       // Display the escaped HTML in a new window
       const newWindow = window.open("about:blank", "_blank");
