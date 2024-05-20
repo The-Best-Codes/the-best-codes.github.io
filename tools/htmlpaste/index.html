@@ -16,6 +16,7 @@
     </style>
   </head>
   <body>
+    <button onclick="openAsText()">Show As Text</button>
     <div
       id="content"
       style="width: 100vw; height: 100vh"
@@ -30,5 +31,10 @@
     content.focus();
 
     document.execCommand("paste");
+
+    function openAsText() {
+      const text = content.innerText;
+      window.open("data:text/html," + encodeURIComponent(text), "_blank");
+    }
   </script>
 </html>
