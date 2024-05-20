@@ -19,7 +19,6 @@
         border-radius: 5px;
         border: none;
         cursor: pointer;
-        outline: none;
       "
     >
       Show As Text
@@ -28,7 +27,7 @@
       id="content"
       autofocus
       autocapitalize="on"
-      style="width: 100vw; height: 100vh; margin: 5px; outline: none"
+      style="width: 100vw; height: 100vh; margin: 5px"
       contenteditable="true"
       data-placeholder="Type or paste HTML content here..."
     >
@@ -40,12 +39,24 @@
     content.focus();
 
     navigator.clipboard
-      .readText()
-      .then((clipText) => {
-        content.innerHTML = clipText;
+      .read()
+      .then((data) => {
+        for (const item of data) {
+          for (const type of item.types) {
+            if (type === "text/html") {
+              item.getType(type).then((blob) => {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                  content.innerHTML = e.target.result;
+                };
+                reader.readAsText(blob);
+              });
+            }
+          }
+        }
       })
       .catch((error) => {
-        console.error("Error pasting text: ", error);
+        console.error("Error pasting HTML: ", error);
       });
 
     const range = document.createRange();
@@ -63,7 +74,8 @@
 
       // Display the escaped HTML in a new window
       const newWindow = window.open("about:blank", "_blank");
-      newWindow.document.write(`<pre>${escapedHtml}</pre>`);
+      newWindow.document.write(`<pre id="escapedHtml"></pre>`);
+      newWindow.document.getElementById("escapedHtml").innerHTML = escapedHtml;
     }
   </script>
 </html>
