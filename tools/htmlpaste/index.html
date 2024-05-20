@@ -29,18 +29,6 @@
     const content = document.getElementById("content");
     content.focus();
 
-    const pasteFromClipboard = async () => {
-      try {
-        const data = await navigator.clipboard.read();
-        const clipboardContent = data[0].types[0] === "text/html"
-          ? data[0].getData("text/html")
-          : content.innerHTML;
-        content.innerHTML = clipboardContent;
-      } catch (error) {
-        console.error("Error reading from clipboard", error);
-      }
-    };
-
-    pasteFromClipboard();
+    document.execCommand("paste");
   </script>
 </html>
