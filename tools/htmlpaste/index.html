@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Contenteditable DIV - Paste HTML Content Here | BestCodes's Official
+      Website
+    </title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="content"
+      style="width: 100vw; height: 100vh"
+      contenteditable="true"
+      data-placeholder="Type or paste HTML content here..."
+    >
+      Type or paste HTML content here...
+    </div>
+  </body>
+  <script>
+    const content = document.getElementById("content");
+    content.focus();
+
+    content.innerHTML = window.clipboardData.getData("Text");
+  </script>
+</html>
