@@ -49,12 +49,17 @@
           this.velocity = velocity;
           this.life = 100;
           this.alpha = 1;
+          this.shimmer = Math.random() < 0.3; // 30% chance of shimmer
         }
 
         draw() {
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.alpha})`;
+          let alpha = this.alpha;
+          if (this.shimmer) {
+            alpha *= 0.5 + Math.random() * 0.5; // Random shimmer effect
+          }
+          ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${alpha})`;
           ctx.fill();
         }
 
@@ -88,8 +93,8 @@
           this.trail = [];
           this.exploded = false;
           this.explosionProgress = 0;
+          this.hasShimmer = Math.random() < 0.5; // 50% chance of shimmering trail
 
-          // Play launch sound
           playRandomSound(launchSounds);
         }
 
@@ -106,8 +111,6 @@
             );
           }
           this.exploded = true;
-
-          // Play explosion sound
           playRandomSound(explosionSounds);
         }
 
@@ -135,6 +138,9 @@
           this.trail.forEach((particle, index) => {
             particle.alpha =
               (index / this.trail.length) * (1 - this.explosionProgress);
+            if (this.hasShimmer) {
+              particle.shimmer = true;
+            }
             particle.draw();
           });
         }
