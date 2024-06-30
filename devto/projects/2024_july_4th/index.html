@@ -26,18 +26,18 @@
       canvas.height = window.innerHeight;
 
       // Sound effects
-      const launchSounds = [new Audio("assets/launch.wav")];
+      const launchSounds = ["assets/launch.wav"];
 
       const explosionSounds = [
-        new Audio("assets/explosion1.wav"),
-        new Audio("assets/explosion2.wav"),
-        new Audio("assets/explosion3.wav"),
+        "assets/explosion1.wav",
+        "assets/explosion2.wav",
+        "assets/explosion3.wav",
       ];
 
       function playRandomSound(soundArray) {
         const sound = soundArray[Math.floor(Math.random() * soundArray.length)];
-        sound.currentTime = 0;
-        sound.play();
+        const audio = new Audio(sound);
+        audio.play();
       }
 
       class Particle {
